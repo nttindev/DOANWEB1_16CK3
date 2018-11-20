@@ -4,7 +4,7 @@ body
 	padding: 0;
 	font-family: arial;
 	margin:auto;
-	 
+	background-color:#f4f4f4;
 }
 .tim-kiem img
 {
@@ -497,9 +497,11 @@ min-height:345px;
 .sanpham
 {
 	width: 100%;
-	min-height:300px;
+	min-height: 502px;
 	/* background-color:#556677; */
 	margin-top:10px;
+	background-color: #fff;
+	border-radius:5px;
 }
 .img-right
 {
@@ -507,6 +509,9 @@ min-height:345px;
 	height: 350px;
 	/* background-color:#bf80ff; */
 	float:left;
+	 
+	 
+	 
 }
 
 .thong-tin
@@ -516,6 +521,9 @@ min-height:345px;
 	/* background-color:#44ee77; */
 	float:left;
 	/* border:1px solid #9999ff; */
+	background-color: #fff;
+	border-radius:5px;
+
 }
 .img-sanpham
 {
@@ -650,6 +658,7 @@ color:#9999ff;
 min-height: 900px;
 	 
 margin-top: 20px;
+ 
 }
 .ban-chay
 {
@@ -882,3 +891,123 @@ line-height: 30px;
 	 
 background-color: #ccc;
 	}
+
+
+
+
+	/* ------------------------------------------------------------------------------------------------------------- */
+
+
+	
+
+
+.frmdangky
+{
+	font-family: arial;
+	
+}
+.hoten
+{
+	outline:0px;
+	width: 314px;
+	padding: 4px;
+	border-radius:5px;
+	margin-left: 73px;
+	margin-top:5px;
+}
+.ngaysinh
+{
+	outline:0px;
+	width: 93px;
+	padding: 3px;
+	border-radius:5px;
+	margin-left: 25px;
+	margin-top:5px;
+}
+.noisinh
+{
+	outline:0px;
+	width: 250px;
+	padding: 3px;
+	border-radius:5px;
+	margin-left: 19px;
+	margin-top:5px;
+}
+.ten-dang-nhap
+{
+	outline:0px;
+	width: 314px;
+	padding: 4px;
+	border-radius:5px;
+	margin-left: 84px;
+	margin-top:5px;
+}
+.mat-khau
+{outline:0px;width: 292px;padding: 4px;border-radius:5px;margin-left: 135px;margin-top:5px;}
+.lai-mat-khau
+{
+	outline:0px;
+	width: 294px;
+	padding: 4px;
+	border-radius:5px;
+	margin-left: 91px;
+	margin-top:5px;
+}
+.sphoten
+{
+	margin-left: -34px;
+	margin-top:5px;
+}
+.spngaysinh
+{
+	margin-left: 62px;
+	margin-top:5px;
+}
+.spbansongtai
+{
+	margin-left: -42px;
+	margin-top:5px;
+}
+.sptendangnhap
+{
+	margin-left: 23px;
+	margin-top:5px;
+}
+.spmatkhau
+{
+	margin-left: -55px;
+	margin-top:5px;
+}
+.spxacnhan
+{
+	margin-left: -88px;
+	margin-top:5px;
+}
+.dangky
+{
+	outline:0px;
+	width: 132px;
+	padding: 3px;
+	border-radius:5px;
+	margin-left: 418px;
+	margin-top:5px;
+}
+.h2
+{
+	margin-left: -255px;
+	color:#3333ff;
+}
+
+.form_i
+{
+	width: 67%;
+	height: 103%;
+	border:1px solid #3333ff;
+	margin: auto 203px;
+}
+.do-manh
+{
+	float:right;
+	position:absolute;
+	transform: translate(197%,-129%);
+}

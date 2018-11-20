@@ -81,7 +81,7 @@
 					  <a href="" class="nut-nhan" name="shopping">MUA NGAY</a>
 				  </div>
 				   <div class="them-vao-gio-hang">
-					   <a href="" class="nut-nhan1" name="AddtoCart">THÊM VÀO GIỎ HÀNG</a>
+					   <a href="index.php?themgiohang='.$id.'" class="nut-nhan1" name="AddtoCart">THÊM VÀO GIỎ HÀNG</a>
 				   </div>
 			</div>
 	   </div>';
@@ -167,7 +167,7 @@
 					   include_once "header.php";
 					   ?>
 	   	    		 </div>
-					<form action="" method="post" accept-charset="utf-8">
+					<form action="timkiem.php" method="post" accept-charset="utf-8">
 	   	    			 <input type="search" name="search" placeholder="search here">
 							<button type="submit" class="button_1" name="btn-search">search</button>
 	   	    		</form>

@@ -80,15 +80,41 @@
 			  </a>
 		   </div>';
 		  }
-	}
-	function TiemKiemSanPham()
-	{
-		if(isset($_POST['']))
-
-		{
-
-		}
-	}
+    }
+    function timkiem()
+    {
+        if(isset($_POST['btn-search']))
+        {
+            $timkiem = $_POST['search'];
+            global $con;
+            $query = "select * from sanpham where tensanpham like '%$timkiem%'";
+            $result = mysqli_query($con,$query);
+            while($row = mysqli_fetch_array($result))
+            {
+                $product_id = $row['MaSanPham'];
+                $anh = $row['AnhURL'];
+                $tensanpham = $row['TenSanPham'];
+                $gia = $row['GiaSanPham'];
+                 
+                   
+                    echo  '<div class="most most1">
+                    <a href="details.php?pro_id='.$product_id.'">
+                    <div class="most-nho">
+                        <div class="nho"><img class="img1" src="images/'.$anh.'" alt=""></div>
+                        <div class="nho">
+                            <div class="ten-san-pham">
+                            '.$tensanpham.'
+                            </div>
+                            <p class="the-p">'.number_format($gia).' đ</p>
+                        </div>
+                    </div>
+                    </a>
+                    </div>';
+                
+            }
+        }
+    }
+	
 ?>
 
 
@@ -269,8 +295,8 @@
                     //     $row['GiaSanPham'];
 
                    
-
-                         laysanpham();
+                        timkiem();
+                        //  laysanpham();
                    
                 ?>
                         
