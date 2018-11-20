@@ -1,10 +1,6 @@
 <?php
     session_start();
 ?>
-
-
- 
- 
   <?php
   
           if(isset($_SESSION['id_nguoidung']) && isset($_SESSION['ten_nguoidung']))

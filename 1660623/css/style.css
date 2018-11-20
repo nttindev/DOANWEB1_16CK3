@@ -1,4 +1,4 @@
-body
+﻿body
 {
 	margin: 0;
 	padding: 0;
@@ -1010,4 +1010,20 @@ background-color: #ccc;
 	float:right;
 	position:absolute;
 	transform: translate(197%,-129%);
+}
+.menu{
+	float: left;
+	width: 100px;
+	background: yellow;
+	height: 55px;
+	text-align: center;
+	margin-top: 10px;
+	padding-top: 13px;
+	margin-left:5px;
+}
+#menu-cha{
+	
+	width: 1000px;
+	margin: auto;
+	
 }
