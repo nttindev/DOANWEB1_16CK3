@@ -1,7 +1,8 @@
 <?php
     //  header("Content-type: text/html; charset=utf-8");
     //  $con = mysqli_connect("localhost","root","","shop_online");
-    //  mysqli_set_charset($con, 'UTF8');
+	//  mysqli_set_charset($con, 'UTF8');
+	 
     include_once "db.php";
     function laychitietsanpham()
     {
@@ -81,7 +82,7 @@
 					  <a href="" class="nut-nhan" name="shopping">MUA NGAY</a>
 				  </div>
 				   <div class="them-vao-gio-hang">
-					   <a href="index.php?themgiohang='.$id.'" class="nut-nhan1" name="AddtoCart">THÊM VÀO GIỎ HÀNG</a>
+					   <a href="index.php?addcart='.$id.'" class="nut-nhan1" name="AddtoCart">THÊM VÀO GIỎ HÀNG</a>
 				   </div>
 			</div>
 	   </div>';
@@ -98,6 +99,7 @@
 		$tenhang;
 		$query = "SELECT * from sanpham where masanpham='$id'";
 		$result = mysqli_query($con,$query);
+		$count = 0;
 		while($row = mysqli_fetch_array($result))
 		{
 			
@@ -111,7 +113,10 @@
 				$tensanpham = $row_maloai['TenSanPham'];
 				$gia =  $row_maloai['GiaSanPham'];
 				$product_id = $row_maloai['MaSanPham'];
-				echo '
+				$count++;
+				if($count < 6)
+				{
+					echo '
 						<div class="most most1">
 						<a href="details.php?pro_id='.$product_id.'">
 						<div class="most-nho">
@@ -126,14 +131,92 @@
 					</a>
 				</div>
 				';
+				}
+				
 			}
 
 		}
     
    }
+   
+   
        
 }
-     
+
+// function getip(){
+
+// 	$ip = $_SERVER['REMOTE_ADDR'];
+ 
+ 
+// 	if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+	  
+// 	  $ip = $_SERVER['HTTP_CLIENT_IP'];
+ 
+ 
+// 	}elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+ 
+// 	  $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+ 
+ 
+// 	}
+ 
+// 	 return $ip;
+//  } 
+ 
+ 
+// function ThemVaoGioHang()
+// {
+	
+// 	if(isset($_GET['themgiohang']) ) {
+
+// 		 echo "YESS";
+//      $ip = getip();
+// 		$pro_id = $_GET['themgiohang'];
+// 		if(isset($_SESSION['id_nguoidung']))
+// 			{
+// 			$ma_nguoidung = $_SESSION['id_nguoidung'];
+			 
+// 			$checkpro = "SELECT ip_add,masanpham from giohang where ip_add = '$ip' AND masanpham = '$pro_id'";
+// 		$run_checkpro = mysqli_query($con,$checkpro);
+   
+   
+// 		if(mysqli_num_rows($run_checkpro)>0){
+   
+   
+// 		  echo "NOOOOO";
+         
+   
+// 		}else{
+   
+   
+// 				  $insertpro = "INSERT into giohang (masanpham,ip_add,manguoidung,soluong) values ('$pro_id','$ip','$ma_nguoidung','1');";  
+   
+   
+// 				  $run_insertpro = mysqli_query($con,$insertpro);
+// 				  echo $ip;
+//                    header("location:index.php?isertthanhcong");
+//                 //   echo "<script>window.open('','_self')</script>";  
+//                 if(!$run_insertpro)
+//                 {
+//                     header("location:index.php");
+//                 }
+// 		}
+// 			}
+// 			else
+// 			{
+// 				echo "NOO";
+// 			}
+//        // $ma_nguoidung = "1";
+		
+// 	}  
+// 	else
+// 	{
+// 		$ip = getip();
+// 		echo $_SESSION['id_nguoidung'];
+		 
+// 	}
+// }
+
 ?>
 
 
@@ -165,6 +248,7 @@
 					   <div class="main-wrapper">
 					   <?php
 					   include_once "header.php";
+					   
 					   ?>
 	   	    		 </div>
 					<form action="timkiem.php" method="post" accept-charset="utf-8">
@@ -294,6 +378,9 @@
 	   	    		</div> -->
 					   <?php
 		 laychitietsanpham();
+		 ?>
+		 <?php
+		    
 		 ?>
 					<!-- <div class="most xe-may">
 				 	 CÁC SẢN PHẨM CÙNG LOẠI

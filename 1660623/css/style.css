@@ -1,4 +1,4 @@
-﻿body
+body
 {
 	margin: 0;
 	padding: 0;
@@ -75,7 +75,7 @@ margin:auto;
 
 float:left;
 
-margin-right: 7px;
+margin-right: -4px;
 
 font-family: arial;
 
@@ -166,6 +166,7 @@ ul
 	height: 57px;
 	margin-left: 8px;
 	margin-top: 18px;
+	margin-bottom: 5px;
 	float:left;
 	background-color:#4CAF50;
 	border-radius: 12px;
@@ -216,8 +217,8 @@ min-height:345px;
   .cha .cha-di-chuyen .con:hover
   {
   	background:#fff;
-     box-shadow: 0px 2px 4px 0px rgba(0,0,0,.25);
-     transition:1s;
+  	box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.67);
+  	transition:1s;
   }
    .nho p
    {
@@ -452,7 +453,8 @@ min-height:345px;
      text-align:center;
      line-height:60px;
      font-size: 30px;
-     margin-bottom: 105px;
+     margin-bottom: 77px;
+     margin-top: 10px;
 }
 
 .footer
@@ -498,9 +500,7 @@ min-height:345px;
 {
 	width: 100%;
 	min-height: 502px;
-	/* background-color:#556677; */
 	margin-top:10px;
-	background-color: #fff;
 	border-radius:5px;
 }
 .img-right
@@ -642,7 +642,7 @@ color:#9999ff;
 .cung-loai
 {
 	width: 300px;
-	height: 35px;
+	height: 30px;
 	background-color:#a6ff4d;
 	color:#1a1aff;
 	border-radius:3px;
@@ -663,7 +663,7 @@ margin-top: 20px;
 .ban-chay
 {
 	position:absolute;
-	top: 465px;
+	top: 470px;
 	background-color:#a6ff4d;
 	color:#1a1aff;
 	padding: 5px 10px;
@@ -869,13 +869,13 @@ ul li a
  .logout
  {
 	 
-width: 140px;
+width: 99px;
 	 
 height: 30px;
 	 
-padding: 0px 11px;
+padding: 0px 2px;
 	 
-margin-right: 10px;
+margin-right: 5px;
 	 
 border: none;
 	 
@@ -912,7 +912,7 @@ background-color: #ccc;
 	width: 314px;
 	padding: 4px;
 	border-radius:5px;
-	margin-left: 73px;
+	margin-left: 61px;
 	margin-top:5px;
 }
 .ngaysinh
@@ -927,7 +927,7 @@ background-color: #ccc;
 .noisinh
 {
 	outline:0px;
-	width: 250px;
+	width: 257px;
 	padding: 3px;
 	border-radius:5px;
 	margin-left: 19px;
@@ -939,19 +939,19 @@ background-color: #ccc;
 	width: 314px;
 	padding: 4px;
 	border-radius:5px;
-	margin-left: 84px;
+	margin-left: 80px;
 	margin-top:5px;
 }
 .mat-khau
-{outline:0px;width: 292px;padding: 4px;border-radius:5px;margin-left: 135px;margin-top:5px;}
+{outline:0px;width: 300px;padding: 4px;border-radius:5px;margin-left: 122px;margin-top:5px;}
 .lai-mat-khau
 {
 	outline:0px;
-	width: 294px;
+	width: 304px;
 	padding: 4px;
 	border-radius:5px;
-	margin-left: 91px;
-	margin-top:5px;
+	margin-left: 65px;
+	margin-top: 7px;
 }
 .sphoten
 {
@@ -975,7 +975,7 @@ background-color: #ccc;
 }
 .spmatkhau
 {
-	margin-left: -55px;
+	margin-left: -48px;
 	margin-top:5px;
 }
 .spxacnhan
@@ -1009,21 +1009,188 @@ background-color: #ccc;
 {
 	float:right;
 	position:absolute;
-	transform: translate(197%,-129%);
+	transform: translate(244%,-126%);
 }
-.menu{
-	float: left;
-	width: 100px;
-	background: yellow;
-	height: 55px;
-	text-align: center;
-	margin-top: 10px;
-	padding-top: 13px;
-	margin-left:5px;
+
+
+
+
+
+ 
+ 
+.bao-tieude
+{
+	width:960px;
+	height: 28px;
+	margin:auto;
+	display:block;
 }
-#menu-cha{
-	
-	width: 1000px;
-	margin: auto;
-	
+ span
+ {
+ 	margin: 69px;
+ 	padding-top: 40px;
+ 	font-family: arial;
+ 	font-size: 21px;
+ }
+ .boc-sp
+ {
+ 	width: 960px;
+ 	height: 125px;
+ 	margin:5px auto;
+ 	background-color:#33ee25;
+ }
+ .i
+ {
+ 	float:left;
+ 	margin: 42px 58px;
+ 	width: 21px;
+ 	height: 24px;
+ }
+ .sanpham-img
+ {
+ 	width: 347px;
+ 	height: 120px;
+ 	margin: 3px;
+ 	float:left;
+ }
+ .giasp
+ {
+ 	width: 178px;
+ 	height: 25px;
+ 	float:left;
+ 	margin: 36px 50px;
+ 	font-family: arial;
+ 	font-size: 22px;
+ }
+ .sl
+ {
+ 	 margin: 38px auto;
+ 	 float:left;
+ }
+ .div-img{
+ 	width: 100px;
+ 	height: 100px;
+ 	float:left;
+ 	margin: 14px 3px;
+ }
+ .img
+ {
+ 	width: 100px;
+ 	height: 100px;
+ 	
+ 	
+ }
+ .tensp
+ {
+ 	margin: 38px auto;
+ 	color:#121212;
+ 	font-family: arial;
+ }
+
+
+ 
+
+.bao-tieude
+{
+	width:960px;
+	height: 28px;
+	margin: 31px auto;
 }
+ span
+ {
+ 	margin: 69px;
+ 	padding-top: 40px;
+ 	font-family: arial;
+ 	font-size: 21px;
+ }
+ .boc-sp
+ {
+ 	width: 960px;
+ 	height: 125px;
+ 	margin: 93px auto;
+ 	background-color:#f4f4f4;
+ }
+ .i
+ {
+ 	float:left;
+ 	margin: 42px 58px;
+ 	width: 21px;
+ 	height: 24px;
+ }
+ .sanpham-img
+ {
+ 	width: 347px;
+ 	height: 120px;
+ 	margin: 3px;
+ 	float:left;
+ }
+ .giasp
+ {
+ 	width: 178px;
+ 	height: 25px;
+ 	float:left;
+ 	margin: 36px 50px;
+ 	font-family: arial;
+ 	font-size: 22px;
+ }
+ .sl
+ {
+ 	 margin: 38px auto;
+ 	 float:left;
+ }
+ .div-img{
+ 	width: 103px;
+ 	height: 117px;
+ 	float:left;
+ 	margin: 3px 3px;
+ }
+ .img
+ {
+ 	width: 101px;
+ 	height: 116px;
+ }
+ .tensp
+ {
+ 	margin: 38px auto;
+ 	color:#121212;
+ 	font-family: arial;
+ }
+ .tieude
+ {
+ 	float:left;
+ 	margin: 2px 4px;
+ }
+ .bam
+ {
+ 	width: 130px;
+ 	height:30px;
+ 	padding:0px 10px;
+ 	margin-right:10px;
+ 	border:none;
+ 	background-color:#f3f3f3;
+ 	font-family: arial;
+ 	font-size:14px;
+ 	color:#111;
+ 	line-height: 30px;
+ 	background-color:#ccc;
+ 	transform: translate(140%,50%);
+ }
+  .giohang
+  {
+	  width:37px;
+	  height: 38px;
+  }
+  .spsdt
+  {
+	margin-left: -15px;
+	margin-top:5px;
+	}
+  .sdt{
+	outline:0px;
+	width: 318px;
+	padding: 4px;
+	border-radius:5px;
+	margin-left: 61px;
+	margin-top:5px;
+	}
+

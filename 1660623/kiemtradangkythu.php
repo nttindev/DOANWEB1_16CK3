@@ -13,12 +13,13 @@
     $username = mysqli_real_escape_string($con,$_POST['username']);
     $matkhau = mysqli_real_escape_string($con,$_POST['password']);
     $xacnhan_password = mysqli_real_escape_string($con,$_POST['xacnhan_password']);
+    $sdt = mysqli_real_escape_string($con,$_POST['sdt']);
     // $email = mysqli_real_escape_string($con,$_POST['email']);
     // $sdt = mysqli_real_escape_string($con,$_POST['sdt']);
     // $diachi = mysqli_real_escape_string($con,$_POST['diachi']);
     // $matkhau = mysqli_real_escape_string($con,$_POST['password']);
      
-    if(empty($hoten) || empty($ngay) ||empty($thang) ||empty($nam) ||empty($diachi) || empty($username) ||empty($matkhau) || empty($xacnhan_password))
+    if(empty($hoten) || empty($ngay) ||empty($thang) ||empty($nam) ||empty($diachi) || empty($username) ||empty($matkhau) || empty($xacnhan_password) || empty($sdt))
     {
         header("location: dangkythu.php?dangkythongtin=empty");
         exit();
@@ -47,7 +48,7 @@
                     $ngaysinh = $nam.'-'.$thang.'-'.$ngay;
                     $matkhau_mahoa = password_hash($matkhau, PASSWORD_DEFAULT);
                 
-                    $sql = "INSERT into nguoidung(tennguoidung,ngaysinh,noisinh,tendangnhap,matkhau) values ('$hoten','$ngaysinh','$diachi','$username','$matkhau_mahoa');";
+                    $sql = "INSERT into nguoidung(tennguoidung,tendangnhap,ngaysinh,noisinh,matkhau,sdt) values ('$hoten','$username','$ngaysinh','$diachi','$matkhau_mahoa','$sdt');";
                     mysqli_query($con,$sql);
                     header("location: dangkythu.php?dangky=success");
                     exit();

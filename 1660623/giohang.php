@@ -18,7 +18,7 @@
             $anh = $row['AnhURL'];
             $tensanpham = $row['TenSanPham'];
             $gia = $row['GiaSanPham'];
-            if($count < 10)
+            if($count < 6)
             { 
                
                 echo  '<div class="most most1">
@@ -39,62 +39,6 @@
           $count ++;
         }
 	}
- function laySanPhamMoi()
- {
-	global $con;
-	$query = " SELECT *
-	 FROM sanpham
-	--  limit 4
-	ORDER BY ngaydang desc ";
-	$count = 0;
-	$result = mysqli_query($con,$query);
-	while($row = mysqli_fetch_array($result)  )
-	{
-		$product_id = $row['MaSanPham'];
-		$anh = $row['AnhURL'];
-		$tensanpham = $row['TenSanPham'];
-		$gia = $row['GiaSanPham'];
-		if($count < 10)
-		{ 
-		   
-			echo  '<div class="most most1">
-			<a href="details.php?pro_id='.$product_id.'">
-			<div class="most-nho">
-				<div class="nho"><img class="img1" src="images/'.$anh.'" alt=""></div>
-				<div class="nho">
-					<div class="ten-san-pham">
-					'.$tensanpham.'
-					</div>
-					<p class="the-p">'.number_format($gia).' đ</p>
-				</div>
-			</div>
-			</a>
-			</div>';
-		}
-   
-	  $count ++;
-	}
- }
-
-	function getip(){
-
-		$ip = $_SERVER['REMOTE_ADDR'];
-	 
-	 
-		if(!empty($_SERVER['HTTP_CLIENT_IP'])){
-		  
-		  $ip = $_SERVER['HTTP_CLIENT_IP'];
-	 
-	 
-		}elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
-	 
-		  $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-	 
-	 
-		}
-	 
-		 return $ip;
-	 } 
 	function layHangSanPham()
 	{
 		global $con;
@@ -136,60 +80,91 @@
 			  </a>
 		   </div>';
 		  }
+    }
+    function timkiem()
+    {
+        if(isset($_POST['btn-search']))
+        {
+            $timkiem = $_POST['search'];
+            global $con;
+            $query = "select * from sanpham where tensanpham like '%$timkiem%'";
+            $result = mysqli_query($con,$query);
+            while($row = mysqli_fetch_array($result))
+            {
+                $product_id = $row['MaSanPham'];
+                $anh = $row['AnhURL'];
+                $tensanpham = $row['TenSanPham'];
+                $gia = $row['GiaSanPham'];
+                 
+                   
+                    echo  '<div class="most most1">
+                    <a href="details.php?pro_id='.$product_id.'">
+                    <div class="most-nho">
+                        <div class="nho"><img class="img1" src="images/'.$anh.'" alt=""></div>
+                        <div class="nho">
+                            <div class="ten-san-pham">
+                            '.$tensanpham.'
+                            </div>
+                            <p class="the-p">'.number_format($gia).' đ</p>
+                        </div>
+                    </div>
+                    </a>
+                    </div>';
+                
+            }
+        }
 	}
-
-
-	function ThemVaoGioHang()
-	{
 	
-	if(isset($_GET['addcart']) ) {
+	function getip(){
 
-		 echo "YESS";
-	 $ip = getip();
+		$ip = $_SERVER['REMOTE_ADDR'];
 	 
-		$pro_id = $_GET['addcart'];
-		 
-			 
-			global $con;
-			$checkpro = "SELECT ip_add,masanpham from giohang where ip_add = '$ip' AND masanpham = '$pro_id'";
-		$run_checkpro = mysqli_query($con,$checkpro);
-   
-   
-		if(mysqli_num_rows($run_checkpro)>0){
-   
-   
-		  echo "NOOOOO";
-         
-   
-		}else{
-   
-   
-				  $insertpro = "INSERT into giohang (masanpham,ip_add,soluong) values ('$pro_id','$ip','1');";  
-   
-   
-				  $run_insertpro = mysqli_query($con,$insertpro);
-				  echo $ip;
-                   header("location:index.php?isertthanhcong");
-                //   echo "<script>window.open('','_self')</script>";  
-                if(!$run_insertpro)
-                {
-                    header("location:index.php");
-                }
-		 
-			}
-			 
-       // $ma_nguoidung = "1";
-		
-			}  
-		else
-		{
-			 echo "";
-			 
-			
+	 
+		if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+		  
+		  $ip = $_SERVER['HTTP_CLIENT_IP'];
+	 
+	 
+		}elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+	 
+		  $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+	 
+	 
 		}
-}
+	 
+		 return $ip;
+	 } 
+	// function LaySanPham()
+	// {
+		 
+	// 		global $con;
+	// 		$query = "SELECT * from giohang";
+	// 		$result = mysqli_query($con, $query);
+			
+	// 		while($row = mysqli_fetch_array($result))
+	// 		{
+	// 				 $id = $row['MaSanPham'];
+	// 				 $soluong = $row['soluong'];
+	// 				 $query_sp = "SELECT * from sanpham where masanpham='$id'";
+	// 				 $result_sp = mysqli_query($con,$query_sp);
+	// 				  while($row_sp = mysqli_fetch_array($result_sp))
+	// 				  {
+	// 					  $tensp = $row_sp['TenSanPham'];
+	// 					  $gia =  $row_sp['GiaSanPham'];
+	// 					  $anh = $row_sp['AnhURL'];
+						   
+	// 				  }
+	
+					
+	// 		}
+			 
+	// 	}
+		
 
+ 
 
+                
+	
 ?>
 
 
@@ -228,7 +203,6 @@
 							  </div> -->
 							  <?php
 							   include_once "header.php";
-							   ThemVaoGioHang();
 							  ?>
 							 
 							 
@@ -323,10 +297,10 @@
 	   	  </div>
 		<div class="content">
 			 
-			<div class="div-most-popular">
+			 
 				 
 				 
-			<div class="most-popular" id="cha-di-chuyen">
+			 
 						
 					<?php
 					layLoaiSanPham();
@@ -351,30 +325,179 @@
 					</a>
 				 </div> -->
 				  
-				  <div class="ban-chay">
-				 	  CÁC SẢN PHẨM BÁN CHẠY NHẤT
-				 </div>
+				  
+         <div class="boc">
+	   	     <form action="" enctype="multipart/form-data" method="POST" class="form-cart">
+                     
+                     <div class="bao-tieude">
+                     	 <div class="tieude">
+                     	 	<span class="xoa">Xóa</span>
+                     	 </div>
+                     	 <div class="tieude">
+                     	 	<span class="sanpham">Sản Phẩm</span>
+                     	 </div>
+                     	 <div class="tieude">
+                     	 	 <span class="soluong">Số Lượng</span>
+                     	 </div>
+                     	<div class="tieude">
+                     		 <span class="gia">Giá</span>
+                 	     </div>
+                     	 
+                     </div>
 
 
 
-                <?php
-     
-                //    global $con;
+
+			<?php
+			global $con;
+			$query = "SELECT * from giohang";
+			$result = mysqli_query($con, $query);
+			
+			while($row = mysqli_fetch_array($result))
+			{
+					 $id = $row['MaSanPham'];
+					 $soluong = $row['soluong'];
+					 $query_sp = "SELECT * from sanpham where masanpham='$id'";
+					 $result_sp = mysqli_query($con,$query_sp);
+					  while($row_sp = mysqli_fetch_array($result_sp))
+					  {
+						  $tensp = $row_sp['TenSanPham'];
+						  $gia =  $row_sp['GiaSanPham'];
+						  $anh = $row_sp['AnhURL'];
+			?>
+                     <div class="boc-sp">
+                       
+                      	<input type="checkbox" name="remove[]" class="i" value="<?php echo $id;?>">
+                      
+                      <div class="sanpham-img">
+                      	 <div class="div-img">
+                      	 	<img src="images/<?php echo $anh;?>" alt="" class="img">
+                      	 </div>
+                      	 <div class="thongtinsp">
+                      	 	<div class="tensp">
+                      	 		<?php echo $tensp;?>
+                      	 	</div>
+
+                      	 </div>
+                  	 </div>
+                      	
+                      	 <div class="soluong">
+                      	 	<input type="text" name="soluong" class="sl">
+                      	 </div>
+                      	  <div class="giasp">
+                      	 	   <?php echo number_format($gia); echo 'đ'?>
+                      	 </div>
+                     </div>
+
+			
+                      
                     
-                //        $query = "SELECT * from sanpham";
-                //        $result = mysqli_query($con,$query);
-                      
-                      
-                    //    $row['MaSanPham'];
-                    //    $row['AnhURL'];
-                    //      $row['TenSanPham'];
-                    //     $row['GiaSanPham'];
 
-                   
+						<?php
+				}
+			}
+				?>     
+                    <!-- <div class="boc-sp">
+                       
+                      	<input type="checkbox" name="remove[]" class="i">
+                      
+                      <div class="sanpham-img">
+                      	 <div class="div-img">
+                      	 	<img src="images/10.jpg" alt="" class="img">
+                      	 </div>
+                      	 <div class="thongtinsp">
+                      	 	<div class="tensp">
+                      	 		SAMSUNG GALAXY J7 PRO
+                      	 	</div>
 
-                         laysanpham();
+                      	 </div>
+                  	 </div>
+                      	
+                      	 <div class="soluong">
+                      	 	<input type="text" name="soluong" class="sl">
+                      	 </div>
+                      	  <div class="giasp">
+                      	 	   70,000,000 đ
+                      	 </div>
+                     </div>
+
+                     
+                      
+                    </div>
+                    <div class="boc-sp">
+                       
+                      	<input type="checkbox" name="remove[]" class="i">
+                      
+                      <div class="sanpham-img">
+                      	 <div class="div-img">
+                      	 	<img src="images/10.jpg" alt="" class="img">
+                      	 </div>
+                      	 <div class="thongtinsp">
+                      	 	<div class="tensp">
+                      	 		SAMSUNG GALAXY J7 PRO
+                      	 	</div>
+
+                      	 </div>
+                  	 </div>
+                      	
+                      	 <div class="soluong">
+                      	 	<input type="text" name="soluong" class="sl">
+                      	 </div>
+                      	  <div class="giasp">
+                      	 	   70,000,000 đ
+                      	 </div>
+                     </div> -->
+
+                     
+                      
+                    <!-- </div> -->
+                    
+
+
+                 
+
+	   	     	  <!--  trong while -->
+                     <!-- trong while -->
+               <!-- <div class="tac-vu"> -->
+               	<input type="submit" name="xoa-s" value="Xóa" class="bam">
+	   	     	<input type="submit" name="muasam" value="Thanh Toán" class="bam">
+
+              <!--  </div> -->
+	   	     	
+	   	     </form>
+				<?php
+				$ip = getip();
+                if(isset($_POST['xoa-s'])){
+ 
+					foreach($_POST['remove'] as $remove){
+					
+						$delete_product = "DELETE from giohang where masanpham='$remove' AND ip_add='$ip'";
+						$run_delete = mysqli_query($con, $delete_product);
+						echo $ip;
+						if($run_delete){
+						
+						  echo "<script>window.open('giohang.php','_self')</script>"    ;  
+						
+						}
+					
+					}
+				  
+				  }
+				?>
+	   	    
+				 
+	   	      
+		 
+	   </div>
+	    
+
+
+
+               
+     
+               
                    
-                ?>
+                
                         
         
 				 <!-- <div class="most most1">
@@ -497,13 +620,11 @@
 				 </div> -->
 				 
 	 
-			</div>
+		 
 
 			<div class="ban-chay-nhat" id="cha-di-chuyen">
 						
-				 <div class="cung-loai">
-				 	  SẢN PHẨM MỚI NHẤT
-				 </div>
+				  
 				 <!-- <div class="most xe-may">
 				 	<a href="index.php?cat=$cat_id" cid="">
 						 
@@ -522,9 +643,6 @@
 						 
 					</a>
 				 </div> -->
-				  <?php
-				  laySanPhamMoi();
-				 ?>
 				 <!-- <div class="most most1">
 				 		<a href="details.php?pro_id=$product_id">
 							<div class="most-nho">

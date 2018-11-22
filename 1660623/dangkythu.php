@@ -11,6 +11,7 @@
 		<form action="kiemtradangkythu.php" class="frmdangky" align="center" method="POST">
 		<h2 class="h2">Thông tin cá nhân</h2>
 	<span class="sphoten">Họ tên của bạn </span><input type="text" name="hoten" class="hoten"> <br>
+	<span class="spsdt">Số Điện Thoại</span><input type="text" name="sdt" class="sdt"> <br>
 	<span class="spngaysinh">Ngày sinh</span><select name="ngay" id="" class="ngaysinh">
 						<option>
 						   [Ngày]
