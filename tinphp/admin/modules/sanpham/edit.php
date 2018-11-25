@@ -1,8 +1,15 @@
 <?php 
-    $open="sanpham";
+    $open='sanpham';
     //include "../../autoload/autoload.php";
     require_once __DIR__."/../../autoload/autoload.php"; //E:\xampp32\htdocs\tinphp\admin\autoload../../liberies/Database.php  WTF
+    $masp= intval(getInput('MaSanPham'));
 
+    $editsanpham=$db->fetchID("sanpham",$masp);
+    if(empty($editsanpham))
+    {
+        $_SESSION['error']="Dữ liệu không tồn tại";
+        redirectAdmin("sanpham");
+    }
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         
         $data=[
@@ -30,15 +37,16 @@
         }
         if(empty($error))
         {
-                $id_insert =$db->insert('sanpham', $data);
-                if($id_insert >0)
+                $id_update =$db->update('sanpham', $data,array("MaSanPham"=>$masp));
+                if($update >0)
                 {
-                    $_SESSION['success']="Thêm mới thành công";
-                    redirectAdmin($open);
- } 
+                    $_SESSION['success']="Cập nhật thành công";
+                    redirectAdmin("sanpham");
+                    
+                }
                 else
                 {
-                    $_SESSION['error']="Thêm mới thất bại";
+                    $_SESSION['error']="Dữ liệu không thay đỗi";
                 }
         }
       //echo $POST['name'];
@@ -50,33 +58,53 @@
         $xxx = $string.'';
         return isset($_POST[$string]) ? $_POST[$string] : '';
     }
-     function insert($table, array $data)
+     
+        function  getInput($string)
+    {
+        return isset($_GET[$string]) ? $_GET[$string] : '';
+    }
+        function xss_clean($data)
         {
-            //code
-            $sql = "INSERT INTO {$table} ";
-            $columns = implode(',', array_keys($data));
-            $values  = "";
-            $sql .= '(' . $columns . ')';
-            foreach($data as $field => $value) {
-                if(is_string($value)) {
-                    $values .= "'". mysqli_real_escape_string($this->link,$value) ."',";
-                } else {
-                    $values .= mysqli_real_escape_string($this->link,$value) . ',';
-                }
+            // Fix &entity\n;
+            $data = str_replace(array('&amp;','&lt;','&gt;'), array('&amp;amp;','&amp;lt;','&amp;gt;'), $data);
+            $data = preg_replace('/(&#*\w+)[\x00-\x20]+;/u', '$1;', $data);
+            $data = preg_replace('/(&#x*[0-9A-F]+);*/iu', '$1;', $data);
+            $data = html_entity_decode($data, ENT_COMPAT, 'UTF-8');
+
+            // Remove any attribute starting with "on" or xmlns
+            $data = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', $data);
+
+            // Remove javascript: and vbscript: protocols
+            $data = preg_replace('#([a-z]*)[\x00-\x20]*=[\x00-\x20]*([`\'"]*)[\x00-\x20]*j[\x00-\x20]*a[\x00-\x20]*v[\x00-\x20]*a[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2nojavascript...', $data);
+            $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*v[\x00-\x20]*b[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2novbscript...', $data);
+            $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*-moz-binding[\x00-\x20]*:#u', '$1=$2nomozbinding...', $data);
+
+            // Only works in IE: <span style="width: expression(alert('Ping!'));"></span>
+            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?expression[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
+            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?behaviour[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
+            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:*[^>]*+>#iu', '$1>', $data);
+
+            // Remove namespaced elements (we do not need them)
+            $data = preg_replace('#</*\w+:\w[^>]*+>#i', '', $data);
+
+            do
+            {
+                // Remove really unwanted tags
+                $old_data = $data;
+                $data = preg_replace('#</*(?:applet|b(?:ase|gsound|link)|embed|frame(?:set)?|i(?:frame|layer)|l(?:ayer|ink)|meta|object|s(?:cript|tyle)|title|xml)[^>]*+>#i', '', $data);
             }
-            $values = substr($values, 0, -1);
-            $sql .= " VALUES (" . $values . ')';
-            // _debug($sql);die;
-            mysqli_query($this->link, $sql) or die("Lỗi  query  insert ----" .mysqli_error($this->link));
-            return mysqli_insert_id($this->link);
-        }
+            while ($old_data !== $data);
+
+            // we are done...
+            return $data;
+    }
 ?>
 <?php require_once __DIR__."/../../layouts/header.php";
 ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Thêm mới sản phẩm
+                                Sửa sản phẩm
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -104,7 +132,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Mã hãng sản xuất</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2" name="mahang">
+                            <select multiple class="form-control" id="exampleFormControlSelect2" name="mahang" >
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -118,8 +146,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Tên sản phẩm</label>
-
-                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="HuaWei Mate 20 black" name="name">
+                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="HuaWei Mate 20 black" name="name" value="<?php echo $editsanpham['TenSanPham'];?>">
                             <?php if(isset($error['name'])): ?>        
                             <p class="text-danger"><?php echo $error['name']?></p>
                             <?php endif ?>

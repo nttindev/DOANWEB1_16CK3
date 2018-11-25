@@ -7,6 +7,7 @@
     */
     class Database
     {
+        
         /**
          * Khai báo biến kết nối
          * @var [type]
@@ -15,7 +16,7 @@
 
         public function __construct()
         {
-            $this->link = mysqli_connect("localhost","root","Tin123456abc","mobi_shop") or die ();
+            $this->link = mysqli_connect("localhost","root","","mobi_shop") or die ();
             mysqli_set_charset($this->link,"utf8");
         }
 
@@ -144,7 +145,7 @@
 
         public function fetchID($table , $id )
         {
-            $sql = "SELECT * FROM {$table} WHERE id = $id ";
+            $sql = "SELECT * FROM {$table} WHERE MaSanPham = $id ";
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
@@ -273,6 +274,7 @@
             $tien = mysqli_fetch_assoc($result);
             return $tien;
         }
+        
     }
    
 ?>
