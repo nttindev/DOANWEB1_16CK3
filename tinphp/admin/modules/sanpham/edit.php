@@ -8,7 +8,8 @@
     if(empty($editsanpham))
     {
         $_SESSION['error']="Dữ liệu không tồn tại";
-        redirectAdmin("sanpham");
+        ?>
+        <script> window.location = "index.php"; </script><?php
     }
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         
@@ -38,15 +39,15 @@
         if(empty($error))
         {
                 $id_update =$db->update('sanpham', $data,array("MaSanPham"=>$masp));
-                if($update >0)
+                if($id_update >0)
                 {
-                    $_SESSION['success']="Cập nhật thành công";
-                    redirectAdmin("sanpham");
-                    
+                    $_SESSION['success']="Cập nhật thành công"; ?>
+                    <script> window.location = "index.php"; </script><?php
                 }
                 else
                 {
                     $_SESSION['error']="Dữ liệu không thay đỗi";
+                    include "index.php";
                 }
         }
       //echo $POST['name'];
@@ -114,7 +115,7 @@
                                     <i></i>  <a href="#">Sản phẩm</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Thêm mới
+                                    <i class="fa fa-file"></i> Sửa sản phẩm
                                 </li>
                             </ol>
                         </div>
@@ -125,14 +126,14 @@
                         <form action="" method="POST">
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã loại sản phẩm</label>
-                            <select class="form-control" id="exampleFormControlSelect1" name="maloai">
+                            <select class="form-control" id="exampleFormControlSelect1" name="maloai" >
                             <option>1</option>
                             <option>2</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect2">Mã hãng sản xuất</label>
-                            <select multiple class="form-control" id="exampleFormControlSelect2" name="mahang" >
+                            <select multiple class="form-control" id="exampleFormControlSelect2" name="mahang">
                             <option>1</option>
                             <option>2</option>
                             <option>3</option>
@@ -153,14 +154,14 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Giá sản phẩm</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="gia">
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="gia" value="<?php echo $editsanpham['GiaSanPham'];?>">
                             <?php if(isset($error['gia'])): ?>        
                             <p class="text-danger"><?php echo $error['gia']?></p>
                             <?php endif ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"><?php echo $editsanpham['MoTa'];?></textarea>
                             <?php if(isset($error['mota'])): ?>        
                             <p class="text-danger"><?php echo $error['mota']?></p>
                             <?php endif ?>
@@ -174,14 +175,14 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">từ khóa</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="pro grean" name="tukhoa">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="pro grean" name="tukhoa" value="<?php echo $editsanpham['TuKhoa'];?>">
                             <?php if(isset($error['tukhoa'])): ?>        
                             <p class="text-danger"><?php echo $error['tukhoa']?></p>
                             <?php endif ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Xuất Xứ</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Trung Quốc" name="xuatxu">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Trung Quốc" name="xuatxu" value="<?php echo $editsanpham['XuatXu'];?>">
                             <?php if(isset($error['xuatxu'])): ?>        
                             <p class="text-danger"><?php echo $error['xuatxu']?></p>
                             <?php endif ?>

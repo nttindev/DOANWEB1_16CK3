@@ -13,7 +13,7 @@ $sanpham=$db->fetchAll("sanpham"); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Home</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm
@@ -73,46 +73,11 @@ $sanpham=$db->fetchAll("sanpham"); ?>
                     <td><?php echo $item['NgayDang'] ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item['MaSanPham']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="edit.php?MaSanPham=<?php echo $item['MaSanPham']?>">Xóa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item['MaSanPham']?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="pull-right">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
- </div>
 
  <?php require_once __DIR__."/../../layouts/footer.php" ?>

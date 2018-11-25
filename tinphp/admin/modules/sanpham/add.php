@@ -33,8 +33,8 @@
                 $id_insert =$db->insert('sanpham', $data);
                 if($id_insert >0)
                 {
-                    $_SESSION['success']="Thêm mới thành công";
-                    redirectAdmin($open);
+                    $_SESSION['success']="Thêm mới thành công"; ?>
+                    <script> window.location = "index.php"; </script><?php
  } 
                 else
                 {
@@ -86,7 +86,7 @@
                                     <i></i>  <a href="#">Sản phẩm</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Thêm mới
+                                    <i class="fa fa-file"></i> Thêm sản phẩm
                                 </li>
                             </ol>
                         </div>
