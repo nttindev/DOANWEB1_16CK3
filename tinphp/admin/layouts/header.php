@@ -32,16 +32,16 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
-                            <a href="http://localhost:8080/tinphp/admin/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
+                            <a href="/tinphp/admin/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
                         </li>
-                        <li>
-                            <a href="tables.html"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
+                        <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
+                            <a href="/tinphp/admin/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
                         </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
+                        <li class="<?php echo isset($open) && $open == 'hangsanxuat' ? 'active' : '' ?>">
+                            <a href="/tinphp/admin/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
                         </li>
-                        <li>
-                            <a href="bootstrap-elements.html"><i class="fa fa-list"></i>Danh sách tk người dùng</a>
+                        <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
+                            <a href="/tinphp/admin/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tk người dùng</a>
                         </li>
                     </ul>
                 </div>

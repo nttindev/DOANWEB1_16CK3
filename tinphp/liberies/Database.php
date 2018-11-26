@@ -84,7 +84,14 @@
             mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
             return mysqli_affected_rows($this->link);
         }
+        public function delete1 ($table ,  $masp )
+        {
+            $sql = "DELETE FROM {$table} WHERE MaLoaiSanPham = $masp ";
 
+            mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
+            return mysqli_affected_rows($this->link);
+        }
+        
         /**
          * delete array 
          */
@@ -94,7 +101,12 @@
             $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
             return mysqli_fetch_assoc($result);
         }
-
+        public function fetchID1($table , $id )
+        {
+            $sql = "SELECT * FROM {$table} WHERE MaLoaiSanPham = $id ";
+            $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
+            return mysqli_fetch_assoc($result);
+        }
         
 
         

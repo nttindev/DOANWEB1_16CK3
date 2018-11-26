@@ -46,8 +46,8 @@
                 }
                 else
                 {
-                    $_SESSION['error']="Dữ liệu không thay đỗi";
-                    include "index.php";
+                    $_SESSION['error']="Dữ liệu không thay đỗi"; ?>
+                    <script> window.location = "index.php"; </script> <?php
                 }
         }
       //echo $POST['name'];

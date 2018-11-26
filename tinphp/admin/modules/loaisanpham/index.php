@@ -1,22 +1,22 @@
 <?php 
-$open="sanpham";
+$open="loaisanpham";
 require_once __DIR__."/../../autoload/autoload.php";
-$sanpham=$db->fetchAll("sanpham"); ?>
+$sanpham=$db->fetchAll("loaisanpham"); ?>
 
 <?php require_once __DIR__."/../..//layouts/header.php";
 ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Danh sách sản phẩm
-                                <a href="add.php" class="btn btn-success">Thêm sản phẩm</a>
+                                Danh sách loại sản phẩm
+                                <a href="add.php" class="btn btn-success">Thêm loại sản phẩm</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Home</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Sản phẩm
+                                    <i class="fa fa-file"></i> Loại sản phẩm
                                 </li>
                             </ol>
                             <div class="clearfix"></div>
@@ -41,39 +41,19 @@ $sanpham=$db->fetchAll("sanpham"); ?>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Mã SP</th>
-                    <th>Mã loại SP</th>
-                    <th>Mã hãng SP</th>
-                    <th>Tên SP</th>
-                    <th>Giá SP</th>
-                    <th>Mô tả SP</th>
-                    <th>Ảnh URL SP</th>
-                    <th>Từ khóa SP</th>
-                    <th>Số lượng xem SP</th>
-                    <th>Số lượng bán SP</th>
-                    <th>Xuất xứ SP</th>
-                    <th>Ngày đăng SP</th>
-                    <th>Sửa or Xóa SP</th>
+                    <th>Mã loại sản phẩm</th>
+                    <th>Tên loại sản phẩm</th>
+                    <th>Thêm Xóa</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($sanpham as $item):?>
                 <tr>
-                    <td><?php echo $item['MaSanPham'] ?></td>
                     <td><?php echo $item['MaLoaiSanPham'] ?></td>
-                    <td><?php echo $item['MaHangSanXuat'] ?></td>
-                    <td><?php echo $item['TenSanPham'] ?></td>
-                    <td><?php echo $item['GiaSanPham'] ?></td>
-                    <td><?php echo $item['MoTa'] ?></td>
-                    <td><?php echo $item['AnhURL'] ?></td>
-                    <td><?php echo $item['TuKhoa'] ?></td>
-                    <td><?php echo $item['SoLuongXem'] ?></td>
-                    <td><?php echo $item['SoLuongBan'] ?></td>
-                    <td><?php echo $item['XuatXu'] ?></td>
-                    <td><?php echo $item['NgayDang'] ?></td>
+                    <td><?php echo $item['TenLoaiSanPham'] ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item['MaSanPham']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item['MaSanPham']?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item['MaLoaiSanPham']?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaLoaiSanPham=<?php echo $item['MaLoaiSanPham']?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
