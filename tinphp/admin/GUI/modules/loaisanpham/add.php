@@ -1,23 +1,24 @@
-<?php 
-    $open="loaisanpham";
-    //include "../../autoload/autoload.php";
-    require_once __DIR__."/../../autoload/autoload.php"; //E:\xampp32\htdocs\tinphp\admin\autoload../../liberies/Database.php  WTF
+<?php
+$open="loaisanpham";
+require_once __DIR__."/../../layout/header.php";
+
+$loaisanphambus=new LoaiSanPhamBus();
 
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         
         $data=[
-            "maloaisanpham"=> postInput('maloai'),
-            "tenloaisanpham"=> postInput('tenloai')
+            "maloaisanpham"=> $loaisanphambus->postInput('maloai'),
+            "tenloaisanpham"=> $loaisanphambus->postInput('tenloai')
         ];
         $error=[];
-        if(postInput('maloai')=='' or postInput('tenloai')=='')
+        if($loaisanphambus->postInput('maloai')=='' or $loaisanphambus->postInput('tenloai')=='')
         {
             $error['maloai']="mời bạn nhập vào mã loại sản phẩm";
             $error['tenloai']="mời bạn nhập vào tên loại";
         }
         if(empty($error))
         {
-                $id_insert =$db->insert('loaisanpham', $data);
+                $id_insert =$loaisanphambus->insert($data);
                 if($id_insert >0)
                 {
                     $_SESSION['success']="Thêm mới thành công"; ?>
@@ -27,50 +28,20 @@
                 {
                     $_SESSION['error']="Thêm mới thất bại";
                 }
-        }
-      //echo $POST['name'];
-    }
-    // sai link import file roi. Goi ham no bao ko tim thay kia. noi chung xong roi do.
-    // me, em chua add file fuction.php vao, sao no cahy
-    function postInput($string)
-    {
-        $xxx = $string.'';
-        return isset($_POST[$string]) ? $_POST[$string] : '';
-    }
-     function insert($table, array $data)
-        {
-            //code
-            $sql = "INSERT INTO {$table} ";
-            $columns = implode(',', array_keys($data));
-            $values  = "";
-            $sql .= '(' . $columns . ')';
-            foreach($data as $field => $value) {
-                if(is_string($value)) {
-                    $values .= "'". mysqli_real_escape_string($this->link,$value) ."',";
-                } else {
-                    $values .= mysqli_real_escape_string($this->link,$value) . ',';
-                }
             }
-            $values = substr($values, 0, -1);
-            $sql .= " VALUES (" . $values . ')';
-            // _debug($sql);die;
-            mysqli_query($this->link, $sql) or die("Lỗi  query  insert ----" .mysqli_error($this->link));
-            return mysqli_insert_id($this->link);
-        }
-?>
-<?php require_once __DIR__."/../../layouts/header.php";
+    }
 ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Thêm mới sản phẩm
+                                Thêm mới loại sản phẩm
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="#">Mã loại sản phẩm</a>
+                                    <i></i>  <a href="/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm mã loại sản phẩm
@@ -102,4 +73,4 @@
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+ <?php require_once __DIR__."/../../layout/footer.php" ?>

@@ -1,23 +1,23 @@
-<?php 
+<?php
     $open="sanpham";
-    //include "../../autoload/autoload.php";
-    require_once __DIR__."/../../autoload/autoload.php"; //E:\xampp32\htdocs\tinphp\admin\autoload../../liberies/Database.php  WTF
-
-    if($_SERVER["REQUEST_METHOD"]=='POST'){
-        
+    require_once __DIR__."/../../layout/header.php";
+    $sanphambus=new SanPhamBus();
+    if($_SERVER["REQUEST_METHOD"]=='POST')
+    {
         $data=[
-            "maloaisanpham"=> postInput('maloai'),
-            "mahangsanxuat"=> postInput('mahang'),
-            "tensanpham"=> postInput('name'),
-            "giasanpham"=> postInput('gia'),
-            "mota"=> postInput('mota'),
-            "anhurl"=> postInput('anhurl'),
-            "tukhoa"=> postInput('tukhoa'),
-            "xuatxu"=> postInput('xuatxu'),
+            "maloaisanpham"=> $sanphambus->postInput('maloai'),
+            "mahangsanxuat"=> $sanphambus->postInput('mahang'),
+            "tensanpham"=> $sanphambus->postInput('name'),
+            "giasanpham"=> $sanphambus->postInput('gia'),
+            "mota"=> $sanphambus->postInput('mota'),
+            "anhurl"=> $sanphambus->postInput('anhurl'),
+            "tukhoa"=> $sanphambus->postInput('tukhoa'),
+            "xuatxu"=> $sanphambus->postInput('xuatxu'),
+            "ngaydang"=> $sanphambus->postInput('ngaydang')
         ];
         $error=[];
-        if(postInput('maloai')=='' or postInput('mahang')==''or postInput('name')==''
-        or postInput('gia')==''or postInput('mota')==''or postInput('anhurl')=='' or postInput('tukhoa')==''or postInput('xuatxu')=='')
+        if($sanphambus->postInput('maloai')=='' or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('name')==''
+        or $sanphambus->postInput('gia')==''or $sanphambus->postInput('mota')==''or $sanphambus->postInput('anhurl')=='' or $sanphambus->postInput('tukhoa')==''or $sanphambus->postInput('xuatxu')=='')
         {
             $error['name']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
@@ -27,51 +27,24 @@
             $error['anhurl']="mời bạn chọn ảnhurl sản phẩm";
             $error['tukhoa']="mời bạn nhập vào từ khóa sản phẩm";
             $error['xuatxu']="mời bạn nhập vào xuất xứ sản phẩm";
+            $error['ngaydang']="mời bạn nhập vào ngày đăng sản phẩm";
         }
         if(empty($error))
         {
-                $id_insert =$db->insert('sanpham', $data);
+                $id_insert =$sanphambus->insert($data);
                 if($id_insert >0)
                 {
                     $_SESSION['success']="Thêm mới thành công"; ?>
                     <script> window.location = "index.php"; </script><?php
- } 
+                } 
                 else
                 {
                     $_SESSION['error']="Thêm mới thất bại";
+                    ?>
+                    <script> window.location = "index.php"; </script><?php
                 }
         }
-      //echo $POST['name'];
     }
-    // sai link import file roi. Goi ham no bao ko tim thay kia. noi chung xong roi do.
-    // me, em chua add file fuction.php vao, sao no cahy
-    function postInput($string)
-    {
-        $xxx = $string.'';
-        return isset($_POST[$string]) ? $_POST[$string] : '';
-    }
-     function insert($table, array $data)
-        {
-            //code
-            $sql = "INSERT INTO {$table} ";
-            $columns = implode(',', array_keys($data));
-            $values  = "";
-            $sql .= '(' . $columns . ')';
-            foreach($data as $field => $value) {
-                if(is_string($value)) {
-                    $values .= "'". mysqli_real_escape_string($this->link,$value) ."',";
-                } else {
-                    $values .= mysqli_real_escape_string($this->link,$value) . ',';
-                }
-            }
-            $values = substr($values, 0, -1);
-            $sql .= " VALUES (" . $values . ')';
-            // _debug($sql);die;
-            mysqli_query($this->link, $sql) or die("Lỗi  query  insert ----" .mysqli_error($this->link));
-            return mysqli_insert_id($this->link);
-        }
-?>
-<?php require_once __DIR__."/../../layouts/header.php";
 ?>
                     <div class="row">
                         <div class="col-lg-12">
@@ -80,10 +53,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="#">Sản phẩm</a>
+                                    <i></i>  <a href="/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm sản phẩm
@@ -160,9 +133,16 @@
                             <?php endif ?>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlInput1">Ngày đăng</label>
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2018-11-29" name="ngaydang">
+                            <?php if(isset($error['ngaydang'])): ?>        
+                            <p class="text-danger"><?php echo $error['ngaydang']?></p>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group">
                         <button type="submit" class="btn btn-primary pull-right">Lưu</button>
                         </div>
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+ <?php require_once __DIR__."/../../layout/footer.php" ?>

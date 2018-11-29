@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,19 +9,29 @@
         <meta name="author" content="">
         <title>QUẢN TRỊ ADMIN</title>
         <!-- Bootstrap Core CSS -->
-        <link href="/tinphp/public/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/tinphp/admin/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/tinphp/public/admin/css/sb-admin.css" rel="stylesheet">
+        <link href="/tinphp/admin/gui/public/admin/css/sb-admin.css" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="/tinphp/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/tinphp/admin/gui/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <?php
+            require_once __DIR__."/../../dao/db.php";
+            require_once __DIR__."/../../DTO/SanPham.php";
+            require_once __DIR__."/../../bus/SanPhamBUS.php";    
+            require_once __DIR__."/../../dao/sanphamdao.php";
+
+            require_once __DIR__."/../../DTO/LoaiSanPham.php";
+            require_once __DIR__."/../../bus/LoaiSanPhamBUS.php";    
+            require_once __DIR__."/../../dao/Loaisanphamdao.php";
+        ?>
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="index.php">HOME</a>
+                <div class="navbar-header" >
+                    <a class="navbar-brand" href="/tinphp/admin/gui/">HOME</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -32,16 +43,16 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
+                            <a href="/tinphp/admin/gui/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
+                            <a href="/tinphp/admin/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'hangsanxuat' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
+                            <a href="/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tk người dùng</a>
+                            <a href="/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tk người dùng</a>
                         </li>
                     </ul>
                 </div>

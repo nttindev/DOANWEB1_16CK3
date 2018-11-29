@@ -1,5 +1,6 @@
-<?php require_once __DIR__."/autoload/autoload.php"; ?>
-<?php require_once __DIR__."/layouts/header.php";
+
+<?php
+require_once __DIR__."/layout/header.php";
 ?>
                     <div class="row">
                         <div class="col-lg-12">
@@ -14,4 +15,4 @@
                         </div>
                     </div>
                     <!-- /.row -->
- <?php require_once __DIR__."/layouts/footer.php" ?>
+ <?php require_once __DIR__."/layout/footer.php" ?>

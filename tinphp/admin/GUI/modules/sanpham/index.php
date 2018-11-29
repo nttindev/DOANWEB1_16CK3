@@ -1,10 +1,10 @@
-<?php 
+<?php
 $open="sanpham";
-require_once __DIR__."/../../autoload/autoload.php";
-$sanpham=$db->fetchAll("sanpham"); ?>
+require_once __DIR__."/../../layout/header.php";
 
-<?php require_once __DIR__."/../..//layouts/header.php";
-?>
+$sanphambus=new SanPhamBus();
+
+$sanphambus=$sanphambus->fetchAll(); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
@@ -13,7 +13,7 @@ $sanpham=$db->fetchAll("sanpham"); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Home</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm
@@ -57,7 +57,7 @@ $sanpham=$db->fetchAll("sanpham"); ?>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($sanpham as $item):?>
+                <?php foreach($sanphambus as $item):?>
                 <tr>
                     <td><?php echo $item['MaSanPham'] ?></td>
                     <td><?php echo $item['MaLoaiSanPham'] ?></td>
@@ -80,4 +80,4 @@ $sanpham=$db->fetchAll("sanpham"); ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+ <?php require_once __DIR__."/../../layout/footer.php" ?>

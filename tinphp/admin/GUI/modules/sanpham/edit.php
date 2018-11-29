@@ -1,10 +1,10 @@
 <?php 
-    $open='sanpham';
-    //include "../../autoload/autoload.php";
-    require_once __DIR__."/../../autoload/autoload.php"; //E:\xampp32\htdocs\tinphp\admin\autoload../../liberies/Database.php  WTF
-    $masp= intval(getInput('MaSanPham'));
+    $open="sanpham";
+    require_once __DIR__."/../../layout/header.php";
+    $sanphambus=new SanPhamBus();
+    $masp= intval($sanphambus->getInput('MaSanPham'));
 
-    $editsanpham=$db->fetchID("sanpham",$masp);
+    $editsanpham=$sanphambus->fetchID($masp);
     if(empty($editsanpham))
     {
         $_SESSION['error']="Dữ liệu không tồn tại";
@@ -14,18 +14,19 @@
     if($_SERVER["REQUEST_METHOD"]=='POST'){
         
         $data=[
-            "maloaisanpham"=> postInput('maloai'),
-            "mahangsanxuat"=> postInput('mahang'),
-            "tensanpham"=> postInput('name'),
-            "giasanpham"=> postInput('gia'),
-            "mota"=> postInput('mota'),
-            "anhurl"=> postInput('anhurl'),
-            "tukhoa"=> postInput('tukhoa'),
-            "xuatxu"=> postInput('xuatxu'),
+            "maloaisanpham"=> $sanphambus->postInput('maloai'),
+            "mahangsanxuat"=> $sanphambus->postInput('mahang'),
+            "tensanpham"=> $sanphambus->postInput('name'),
+            "giasanpham"=> $sanphambus->postInput('gia'),
+            "mota"=> $sanphambus->postInput('mota'),
+            "anhurl"=> $sanphambus->postInput('anhurl'),
+            "tukhoa"=> $sanphambus->postInput('tukhoa'),
+            "xuatxu"=> $sanphambus->postInput('xuatxu'),
+            "ngaydang"=> $sanphambus->postInput('ngaydang')
         ];
         $error=[];
-        if(postInput('maloai')=='' or postInput('mahang')==''or postInput('name')==''
-        or postInput('gia')==''or postInput('mota')==''or postInput('anhurl')=='' or postInput('tukhoa')==''or postInput('xuatxu')=='')
+        if($sanphambus->postInput('maloai')=='' or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('name')==''
+        or $sanphambus->postInput('gia')==''or $sanphambus->postInput('mota')==''or $sanphambus->postInput('anhurl')=='' or $sanphambus->postInput('tukhoa')==''or $sanphambus->postInput('xuatxu')=='')
         {
             $error['name']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
@@ -35,10 +36,11 @@
             $error['anhurl']="mời bạn chọn ảnhurl sản phẩm";
             $error['tukhoa']="mời bạn nhập vào từ khóa sản phẩm";
             $error['xuatxu']="mời bạn nhập vào xuất xứ sản phẩm";
+            $error['ngaydang']="mời bạn nhập vào ngày đăng sản phẩm";
         }
         if(empty($error))
         {
-                $id_update =$db->update('sanpham', $data,array("MaSanPham"=>$masp));
+                $id_update =$sanphambus->update($data,array("MaSanPham"=>$masp));
                 if($id_update >0)
                 {
                     $_SESSION['success']="Cập nhật thành công"; ?>
@@ -50,57 +52,7 @@
                     <script> window.location = "index.php"; </script> <?php
                 }
         }
-      //echo $POST['name'];
     }
-    // sai link import file roi. Goi ham no bao ko tim thay kia. noi chung xong roi do.
-    // me, em chua add file fuction.php vao, sao no cahy
-    function postInput($string)
-    {
-        $xxx = $string.'';
-        return isset($_POST[$string]) ? $_POST[$string] : '';
-    }
-     
-        function  getInput($string)
-    {
-        return isset($_GET[$string]) ? $_GET[$string] : '';
-    }
-        function xss_clean($data)
-        {
-            // Fix &entity\n;
-            $data = str_replace(array('&amp;','&lt;','&gt;'), array('&amp;amp;','&amp;lt;','&amp;gt;'), $data);
-            $data = preg_replace('/(&#*\w+)[\x00-\x20]+;/u', '$1;', $data);
-            $data = preg_replace('/(&#x*[0-9A-F]+);*/iu', '$1;', $data);
-            $data = html_entity_decode($data, ENT_COMPAT, 'UTF-8');
-
-            // Remove any attribute starting with "on" or xmlns
-            $data = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', $data);
-
-            // Remove javascript: and vbscript: protocols
-            $data = preg_replace('#([a-z]*)[\x00-\x20]*=[\x00-\x20]*([`\'"]*)[\x00-\x20]*j[\x00-\x20]*a[\x00-\x20]*v[\x00-\x20]*a[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2nojavascript...', $data);
-            $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*v[\x00-\x20]*b[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2novbscript...', $data);
-            $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*-moz-binding[\x00-\x20]*:#u', '$1=$2nomozbinding...', $data);
-
-            // Only works in IE: <span style="width: expression(alert('Ping!'));"></span>
-            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?expression[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
-            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?behaviour[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
-            $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:*[^>]*+>#iu', '$1>', $data);
-
-            // Remove namespaced elements (we do not need them)
-            $data = preg_replace('#</*\w+:\w[^>]*+>#i', '', $data);
-
-            do
-            {
-                // Remove really unwanted tags
-                $old_data = $data;
-                $data = preg_replace('#</*(?:applet|b(?:ase|gsound|link)|embed|frame(?:set)?|i(?:frame|layer)|l(?:ayer|ink)|meta|object|s(?:cript|tyle)|title|xml)[^>]*+>#i', '', $data);
-            }
-            while ($old_data !== $data);
-
-            // we are done...
-            return $data;
-    }
-?>
-<?php require_once __DIR__."/../../layouts/header.php";
 ?>
                     <div class="row">
                         <div class="col-lg-12">
@@ -109,10 +61,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="#">Sản phẩm</a>
+                                    <i></i>  <a href="/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa sản phẩm
@@ -193,4 +145,4 @@
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+ <?php require_once __DIR__."/../../layout/footer.php" ?>
