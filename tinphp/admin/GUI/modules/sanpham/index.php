@@ -42,38 +42,40 @@ $sanphambus=$sanphambus->fetchAll(); ?>
             <thead>
                 <tr>
                     <th>Mã SP</th>
+                    <th>Tên SP</th>
+                    <th>Ảnh URL</th>
+                    <th>Giá SP</th>
+                    <th>Ngày Nhập</th>
+                    <th>Số lượng tồn</th>
+                    <th>Số lượng bán</th>
+                    <th>Số lượt xem</th>
+                    <th>Mô tả SP</th>
+                    <th>Xuất xứ SP</th>
                     <th>Mã loại SP</th>
                     <th>Mã hãng SP</th>
-                    <th>Tên SP</th>
-                    <th>Giá SP</th>
-                    <th>Mô tả SP</th>
-                    <th>Ảnh URL SP</th>
-                    <th>Từ khóa SP</th>
-                    <th>Số lượng xem SP</th>
-                    <th>Số lượng bán SP</th>
-                    <th>Xuất xứ SP</th>
-                    <th>Ngày đăng SP</th>
-                    <th>Sửa or Xóa SP</th>
+                    <th>Bị Xóa</th>
+                    <th>Thao tác</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($sanphambus as $item):?>
                 <tr>
-                    <td><?php echo $item['MaSanPham'] ?></td>
-                    <td><?php echo $item['MaLoaiSanPham'] ?></td>
-                    <td><?php echo $item['MaHangSanXuat'] ?></td>
-                    <td><?php echo $item['TenSanPham'] ?></td>
-                    <td><?php echo $item['GiaSanPham'] ?></td>
-                    <td><?php echo $item['MoTa'] ?></td>
-                    <td><?php echo $item['AnhURL'] ?></td>
-                    <td><?php echo $item['TuKhoa'] ?></td>
-                    <td><?php echo $item['SoLuongXem'] ?></td>
-                    <td><?php echo $item['SoLuongBan'] ?></td>
-                    <td><?php echo $item['XuatXu'] ?></td>
-                    <td><?php echo $item['NgayDang'] ?></td>
+                    <td><?php echo $item->MaSanPham  ?></td>
+                    <td><?php echo $item->TenSanPham ?></td>
+                    <td><img src="images/<?php echo $item->AnhURL ?>" alt="" width="50" height="75"></td>
+                    <td><?php echo $item->GiaSanPham ?></td>
+                    <td><?php echo $item->NgayNhap ?></td>
+                    <td><?php echo $item->SoLuongTon ?></td>
+                    <td><?php echo $item->SoLuongBan ?></td>
+                    <td><?php echo $item->SoLuotXem?></td>
+                    <td><?php echo $item->MoTa ?></td>
+                    <td><?php echo $item->XuatXu?></td>
+                    <td><?php echo $item->MaLoaiSanPham ?></td>
+                    <td><?php echo $item->MaHangSanXuat ?></td>
+                    <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item['MaSanPham']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item['MaSanPham']?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

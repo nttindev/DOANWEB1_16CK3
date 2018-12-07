@@ -43,17 +43,19 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                 <tr>
                     <th>Mã loại sản phẩm</th>
                     <th>Tên loại sản phẩm</th>
+                    <th>Bị xóa</th>
                     <th>Thêm Xóa</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach($loaisanphambus as $item):?>
                 <tr>
-                    <td><?php echo $item['MaLoaiSanPham'] ?></td>
-                    <td><?php echo $item['TenLoaiSanPham'] ?></td>
+                    <td><?php echo $item->MaLoaiSanPham ?></td>
+                    <td><?php echo $item->TenLoaiSanPham ?></td>
+                    <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item['MaLoaiSanPham']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaLoaiSanPham=<?php echo $item['MaLoaiSanPham']?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

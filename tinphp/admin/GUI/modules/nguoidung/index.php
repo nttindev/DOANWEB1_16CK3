@@ -1,22 +1,22 @@
-<?php 
+<?php
 $open="nguoidung";
-require_once __DIR__."/../../autoload/autoload.php";
-$sanpham=$db->fetchAll("hangsanxuat"); ?>
+require_once __DIR__."/../../layout/header.php";
 
-<?php require_once __DIR__."/../..//layouts/header.php";
-?>
+$taikhoan=new TaiKhoanBUS();
+
+$taikhoan=$taikhoan->fetchAll(); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Danh sách nhà sản xuất
-                                <a href="add.php" class="btn btn-success">Thêm loại nhà sản xuất</a>
+                                Danh sách tài khoản
+                                <a href="add.php" class="btn btn-success">Thêm tài khoản</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Home</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Loại nhà sản xuất
+                                    <i class="fa fa-file"></i> Tài khoản
                                 </li>
                             </ol>
                             <div class="clearfix"></div>
@@ -41,25 +41,35 @@ $sanpham=$db->fetchAll("hangsanxuat"); ?>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Mã hãng sản phẩm</th>
-                    <th>Tên hãng sản phẩm</th>
-                    <th>LogoURL</th>
-                    <th>Thêm Xóa</th>
+                    <th>Mã người dùng</th>
+                    <th>Tên người dùng</th>
+                    <th>Tên đăng nhập</th>
+                    <th>Ngày sinh</th>
+                    <th>nơi sinh</th>
+                    <th>mật khẩu</th>
+                    <th>Số điện thoại</th>
+                    <th>Bị xóa</th>
+                    <th>Sửa Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($sanpham as $item):?>
+                <?php foreach($taikhoan as $item):?>
                 <tr>
-                    <td><?php echo $item['MaHangSanXuat'] ?></td>
-                    <td><?php echo $item['TenHangSanXuat'] ?></td>
-                    <td><?php echo $item['LogoURL'] ?></td>
+                    <td><?php echo $item->MaNguoiDung ?></td>
+                    <td><?php echo $item->TenNguoiDung ?></td>
+                    <td><?php echo $item->TenDangNhap ?></td>
+                    <td><?php echo $item->NgaySinh ?></td>
+                    <td><?php echo $item->NoiSinh ?></td>
+                    <td><?php echo $item->MatKhau ?></td>
+                    <td><?php echo $item->SDT ?></td>
+                    <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaHangSanXuat=<?php echo $item['MaHangSanXuat']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaHangSanXuat=<?php echo $item['MaHangSanXuat']?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+<?php require_once __DIR__."/../../layout/footer.php" ?>

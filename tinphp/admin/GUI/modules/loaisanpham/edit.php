@@ -1,46 +1,16 @@
 <?php
+
 $open="loaisanpham";
 require_once __DIR__."/../../layout/header.php";
-
-$loaisanphambus=new LoaiSanPhamBus();
-$masp= intval($loaisanphambus->getInput('MaLoaiSanPham'));
-
-    $editsanpham=$loaisanphambus->fetchID($masp);
-    if(empty($editsanpham))
-    {
-        $_SESSION['error']="Dữ liệu không tồn tại";
-        ?>
-        <script> window.location = "index.php"; </script><?php
-    }
-    if($_SERVER["REQUEST_METHOD"]=='POST'){
-        
-        $data=[
-            "maloaisanpham"=> $loaisanphambus->postInput('maloai'),
-            "tenloaisanpham"=> $loaisanphambus->postInput('tenloai'),
-        ];
-        $error=[];
-        if($loaisanphambus->postInput('maloai')=='' or $loaisanphambus->postInput('tenloai')=='')
-        {
-            $error['maloai']="mời bạn nhập vào mã loại sản phẩm";
-            $error['tenloai']="mời bạn nhập vào tên loại";
-        }
-        if(empty($error))
-        {
-                $id_update =$loaisanphambus->update($data,array("MaLoaiSanPham"=>$masp));
-                if($id_update >0)
-                {
-                    $_SESSION['success']="Cập nhật thành công"; ?>
+$loaisanphambus=new LoaiSanPhamBUS();
+$masp= $_GET['MaLoaiSanPham'];
+$editsanpham=$loaisanphambus->fetchID($masp);
+if($_SERVER["REQUEST_METHOD"]=='POST'){
+    $tenSanPham=$loaisanphambus->postInput('tenloai');
+    $biXoa= $loaisanphambus->postInput('bixoa');
+                $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$biXoa,$masp);?>
                     <script> window.location = "index.php"; </script><?php
-                }
-                else
-                {
-                    $_SESSION['error']="Dữ liệu không thay đỗi"; ?>
-                    <script> window.location = "index.php"; </script><?php
-                }
-        }
-      //echo $POST['name'];
-    }
- ?>
+        } ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
@@ -64,17 +34,17 @@ $masp= intval($loaisanphambus->getInput('MaLoaiSanPham'));
                         <div class="col-md-12">
                         <form action="" method="POST">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Mã loại sản phẩm</label>
-                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="3" name="maloai" value="<?php echo $editsanpham['MaLoaiSanPham'];?>">
-                            <?php if(isset($error['maloai'])): ?>        
-                            <p class="text-danger"><?php echo $error['maloai']?></p>
+                            <label for="exampleFormControlSelect2">Tên loại sản xuất</label>
+                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="SMART PHONE" name="tenloai" value="<?php echo $editsanpham->TenLoaiSanPham;?>">
+                            <?php if(isset($error['tenloai'])): ?>        
+                            <p class="text-danger"><?php echo $error['tenloai']?></p>
                             <?php endif ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Tên loại sản xuất</label>
-                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="SMART PHONE" name="tenloai" value="<?php echo $editsanpham['TenLoaiSanPham'];?>">
-                            <?php if(isset($error['tenloai'])): ?>        
-                            <p class="text-danger"><?php echo $error['tenloai']?></p>
+                            <label for="exampleFormControlSelect1">Bi Xoa</label>
+                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="3" name="bixoa" value="<?php echo $editsanpham->BiXoa;?>">
+                            <?php if(isset($error['bixoa'])): ?>        
+                            <p class="text-danger"><?php echo $error['bixoa']?></p>
                             <?php endif ?>
                         </div>
                         <div class="form-group">

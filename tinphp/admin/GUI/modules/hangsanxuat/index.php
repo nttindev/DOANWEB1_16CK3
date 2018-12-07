@@ -1,10 +1,10 @@
-<?php 
+<?php
 $open="hangsanxuat";
-require_once __DIR__."/../../autoload/autoload.php";
-$sanpham=$db->fetchAll("hangsanxuat"); ?>
+require_once __DIR__."/../../layout/header.php";
 
-<?php require_once __DIR__."/../..//layouts/header.php";
-?>
+$loaisanphambus=new HangSanXuatBUS();
+
+$loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
@@ -13,7 +13,7 @@ $sanpham=$db->fetchAll("hangsanxuat"); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="http://localhost:8080/tinphp/admin/index.php">Home</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Loại nhà sản xuất
@@ -44,22 +44,24 @@ $sanpham=$db->fetchAll("hangsanxuat"); ?>
                     <th>Mã hãng sản phẩm</th>
                     <th>Tên hãng sản phẩm</th>
                     <th>LogoURL</th>
+                    <th>Bị Xóa</th>
                     <th>Thêm Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($sanpham as $item):?>
+                <?php foreach($loaisanphambus as $item):?>
                 <tr>
-                    <td><?php echo $item['MaHangSanXuat'] ?></td>
-                    <td><?php echo $item['TenHangSanXuat'] ?></td>
-                    <td><?php echo $item['LogoURL'] ?></td>
+                    <td><?php echo $item->MaHangSanXuat ?></td>
+                    <td><?php echo $item->TenHangSanXuat ?></td>
+                    <td><img src="images/<?php echo $item->LogoURL ?>" alt="" width="50" height="75"></td>
+                    <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaHangSanXuat=<?php echo $item['MaHangSanXuat']?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaHangSanXuat=<?php echo $item['MaHangSanXuat']?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layouts/footer.php" ?>
+<?php require_once __DIR__."/../../layout/footer.php" ?>

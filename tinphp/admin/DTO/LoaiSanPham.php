@@ -1,13 +1,16 @@
-<?php
-    class LoaiSanPham
-    {
-             var $MaLoai;
-             var $TenLoai;
+<?php 
+ class LoaiSanPham
+ {
+ 	 var $MaLoaiSanPham;
+ 	 var $TenLoaiSanPham;
+ 	 var $BiXoa;
+ 	 public function __construct()
+ 	 {
+ 	 	$this->MaLoaiSanPham = 0;
+ 	 	$this->TenLoaiSanPham ="";
+ 	 	$this->BiXoa =0;
 
-             public function __construct()
-             {
-                 $this->MaLoai=0;
-                 $this->TenLoai='';
-             }
-    }
-?>
+ 	 }
+ }
+
+ ?>

@@ -1,40 +1,58 @@
-<?php
-    class LoaiSanPhamBus
-    {
-        var $LoaiSanPhamDAO;
-        public function __construct()
+<?php 
+	  class LoaiSanPhamBUS
+	  {
+	  	 var $loaiSanPhamDAO;
+	  	 public function __construct()
+	  	 {
+	  	 	$this->loaiSanPhamDAO = new LoaiSanPhamDAO();
+	  	 }
+	  	 public function fetchAll()
+   	   {
+	   	
+					return $this->loaiSanPhamDAO->fetchAll();
+   	   }
+		  public function fetchID($MaLoaiSanPham)
+		  {
+			  
+			return $this->loaiSanPhamDAO->fetchID($MaLoaiSanPham);
+		  }
+		  public function postInput($string)
+		  {
+			  
+			return $this->loaiSanPhamDAO->postInput($string);
+		  }
+	   
+		  public function  getInput($string)
+		  {
+			  return $this->loaiSanPhamDAO->getInput($string);
+		  }
+		  public function insert($loaisanpham)
         {
-            $this->LoaiSanPhamDAO=new LoaiSanPhamDAO();
-        }
-        public function fetchAll()
-        {
-            return $this->LoaiSanPhamDAO->fetchAll();
-        }
-        public function postInput($string)
-        {
-            return $this->LoaiSanPhamDAO->postInput($string);
-        }
-     
-        public function  getInput($string)
-        {
-            return $this->LoaiSanPhamDAO->getInput($string);
-        }
-        
-        public function insert(array $data)
-        {
-            return $this->LoaiSanPhamDAO->insert($data);
-        }
-        public function delete($masp )
-        {
-            return $this->LoaiSanPhamDAO->delete($masp);
-        }
-        public function update(array $data, array $conditions)
-        {
-            return $this->LoaiSanPhamDAO->update($data,$conditions);
-        }
-        public function fetchID($id )
-        {
-            return $this->LoaiSanPhamDAO->fetchID($id);
-        }
-    }
-?>
+						$this->loaiSanPhamDAO->insert($loaisanpham);
+		}
+		
+		  public function Insert_With_SanPham($tenLoaiSanPham,$biXoa)
+			{
+				$loaisanpham = new LoaiSanPham();
+				$loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
+				$loaisanpham->BiXoa = $biXoa;
+				$this->loaiSanPhamDAO->Insert($loaisanpham);
+			}			
+		  public function delete ($loaisanpham )
+		  {
+			return $this->loaiSanPhamDAO->delete($loaisanpham);
+		  }
+		  public function update($loaisanpham)
+		  {
+			  return $this->loaiSanPhamDAO->update($loaisanpham);
+			}
+			public function Update_With_LoaiSanPham($tenLoaiSanPham,$biXoa,$id)
+			{
+				$loaisanpham = new LoaiSanPham();
+				$loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
+				$loaisanpham->BiXoa = $biXoa;
+				$loaisanpham->MaLoaiSanPham=$id;
+				$this->loaiSanPhamDAO->update($loaisanpham);
+			}
+	  }
+ ?>
