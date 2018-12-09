@@ -11,7 +11,7 @@
         <!-- Bootstrap Core CSS -->
         <link href="/tinphp/admin/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/tinphp/admin/gui/public/admin/css/sb-admin.css" rel="stylesheet">
+        <link href="/tinphp/admin/gui/public/admin/css/style.css" rel="stylesheet">
         <!-- Custom Fonts -->
         <link href="/tinphp/admin/gui/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
@@ -38,7 +38,6 @@
             require_once __DIR__."/../../BUS/LoaiSanPhamBUS.php";    
             require_once __DIR__."/../../DAO/LoaiSanPhamDAO.php";
         ?>
-        <div class="container-fluid">
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -48,8 +47,8 @@
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Logout</a>
+                    <li>
+                        <a href="#" data-toggle="dropdown"><i class="fa fa-user"></i> Logout</a>
                     </li>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->

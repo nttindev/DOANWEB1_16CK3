@@ -58,9 +58,7 @@ require_once "db.php";
 		  }
 		  public function update($loaisanpham)
 		  {
-			 $sql="UPDATE sanpham 
-			 set TenLoaiSanPham='$loaisanpham->TenLoaiSanPham',BiXoa=$loaisanpham->BiXoa 
-			 Where MaLoaiSanPham=$sanpham->MaLoaiSanPham";
+			 $sql="UPDATE loaisanpham SET TenLoaiSanPham='$loaisanpham->TenLoaiSanPham', BiXoa = $loaisanpham->BiXoa where MaLoaiSanPham = $loaisanpham->MaLoaiSanPham";
 			 $this->ExecuteQuery($sql);
 		  } 
 	 }

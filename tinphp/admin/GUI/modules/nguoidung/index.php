@@ -45,8 +45,8 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     <th>Tên người dùng</th>
                     <th>Tên đăng nhập</th>
                     <th>Ngày sinh</th>
-                    <th>nơi sinh</th>
-                    <th>mật khẩu</th>
+                    <th>Nơi sinh</th>
+                    <th>Mật khẩu</th>
                     <th>Số điện thoại</th>
                     <th>Bị xóa</th>
                     <th>Sửa Xóa</th>
@@ -60,7 +60,7 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     <td><?php echo $item->TenDangNhap ?></td>
                     <td><?php echo $item->NgaySinh ?></td>
                     <td><?php echo $item->NoiSinh ?></td>
-                    <td><?php echo $item->MatKhau ?></td>
+                    <td>Check PHPadmin</td>
                     <td><?php echo $item->SDT ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
@@ -70,6 +70,6 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                 </tr>
                 <?php endforeach ?>
             </tbody>
-</table>            
+</table>  
 
 <?php require_once __DIR__."/../../layout/footer.php" ?>

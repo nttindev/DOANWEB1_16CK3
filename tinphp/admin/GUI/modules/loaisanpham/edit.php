@@ -8,8 +8,18 @@ $editsanpham=$loaisanphambus->fetchID($masp);
 if($_SERVER["REQUEST_METHOD"]=='POST'){
     $tenSanPham=$loaisanphambus->postInput('tenloai');
     $biXoa= $loaisanphambus->postInput('bixoa');
-                $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$biXoa,$masp);?>
-                    <script> window.location = "index.php"; </script><?php
+    $error=[];
+    if($loaisanphambus->postInput('bixoa')=='' or $loaisanphambus->postInput('tenloai')=='')
+    {
+        $error['bixoa']="mời bạn nhập vào mã loại sản phẩm";
+        $error['tenloai']="mời bạn nhập vào tên loại";
+    }
+    if(empty($error))
+    {
+        $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$biXoa,$masp);?>
+        <script> window.location = "index.php"; </script><?php
+    }
+                
         } ?>
                     <div class="row">
                         <div class="col-lg-12">

@@ -104,13 +104,7 @@ require_once "db.php";
 		  }
 		  public function update($sanpham)
 		  {
-			 $sql="UPDATE sanpham set TenSanPham='$sanpham->TenSanPham',
-			 AnhURL=$sanpham->AnhURL,GiaSanPham=$sanpham->GiaSanPham,
-			 NgayNhap='$sanpham->NgayNhap',MoTa='$sanpham->MoTa',
-			 XuatXu='$sanpham->XuatXu',
-			 MaLoaiSanPham=$sanpham->MaLoaiSanPham,
-			 MaHangSanXuat=$sanpham->MaHangSanXuat,
-			 BiXoa=$sanpham->BiXoa Where MaSanPham=$sanpham->MaSanPham";
+			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham=$sanpham->GiaSanPham,NgayNhap='$sanpham->NgayNhap',MoTa='$sanpham->MoTa',XuatXu='$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham";
 			 $this->ExecuteQuery($sql);
 		  }
 		  

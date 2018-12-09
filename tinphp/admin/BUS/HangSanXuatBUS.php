@@ -48,12 +48,13 @@
 				{
 					return $this->hangSanXuatDAO->update($loaisanpham);
 				}
-				public function Update_With_LoaiSanPham($tenHangSanXUat,$biXoa,$id)
+				public function Update_With_LoaiSanPham($tenSanPham,$loGo,$biXoa,$masp)
 				{
-					$loaisanpham = new LoaiSanPham();
-					$loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
-					$loaisanpham->BiXoa = $biXoa;
-					$loaisanpham->MaLoaiSanPham=$id;
+					$loaisanpham = new HangSanXuat();
+					$loaisanpham->TenHangSanXuat = $tenSanPham;
+					$loaisanpham->LogoURL = $loGo;
+					$loaisanpham->BiXoa=$biXoa;
+					$loaisanpham->MaHangSanXuat=$masp;
 					$this->hangSanXuatDAO->update($loaisanpham);
 				}
 	}

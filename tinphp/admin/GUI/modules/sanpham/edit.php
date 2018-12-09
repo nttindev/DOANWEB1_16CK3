@@ -31,7 +31,8 @@
         }
         if(empty($error))
         {
-                $sanphambus->Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$moTa,$ngayNhap,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
+                $sanphambus->Update_With_SanPham( $tenSanPham,$anhURL,$giaSanPham,$moTa,$ngayNhap,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
+               
                 ?><script>window.location = "index.php";</script> <?php
         }
     }

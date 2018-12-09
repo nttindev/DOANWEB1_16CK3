@@ -19,17 +19,6 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                                     <i class="fa fa-file"></i> Sản phẩm
                                 </li>
                             </ol>
-                            <div class="clearfix"></div>
-                            <?php   
-                                if(isset($_SESSION['success'])): ?>
-                                    <div class="lert alert-succsess">
-                                    <?php echo $_SESSION['success']; unset($_SESSION['success']) ?>
-                            <?php endif ;?>
-                            <?php   
-                                if(isset($_SESSION['error'])): ?>
-                                    <div class="lert alert-danger">
-                                    <?php echo $_SESSION['error']; unset($_SESSION['error']) ?>
-                            <?php endif ;?>
                         </div>
                     </div>
                     <!-- /.row -->

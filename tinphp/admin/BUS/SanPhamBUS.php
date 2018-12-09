@@ -31,7 +31,7 @@
 						$this->sanPhamDAO->insert($sanpham);
 		}
 		
-		  public function Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa)
+		  public function Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$id)
 			{
 				$sanpham = new SanPham();
 				$sanpham->TenSanPham = $tenSanPham;
@@ -43,6 +43,7 @@
 				$sanpham->MaLoaiSanPham = $maLoaiSanPham;
 				$sanpham->MaHangSanXuat = $maHangSanXuat;
 				$sanpham->BiXoa = $biXoa;
+				$sanpham->MaSanPham=$id;
 				$this->sanPhamDAO->Insert($sanpham);
 			}			
 		  public function delete ($sanpham )

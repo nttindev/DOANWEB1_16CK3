@@ -11,7 +11,7 @@ $loaisanphambus=new TaiKhoanBUS();
             $b= $loaisanphambus->postInput('tendn');
             $c= $loaisanphambus->postInput('ngaysinh');
             $d= $loaisanphambus->postInput('noisinh');
-            $e= $loaisanphambus->postInput('mk');
+            $e=hash($loaisanphambus->postInput('mk'),"hello");
             $f= $loaisanphambus->postInput('sdt');
         $error=[];
         if($a=='' or $b==''or  $c==''or  $d==''or  $e==''or  $f=='')
