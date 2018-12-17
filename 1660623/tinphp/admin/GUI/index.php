@@ -10,6 +10,9 @@ require_once __DIR__."/layout/header.php";
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-dashboard"></i>Home</a>
+                                    <h1>Hôm nay bán được </h1>
+                                    <?$dondathang=new DonDatHangBus();
+                                    $dondathang->thongkedoanhthu(); ?>
                                 </li>
                             </ol>
                         </div>

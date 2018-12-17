@@ -60,7 +60,23 @@ require_once "db.php";
 		  {
 			 $sql="UPDATE loaisanpham SET TenLoaiSanPham='$loaisanpham->TenLoaiSanPham', BiXoa = $loaisanpham->BiXoa where MaLoaiSanPham = $loaisanpham->MaLoaiSanPham";
 			 $this->ExecuteQuery($sql);
-		  } 
+		  }
+		  public function timkiem($seach)
+	 	{
+	 		$sql = "SELECT MaLoaiSanPham, TenLoaiSanPham,BiXoa from LoaiSanPham where TenLoaiSanPham like '%$seach%'";
+	 		$result = $this->ExecuteQuery($sql);
+	 		 $lstLoaiSanPham = array();
+	 		 while($row = mysqli_fetch_array($result))
+	 		 {
+	 		 	$loaiSanPham = new LoaiSanPham();
+	 		 	$loaiSanPham->MaLoaiSanPham = $row['MaLoaiSanPham'];
+	 		 	$loaiSanPham->TenLoaiSanPham = $row['TenLoaiSanPham'];
+	 		 	$loaiSanPham->BiXoa = $row['BiXoa'];
+	 		 	$lstLoaiSanPham[] = $loaiSanPham;
+	 		 }
+	 		 return $lstLoaiSanPham;
+
+		 }
 	 }
 
 

@@ -57,6 +57,10 @@
 					$loaisanpham->MaHangSanXuat=$masp;
 					$this->hangSanXuatDAO->update($loaisanpham);
 				}
+				public function timkiem($seach)
+	  	 {
+			return $this->hangSanXuatDAO->timkiem($seach);
+	  	 }
 	}
 
  ?>

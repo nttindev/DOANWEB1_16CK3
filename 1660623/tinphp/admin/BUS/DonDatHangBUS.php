@@ -10,7 +10,13 @@
    	   {
 	   	
 		return $this->donDatHangDAO->fetchAll();
-   	   }
+				}
+				public function fetchAll1($ma)
+	  {
+	
+	  	 return $this->donDatHangDAO->fetchAll1($ma);
+
+	  }
 		  public function fetchID($id )
 		  {
 			  
@@ -30,13 +36,22 @@
 		  {
 			return $this->donDatHangDAO->insert($data);
 		  }
-		  public function delete ($masp )
+		  public function delete($MaDonDatHang)
 		  {
-			return $this->donDatHangDAO->delete($masp);
+				return $this->donDatHangDAO->delete($MaDonDatHang);
 		  }
-		  public function update(array $data, array $conditions)
+			public function duyet($MaDonDatHang)
 		  {
-			  return $this->donDatHangDAO->update($data,$conditions);
+			  return $this->donDatHangDAO->duyet($MaDonDatHang);
+			}
+			public function timkiem($seach)
+			{
+				 
+				return $this->donDatHangDAO->timkiem($seach);
+			}
+			public function thongkedoanhthu()
+		  {
+			  return $this->donDatHangDAO->thongkedoanhthu();
 		  }
 	 }
  ?>

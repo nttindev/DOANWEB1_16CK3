@@ -3,14 +3,12 @@ $open="sanpham";
 require_once __DIR__."/../../layout/header.php";
 
 $sanphambus=new SanPhamBus();
-
-$sanphambus=$sanphambus->fetchAll(); ?>
+$masp=$sanphambus->postInput('name11');
+$sanphambus=$sanphambus->TimKiem($masp); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách sản phẩm
-                                <a href="add.php" class="btn btn-success">Thêm sản phẩm</a>
-                                
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -23,13 +21,8 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                         </div>
                     </div>
                     <!-- /.row -->
+                    
 <div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
-                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
-                                </form>
-                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">

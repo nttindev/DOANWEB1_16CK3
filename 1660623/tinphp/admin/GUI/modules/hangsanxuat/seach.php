@@ -1,22 +1,23 @@
 <?php
-$open="nguoidung";
+$open="hangsanxuat";
 require_once __DIR__."/../../layout/header.php";
 
-$taikhoan=new TaiKhoanBUS();
+$loaisanphambus=new HangSanXuatBUS();
 
-$taikhoan=$taikhoan->fetchAll(); ?>
+$masp=$loaisanphambus->postInput('name11');
+$loaisanphambus=$loaisanphambus->TimKiem($masp); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Danh sách tài khoản
-                                <a href="add.php" class="btn btn-success">Thêm tài khoản</a>
+                                Danh sách nhà sản xuất
+                                <a href="add.php" class="btn btn-success">Thêm loại nhà sản xuất</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Tài khoản
+                                    <i class="fa fa-file"></i> Loại nhà sản xuất
                                 </li>
                             </ol>
                             <div class="clearfix"></div>
@@ -34,12 +35,6 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
-                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
-                                </form>
-                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">
@@ -47,35 +42,27 @@ $taikhoan=$taikhoan->fetchAll(); ?>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Mã người dùng</th>
-                    <th>Tên người dùng</th>
-                    <th>Tên đăng nhập</th>
-                    <th>Ngày sinh</th>
-                    <th>Nơi sinh</th>
-                    <th>Mật khẩu</th>
-                    <th>Số điện thoại</th>
-                    <th>Bị xóa</th>
-                    <th>Sửa Xóa</th>
+                    <th>Mã hãng sản phẩm</th>
+                    <th>Tên hãng sản phẩm</th>
+                    <th>LogoURL</th>
+                    <th>Bị Xóa</th>
+                    <th>Thêm Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($taikhoan as $item):?>
+                <?php foreach($loaisanphambus as $item):?>
                 <tr>
-                    <td><?php echo $item->MaNguoiDung ?></td>
-                    <td><?php echo $item->TenNguoiDung ?></td>
-                    <td><?php echo $item->TenDangNhap ?></td>
-                    <td><?php echo $item->NgaySinh ?></td>
-                    <td><?php echo $item->NoiSinh ?></td>
-                    <td>Check PHPadmin</td>
-                    <td><?php echo $item->SDT ?></td>
+                    <td><?php echo $item->MaHangSanXuat ?></td>
+                    <td><?php echo $item->TenHangSanXuat ?></td>
+                    <td><img src="images/<?php echo $item->LogoURL ?>" alt="" width="50" height="75"></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
-</table>  
+</table>            
 
 <?php require_once __DIR__."/../../layout/footer.php" ?>

@@ -62,6 +62,22 @@ require_once "db.php";
 			
 			 $sql="UPDATE hangsanxuat SET TenHangSanXuat='$loaisanpham->TenHangSanXuat',LogoURL='$loaisanpham->LogoURL',BiXoa=$loaisanpham->BiXoa WHERE MaHangSanXuat=$loaisanpham->MaHangSanXuat";
 			 $this->ExecuteQuery($sql);
-		  } 
+		  }
+		  public function timkiem($seach)
+	  	 {
+	  	 	$sql ="SELECT MaHangSanXuat,TenHangSanXuat,LogoURL,BiXoa from HangSanXuat where TenHangSanXuat like '%$seach%'";
+	  	 	$result = $this->ExecuteQuery($sql);
+	  	 	$lstHangSanXuat = array();
+	  	 	while($row = mysqli_fetch_array($result))
+	  	 	{
+	  	 		$hangSanXuat = new HangSanXuat();
+	  	 		$hangSanXuat->MaHangSanXuat = $row['MaHangSanXuat'];
+	  	 		$hangSanXuat->TenHangSanXuat = $row['TenHangSanXuat'];
+	  	 		$hangSanXuat->LogoURL = $row['LogoURL'];
+	  	 		$hangSanXuat->BiXoa = $row['BiXoa'];
+	  	 		$lstHangSanXuat[] = $hangSanXuat;
+	  	 	}
+	  	 	return $lstHangSanXuat;
+	  	 }
 	  }
  ?>

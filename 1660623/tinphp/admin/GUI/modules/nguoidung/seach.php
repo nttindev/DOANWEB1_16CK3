@@ -4,12 +4,12 @@ require_once __DIR__."/../../layout/header.php";
 
 $taikhoan=new TaiKhoanBUS();
 
-$taikhoan=$taikhoan->fetchAll(); ?>
+$masp=$taikhoan->postInput('name11');
+$taikhoan=$taikhoan->TimKiem($masp); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách tài khoản
-                                <a href="add.php" class="btn btn-success">Thêm tài khoản</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -34,12 +34,6 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
-                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
-                                </form>
-                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">

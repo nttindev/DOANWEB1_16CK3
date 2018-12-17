@@ -9,7 +9,6 @@ $dondathang=$dondathang->fetchAll(); ?>
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách đơn đặt hàng
-                                <a href="add.php" class="btn btn-success">Thêm đơn đặt hàng</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -34,6 +33,12 @@ $dondathang=$dondathang->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
+<div class="form-group">
+<form action="seach.php" method="POST">
+                                <input class="pull-right" type="text" name="name11">
+                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
+                                </form>
+                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">
@@ -45,6 +50,8 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <th>Mã người dùng</th>
                     <th>Ngày lập</th>
                     <th>Tổng thành tiền</th>
+                    <th>Tình trạng</th>
+                    <th>Bị xóa</th>
                     <th>Sửa xóa</th>
                 </tr>
             </thead>
@@ -55,9 +62,12 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <td><?php echo $item->MaNguoiDung ?></td>
                     <td><?php echo $item->NgayLap ?></td>
                     <td><?php echo $item->TongThanhTien ?></td>
+                    <td><?php echo $item->TinhTrang ?></td>
+                    <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaDatHang=<?php echo $item->MaDatHang?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="ct.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

@@ -54,5 +54,11 @@
 				$loaisanpham->MaLoaiSanPham=$id;
 				$this->loaiSanPhamDAO->update($loaisanpham);
 			}
+			public function timkiem($seach)
+	 	{
+	 		
+			return $this->loaiSanPhamDAO->timkiem($seach);
+
+		 }
 	  }
  ?>

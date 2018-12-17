@@ -34,6 +34,12 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
+<div class="form-group">
+<form action="seach.php" method="POST">
+                                <input class="pull-right" type="text" name="name11">
+                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
+                                </form>
+                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">

@@ -1,18 +1,39 @@
-<?php 
+<?php
+require_once "db.php";
 class DonDatHangDAO extends DB
 {
-	  public function FetchAll()
+	  public function fetchAll()
 	  {
-	  	 $sql ="SELECT MaDatHang, MaNguoiDung, NgayLap,TongThanhTien from DonDatHang";
+	  	 $sql ="SELECT MaDonDatHang, MaNguoiDung, NgayLap,TongThanhTien,TinhTrang,BiXoa from DonDatHang";
 	  	 $result = $this->ExecuteQuery($sql);
 	  	 $lstDonDatHang = array();
 	  	 while($row = mysqli_fetch_array($result))
 	  	 {
 	  	 	$donDatHang = new DonDatHang();
-	  	 	$donDatHang->MaDatHang = $row['MaDatHang'];
+	  	 	$donDatHang->MaDatHang = $row['MaDonDatHang'];
 	  	 	$donDatHang->MaNguoiDung = $row['MaNguoiDung'];
 	  	 	$donDatHang->NgayLap = $row['NgayLap'];
-	  	 	$donDatHang->TongThanhTien =$row['TongThanhTien'];
+			$donDatHang->TongThanhTien =$row['TongThanhTien'];
+			$donDatHang->TinhTrang =$row['TinhTrang'];
+			$donDatHang->BiXoa =$row['BiXoa'];
+	  	 	$lstDonDatHang[] = $donDatHang;
+	  	 }
+	  	 return $lstDonDatHang;
+
+	  }
+	  public function fetchAll1($ma)
+	  {
+	  	 $sql ="SELECT MaChiTietDonDatHang, MaSanPham, SoLuong, GiaBan, MaDonDatHang FROM chitietdondathang WHERE MaDonDatHang=$ma";
+	  	 $result = $this->ExecuteQuery($sql);
+	  	 $lstDonDatHang = array();
+	  	 while($row = mysqli_fetch_array($result))
+	  	 {
+	  	 	$donDatHang = new ChiTietDonDatHang();
+	  	 	$donDatHang->MaChiTietDonDatHang = $row['MaChiTietDonDatHang'];
+	  	 	$donDatHang->MaSanPham = $row['MaSanPham'];
+	  	 	$donDatHang->SoLuong = $row['SoLuong'];
+			$donDatHang->GiaBan =$row['GiaBan'];
+			$donDatHang->MaDonDatHang =$row['MaDonDatHang'];
 	  	 	$lstDonDatHang[] = $donDatHang;
 	  	 }
 	  	 return $lstDonDatHang;
@@ -20,9 +41,7 @@ class DonDatHangDAO extends DB
 	  }
 	  public function fetchID($id )
 		  {
-			  $sql = "SELECT * FROM DonDatHang WHERE MaDatHang = $id ";
-			  $result = mysqli_query($this->link,$sql) or die("Lỗi  truy vấn fetchID " .mysqli_error($this->link));
-			  return mysqli_fetch_assoc($result);
+			  
 		  }
 		  public function postInput($string)
 		  {
@@ -34,104 +53,40 @@ class DonDatHangDAO extends DB
 		  {
 			  return isset($_GET[$string]) ? $_GET[$string] : '';
 		  }
-		  public function insert(array $data)
+		  public function delete($MaDonDatHang)
 		  {
-			  //code
-			  $sql = "INSERT INTO DonDatHang ";
-			  $columns = implode(',', array_keys($data));
-			  $values  = "";
-			  $sql .= '(' . $columns . ')';
-			  foreach($data as $field => $value) {
-				  if(is_string($value)) {
-					  $values .= "'". mysqli_real_escape_string($this->link,$value) ."',";
-				  } else {
-					  $values .= mysqli_real_escape_string($this->link,$value) . ',';
-				  }
-			  }
-			  $values = substr($values, 0, -1);
-			  $sql .= " VALUES (" . $values . ')';
-			  // _debug($sql);die;
-			  mysqli_query($this->link, $sql) or die("Lỗi  query  insert ----" .mysqli_error($this->link));
-			  return mysqli_insert_id($this->link);
+				$sql="DELETE chitietdondathang, dondathang FROM chitietdondathang, dondathang WHERE chitietdondathang.MaDonDatHang = dondathang.MaDonDatHang AND chitietdondathang.MaDonDatHang=$MaDonDatHang";
+				$this->ExecuteQuery($sql);
 		  }
-		  public function delete ($masp )
+		  public function duyet($MaDonDatHang)
 		  {
-			  $sql = "DELETE FROM DonDatHang WHERE MaDatHang = $masp ";
-  
-			  mysqli_query($this->link,$sql) or die (" Lỗi Truy Vấn delete   --- " .mysqli_error($this->link));
-			  return mysqli_affected_rows($this->link);
+			  $sql="UPDATE dondathang set tinhtrang=1 where MaDonDatHang=$MaDonDatHang";
+			  $this->ExecuteQuery($sql);
 		  }
-		  public function update(array $data, array $conditions)
+		  public function thongkedoanhthu()
 		  {
-			  $sql = "UPDATE DonDatHang";
-  
-			  $set = " SET ";
-  
-			  $where = " WHERE ";
-  
-			  foreach($data as $field => $value) {
-				  if(is_string($value)) {
-					  $set .= $field .'='.'\''. mysqli_real_escape_string($this->link, $this->xss_clean($value)) .'\',';
-				  } else {
-					  $set .= $field .'='. mysqli_real_escape_string($this->link, $this->xss_clean($value)) . ',';
-				  }
-			  }
-  
-			  $set = substr($set, 0, -1);
-  
-  
-			  foreach($conditions as $field => $value) {
-				  if(is_string($value)) {
-					  $where .= $field .'='.'\''. mysqli_real_escape_string($this->link, $this->xss_clean($value)) .'\' AND ';
-				  } else {
-					  $where .= $field .'='. mysqli_real_escape_string($this->link, $this->xss_clean($value)) . ' AND ';
-				  }
-			  }
-  
-			  $where = substr($where, 0, -5);
-  
-			  $sql .= $set . $where;
-			  // _debug($sql);die;
-  
-			  mysqli_query($this->link, $sql) or die( "Lỗi truy vấn Update -- " .mysqli_error());
-  
-			  return mysqli_affected_rows($this->link);
+			  $sql="SELECT * FROM dondathang WHERE dondathang.Ngaylap >= CURDATE() AND dondathang.Ngaylap < CURDATE() + INTERVAL 1 DAY";
+			  $this->ExecuteQuery($sql);
 		  }
-		  function xss_clean($data)
-		  {
-			  // Fix &entity\n;
-			  $data = str_replace(array('&amp;','&lt;','&gt;'), array('&amp;amp;','&amp;lt;','&amp;gt;'), $data);
-			  $data = preg_replace('/(&#*\w+)[\x00-\x20]+;/u', '$1;', $data);
-			  $data = preg_replace('/(&#x*[0-9A-F]+);*/iu', '$1;', $data);
-			  $data = html_entity_decode($data, ENT_COMPAT, 'UTF-8');
-  
-			  // Remove any attribute starting with "on" or xmlns
-			  $data = preg_replace('#(<[^>]+?[\x00-\x20"\'])(?:on|xmlns)[^>]*+>#iu', '$1>', $data);
-  
-			  // Remove javascript: and vbscript: protocols
-			  $data = preg_replace('#([a-z]*)[\x00-\x20]*=[\x00-\x20]*([`\'"]*)[\x00-\x20]*j[\x00-\x20]*a[\x00-\x20]*v[\x00-\x20]*a[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2nojavascript...', $data);
-			  $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*v[\x00-\x20]*b[\x00-\x20]*s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:#iu', '$1=$2novbscript...', $data);
-			  $data = preg_replace('#([a-z]*)[\x00-\x20]*=([\'"]*)[\x00-\x20]*-moz-binding[\x00-\x20]*:#u', '$1=$2nomozbinding...', $data);
-  
-			  // Only works in IE: <span style="width: expression(alert('Ping!'));"></span>
-			  $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?expression[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
-			  $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?behaviour[\x00-\x20]*\([^>]*+>#i', '$1>', $data);
-			  $data = preg_replace('#(<[^>]+?)style[\x00-\x20]*=[\x00-\x20]*[`\'"]*.*?s[\x00-\x20]*c[\x00-\x20]*r[\x00-\x20]*i[\x00-\x20]*p[\x00-\x20]*t[\x00-\x20]*:*[^>]*+>#iu', '$1>', $data);
-  
-			  // Remove namespaced elements (we do not need them)
-			  $data = preg_replace('#</*\w+:\w[^>]*+>#i', '', $data);
-  
-			  do
-			  {
-				  // Remove really unwanted tags
-				  $old_data = $data;
-				  $data = preg_replace('#</*(?:applet|b(?:ase|gsound|link)|embed|frame(?:set)?|i(?:frame|layer)|l(?:ayer|ink)|meta|object|s(?:cript|tyle)|title|xml)[^>]*+>#i', '', $data);
-			  }
-			  while ($old_data !== $data);
-  
-			  // we are done...
-			  return $data;
-		  }
+		  public function timkiem($seach)
+	  {
+	  	 $sql ="SELECT MaDonDatHang, MaNguoiDung, NgayLap,TongThanhTien,TinhTrang,BiXoa from DonDatHang where MaNguoiDung like '%$seach%'";
+	  	 $result = $this->ExecuteQuery($sql);
+	  	 $lstDonDatHang = array();
+	  	 while($row = mysqli_fetch_array($result))
+	  	 {
+	  	 	$donDatHang = new DonDatHang();
+	  	 	$donDatHang->MaDatHang = $row['MaDonDatHang'];
+	  	 	$donDatHang->MaNguoiDung = $row['MaNguoiDung'];
+	  	 	$donDatHang->NgayLap = $row['NgayLap'];
+			$donDatHang->TongThanhTien =$row['TongThanhTien'];
+			$donDatHang->TinhTrang =$row['TinhTrang'];
+			$donDatHang->BiXoa =$row['BiXoa'];
+	  	 	$lstDonDatHang[] = $donDatHang;
+	  	 }
+	  	 return $lstDonDatHang;
+
+	  }
 }
 
  ?>

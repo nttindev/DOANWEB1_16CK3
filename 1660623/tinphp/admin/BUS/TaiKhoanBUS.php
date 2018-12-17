@@ -50,14 +50,21 @@
 		 {
 			 return $this->taiKhoanDAO->update($loaisanpham);
 		 }
-		 public function Update_With_LoaiSanPham($tenLoaiSanPham,$biXoa,$id)
+		 public function Update_With_LoaiSanPham($tenNguoiDung,$tenDangNhap,$ngaySinh,$noiSinh,$sDT,$id)
 		 {
-			 $loaisanpham = new LoaiSanPham();
-			 $loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
-			 $loaisanpham->BiXoa = $biXoa;
-			 $loaisanpham->MaLoaiSanPham=$id;
-			 $this->taiKhoanDAO->update($loaisanpham);
+			$loaisanpham = new TaiKhoan();
+			$loaisanpham->TenNguoiDung= $tenNguoiDung;
+			$loaisanpham->TenDangNhap= $tenDangNhap;
+			$loaisanpham->NgaySinh=$ngaySinh;
+			$loaisanpham->NoiSinh=$noiSinh;
+			$loaisanpham->SDT=$sDT;
+			$loaisanpham->MaNguoiDung=$id;
+		   $this->taiKhoanDAO->update($loaisanpham);
 		 }
+		 public function timkiem($seach)
+   	   {
+		return $this->taiKhoanDAO->timkiem($seach);
+   	   }
    }
 
  ?>

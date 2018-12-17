@@ -64,10 +64,10 @@
                             <a href="/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tk người dùng</a>
+                            <a href="/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tài khoản người dùng</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'dondathang' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Danh sách dơn đặt hàng</a>
+                            <a href="/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Danh sách đơn đặt hàng</a>
                         </li>
                     </ul>
                 </div>

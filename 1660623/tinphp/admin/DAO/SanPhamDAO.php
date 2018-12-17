@@ -35,29 +35,6 @@ require_once "db.php";
 		}
 		  
 
-	  	public function TimKiem($Search)
-	  	{
-	  		$sql = "SELECT MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,SoLuongTon,SoLuongBan,SoLuotXem,MoTa,XuatXu,BiXoa,MaLoaiSanPham,MaHangSanXuat from SanPham where TenSanPham like '%$Search%'";
-	  		$result = $this->ExecuteQuery($sql);
-              if($result == null)
-              	return null;
-              $row = mysqli_fetch_array($result);
-              $sanPham = new SanPham();
-              $sanPham->MaSanPham = $row['MaSanPham'];
-	  			$sanPham->TenSanPham = $row['TenSanPham'];
-	  			$sanPham->AnhURL = $row['AnhURL'];
-	  			$sanPham->GiaSanPham= $row['GiaSanPham'];
-	  			$sanPham->SoLuongBan = $row['SoLuongBan'];
-	  			$sanPham->SoLuotXem = $row['SoLuotXem'];
-				$sanPham->MoTa = $row['MoTa'];
-				$sanPham->XuatXu = $row['XuatXu'];
-	  			$sanPham->MaLoaiSanPham = $row['MaLoaiSanPham'];
-	  			$sanPham->MaHangSanXuat=$row['MaHangSanXuat'];
-	  			$sanPham->NgayNhap = $row['NgayNhap'];
-	  			$sanPham->BiXoa = $row['BiXoa'];
-	  			$sanPham->SoLuongTon = $row['SoLuongTon'];
-	  			return $sanPham;
-		  }
 		  public function fetchID($MaSanPham)
 		  {
 			  $sql = "SELECT  MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,MoTa,XuatXu,MaLoaiSanPham,MaHangSanXuat,BiXoa FROM sanpham WHERE MaSanPham = $MaSanPham ";
@@ -107,6 +84,33 @@ require_once "db.php";
 			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham=$sanpham->GiaSanPham,NgayNhap='$sanpham->NgayNhap',MoTa='$sanpham->MoTa',XuatXu='$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham";
 			 $this->ExecuteQuery($sql);
 		  }
+		  public function TimKiem($Search)
+	  	{
+	  		$sql = "SELECT MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,SoLuongTon,SoLuongBan,SoLuotXem,MoTa,XuatXu,BiXoa,MaLoaiSanPham,MaHangSanXuat from SanPham where TenSanPham like '%$Search%'";
+	  		$result = $this->ExecuteQuery($sql);
+               $lstSanPhamTheoHang = array();
+
+           while( $row = mysqli_fetch_array($result))  
+           {
+           		$sanPham = new SanPham();
+              	$sanPham->MaSanPham       = $row['MaSanPham'];
+	  			$sanPham->TenSanPham    = $row['TenSanPham'];
+	  			$sanPham->AnhURL        = $row['AnhURL'];
+	  			$sanPham->GiaSanPham    = $row['GiaSanPham'];
+	  			$sanPham->SoLuongBan    = $row['SoLuongBan'];
+	  			$sanPham->SoLuotXem     = $row['SoLuotXem'];
+				  $sanPham->MoTa          = $row['MoTa'];
+				  $sanPham->XuatXu          = $row['XuatXu'];
+	  			$sanPham->MaLoaiSanPham = $row['MaLoaiSanPham'];
+	  			$sanPham->MaHangSanXuat =$row['MaHangSanXuat'];
+	  			$sanPham->NgayNhap      = $row['NgayNhap'];
+	  			$sanPham->BiXoa         = $row['BiXoa'];
+	  			$sanPham->SoLuongTon    = $row['SoLuongTon'];
+	  			$lstSanPhamTheoHang[] = $sanPham;
+           }
+              
+	  		  return $lstSanPhamTheoHang;
+	  	}
 		  
 	  }
  ?>

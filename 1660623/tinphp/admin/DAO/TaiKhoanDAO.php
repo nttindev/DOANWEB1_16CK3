@@ -68,11 +68,30 @@ require_once "db.php";
 		  }
 		  public function update($loaisanpham)
 		  {
-			 $sql="UPDATE sanpham 
-			 set TenLoaiSanPham='$loaisanpham->TenLoaiSanPham',BiXoa=$loaisanpham->BiXoa 
-			 Where MaLoaiSanPham=$sanpham->MaLoaiSanPham";
+			 $sql="UPDATE taikhoan SET TenNguoiDung='$loaisanpham->TenNguoiDung',TenDangNhap='$loaisanpham->TenDangNhap',NgaySinh='$loaisanpham->NgaySinh',NoiSinh='$loaisanpham->NoiSinh',SDT='$loaisanpham->SDT' WHERE MaNguoiDung=$loaisanpham->MaNguoiDung";
 			 $this->ExecuteQuery($sql);
 		  }
+		  public function timkiem($seach)
+   	   {
+	   	   	$sql = "SELECT MaNguoiDung,TenNguoiDung,TenDangNhap,NgaySinh,NoiSinh,MatKhau,SDT,BiXoa from TaiKhoan where TenNguoiDung like '%$seach%'";
+	   	   	$result = $this->ExecuteQuery($sql);
+	   	   	$lstTaiKhoan = array();
+   	   	    while($row = mysqli_fetch_array($result))
+   	   	    {
+   	   	        $taiKhoan = new TaiKhoan();
+   	   	        $taiKhoan->MaNguoiDung  = $row['MaNguoiDung'];
+   	   	        $taiKhoan->TenNguoiDung = $row['TenNguoiDung'];
+   	   	        $taiKhoan->TenDangNhap  = $row['TenDangNhap'];
+   	   	        $taiKhoan->NgaySinh     = $row['NgaySinh'];
+   	   	        $taiKhoan->NoiSinh      = $row['NoiSinh'];
+   	   	        $taiKhoan->MatKhau      = $row['MatKhau'];
+   	   	        $taiKhoan->SDT          = $row['SDT'];
+   	   	        $taiKhoan->BiXoa  		  = $row['BiXoa'];
+   	   	        $lstTaiKhoan[]          = $taiKhoan;
+
+   	   	    }
+   	   	    return $lstTaiKhoan;
+   	   }
    }
 
  ?>

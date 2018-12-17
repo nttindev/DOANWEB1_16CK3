@@ -68,6 +68,10 @@
 				$sanpham->BiXoa = $biXoa;
 				$sanpham->MaSanPham=$masp;
 				$this->sanPhamDAO->Update($sanpham);
-			}		
+			}
+			public function TimKiem($Search)
+	  	 {
+	  	 	return $this->sanPhamDAO->TimKiem($Search);
+	  	 }	
 	  }
  ?>

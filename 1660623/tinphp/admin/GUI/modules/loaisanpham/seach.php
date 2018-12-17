@@ -1,22 +1,23 @@
 <?php
-$open="nguoidung";
+$open="loaisanpham";
 require_once __DIR__."/../../layout/header.php";
 
-$taikhoan=new TaiKhoanBUS();
+$loaisanphambus=new LoaiSanPhamBus();
 
-$taikhoan=$taikhoan->fetchAll(); ?>
+$masp=$loaisanphambus->postInput('name11');
+$loaisanphambus=$loaisanphambus->TimKiem($masp); ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Danh sách tài khoản
-                                <a href="add.php" class="btn btn-success">Thêm tài khoản</a>
+                                Danh sách loại sản phẩm
+                                <a href="add.php" class="btn btn-success">Thêm loại sản phẩm</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
                                     <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Tài khoản
+                                    <i class="fa fa-file"></i> Loại sản phẩm
                                 </li>
                             </ol>
                             <div class="clearfix"></div>
@@ -34,12 +35,6 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
-                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
-                                </form>
-                        </div>
     <div class="col-lg-12">
 
         <div class="table-responsive">
@@ -47,35 +42,25 @@ $taikhoan=$taikhoan->fetchAll(); ?>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Mã người dùng</th>
-                    <th>Tên người dùng</th>
-                    <th>Tên đăng nhập</th>
-                    <th>Ngày sinh</th>
-                    <th>Nơi sinh</th>
-                    <th>Mật khẩu</th>
-                    <th>Số điện thoại</th>
+                    <th>Mã loại sản phẩm</th>
+                    <th>Tên loại sản phẩm</th>
                     <th>Bị xóa</th>
-                    <th>Sửa Xóa</th>
+                    <th>Thêm Xóa</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($taikhoan as $item):?>
+                <?php foreach($loaisanphambus as $item):?>
                 <tr>
-                    <td><?php echo $item->MaNguoiDung ?></td>
-                    <td><?php echo $item->TenNguoiDung ?></td>
-                    <td><?php echo $item->TenDangNhap ?></td>
-                    <td><?php echo $item->NgaySinh ?></td>
-                    <td><?php echo $item->NoiSinh ?></td>
-                    <td>Check PHPadmin</td>
-                    <td><?php echo $item->SDT ?></td>
+                    <td><?php echo $item->MaLoaiSanPham ?></td>
+                    <td><?php echo $item->TenLoaiSanPham ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="delete.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
-</table>  
+</table>            
 
-<?php require_once __DIR__."/../../layout/footer.php" ?>
+ <?php require_once __DIR__."/../../layout/footer.php" ?>
