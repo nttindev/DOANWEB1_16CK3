@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+﻿<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -9,11 +9,11 @@
         <meta name="author" content="">
         <title>QUẢN TRỊ ADMIN</title>
         <!-- Bootstrap Core CSS -->
-        <link href="/tinphp/admin/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/fulldoan/tinphp/admin/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
-        <link href="/tinphp/admin/gui/public/admin/css/style.css" rel="stylesheet">
+        <link href="/fulldoan/tinphp/admin/gui/public/admin/css/style.css" rel="stylesheet">
         <!-- Custom Fonts -->
-        <link href="/tinphp/admin/gui/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/fulldoan/admin/gui/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <?php
@@ -43,7 +43,7 @@
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header" >
-                    <a class="navbar-brand" href="/tinphp/admin/gui/">HOME</a>
+                    <a class="navbar-brand" href="/fulldoan/tinphp/admin/gui/">HOME</a>
                 </div>
                 <!-- Top Menu Items -->
                 <ul class="nav navbar-right top-nav">
@@ -52,7 +52,7 @@
                            <?php 
                                  if(isset($_SESSION['id_nguoidung']))
                                  {
-                                    echo '<a href="/tinphp/exDangxuat.php" >Logout</a>';
+                                    echo '<a href="/fulldoan/tinphp/exDangxuat.php" >Logout</a>';
                                  }
                                 else{
                                          echo "<script>window.open('../../../index.php','_self')</script>";
@@ -65,19 +65,19 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'hangsanxuat' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tài khoản người dùng</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tài khoản người dùng</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'dondathang' ? 'active' : '' ?>">
-                            <a href="/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Danh sách đơn đặt hàng</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Danh sách đơn đặt hàng</a>
                         </li>
                     </ul>
                 </div>
