@@ -26,7 +26,7 @@ margin:auto;
 .header
 {
 	 
-min-height: 218px;
+min-height: 214px;
 	 
 background-color: #250096ba;
 	 
@@ -34,7 +34,7 @@ margin:auto;
 }
 .footer{
 	 
-	 width: 960px;
+	 
 	min-height:70px;
 	background-color:#4caf50ad;
 	 
@@ -85,6 +85,7 @@ font-size: 19px;
 
 position: relative;
 }
+
 .tim-kiem
 {
 	position:relative;
@@ -139,7 +140,6 @@ ul
 .cha
 {
 	margin-top:10px;
-	width:1183px;
 }
  .div-menu-bu
  {
@@ -154,8 +154,7 @@ ul
 }
 .cha
 {
-	width: 960px;
-	height: 48px;
+	min-height: 114px;
 	/*  background-color:#66775552; */
 	margin:auto;
 	/*  position:relative; */
@@ -165,9 +164,9 @@ ul
 {
 	width: 152px;
 	height: 57px;
-	margin-left: 8px;
-	margin-top: 18px;
-	margin-bottom: 21px;
+	margin-left: 7px;
+	margin-top: 3px;
+	margin-bottom: 0px;
 	float:left;
 	border-radius: 12px;
 	text-align:center;
@@ -197,8 +196,6 @@ ul
   }
   .content
   {
-  	 
-width: 960px;
   	 
 margin: 12px auto;
   	 
@@ -328,6 +325,7 @@ min-height: 284px;
 {
 	float:left;
 	/* margin-left:10px; */
+	width: 259px;
 	margin: 0px 0 3px -1px;
 	overflow:hidden;
 }
@@ -445,16 +443,16 @@ min-height: 284px;
 }
 .ten-san-pham
 {
-	margin: 14px 11px;
-	font-size: 16px;
+	margin: 3px 8px;
+	font-size: 15px;
 }
 .xe-may
 {
      text-align:center;
      line-height:60px;
      font-size: 27px;
-     margin-bottom: 120px;
-     margin-top: 10px;
+     margin-bottom: 63px;
+     margin-top: 0px;
 }
 
 .footer
@@ -475,7 +473,7 @@ min-height: 284px;
 	float: right;
 	margin-botom: -40px;
 	position: absolute;
-	right: 10px;
+	right: 3px;
 	top: 6px;
 }
 .input
@@ -492,7 +490,7 @@ min-height: 284px;
 .a
 {
 	display:block;
-	padding: 5px;
+	padding: 3px;
 	color:#ffb84d;
 }
 
@@ -637,15 +635,15 @@ min-height: 284px;
 .cung-loai
 {
 	width: 280px;
-	height: 26px;
+	height: 28px;
 	background-color:#a6ff4d;
 	color: black;
 	border-radius:3px;
 	text-align:center;
-	line-height: 26px;
+	line-height: 28px;
 	border-radius: 10px;
-	margin-bottom: 25px;
-	margin-top: 122px;
+	margin-bottom: 24px;
+	margin-top: 140px;
 }
 .ban-chay-nhat
 {
@@ -657,10 +655,10 @@ margin-top: 46px;
 .ban-chay
 {
 	position:absolute;
-	top: 468px;
+	top: 490px;
 	background-color:#a6ff4d;
 	color: currentColor;
-	padding: 4px 22px;
+	padding: 3px 6px;
 	border-radius: 10px;
 }
 
@@ -670,7 +668,7 @@ margin-top: 46px;
 	padding: 9px;
 	background:#191919;
 	text-align:center;
-	margin: 46px auto;
+	margin: 1px auto;
 }
 
 .box h1
@@ -992,7 +990,6 @@ border-radius: 6px;
 
 .form_i
 {
-	width: 100%;
 	height: 103%;
 	border: 1px solid #aaff33;
 	margin: 46px auto;
@@ -1243,7 +1240,7 @@ margin: -7px -46px;
      
 }
 
-@media only screen and (max-width: 1009px) {
+/* @media only screen and (max-width: 1009px) {
      .container
      {
      	width: 892px;
@@ -1278,243 +1275,11 @@ margin: -7px -46px;
       	width:220px;
       	height:218px;
       }
-      .footer
-      {
-      	width: 892px;
-      }
-}
+      
+} */
 
-@media only screen and (max-width: 700px) { /* 700px */
-
-  .container
-  {
-  	width: 620px;
-  }
-  .navi
-  {
-  	font-size: 12px;
-  }
-  .sanpham
-  {
-  	width: 620px;
-  }
-  .thong-tin
-  {
-  	width: 261px;
-  }
-  .nut-nhan
-  {
-  	padding: 10px;
-  	margin:17px -88px;
-  }
-  .nut-nhan1
-  {
-  	padding: 10px;
-  	margin: 18px 31px;
-  }
-
-   .nam-san-pham-cung-loai
-   {
-   	width: 622px;
-   }
-
-  .con
-  {
-  	width: 96px;
-  }
-  .most
-  {
-  	width: 41%;
-  }
-  .most-popular
-  {
-  	width: 622px;
-  	height: 1643px;
-  }
-  .ban-chay-nhat
-  {
-  	width: 627px;
-  	min-height: 441px;
-  	
-  }
-  .ban-chay
-  {
-  	font-weight: 400;
-  	color: #3d1aff;
-  	padding:6px 10px;
-  	
-  	
-  }
-  .xe-may
-  {
-  	padding-left: 51px;
-  	font-size: 25px;
-  }
-  .most a
-  {
-  	width: 85%;
-  }
-  .most1
-  {
-  	height: 353px;
-  	width: 203px;
-  }
-  .img1
-  {
-  	width: 204px;
-  	height: 207px;
-  }
-  .ten-san-pham
-  {
-  	font-size: 14px;
-  	margin: 14px 0px;
-  }
-  .the-p
-  {
-  	font-size: 21px;
-  	margin: 39px 1px;
-  }
-  .footer
-  {
-  	width: 620px;
-  }
-  .button_1
-  {
-  	height: 22px;
-  	width: 70px;
-  	padding-left:16px;
-  }
-  input[type="search"]
-  {
-  	width:118px;
-  	right:84px;
-  	padding:3px;
-  }
-
-}
-
-@media only screen and (max-width: 500px) { /* 500px */
-
-	 
-		.container
-		{
-			width: 439px;
-		} 
-		.a
-		{
-			padding: 3px;
-			display:inline-block;
-			 float:inherit;
-		}
-		.logo
-		{
-			height:56px;
-		}
-		.navi
-		{
-		    margin-top:39px;
-		    margin-right:6px;
-			font-size: 15px;
-		}
-		.most
-		{
-			width: 49%;
-		}
-		.anh1
-		{
-	        height:57px;
-		}
-		.con
-		{
-			margin-left:1px;
-			width:72px;
-		}
-		.xe-may
-		{
-			width: 199px;
-		}
-		.nut-nhan
-		{
-			margin: 17px -4px;
-		}
-		.nut-nhan1
-		{
-			margin: 18px 27px;
-		}
-		.giohang
-		{
-			width: 35px;
-			height: 32px;
-		}
-		input[type="search"]
-		{
-			right:72px;
-		}
-		.button_1
-		{
-			right:1px;
-		}
-		.most-popular
-		{
-			width: 441px;
-			min-height:2006px;
-			
-		}
-		.xe-may
-		{
-			padding-left: 15px;
-			font-size: 19px;
-		}
-		.most a
-		{
-			width:81%;
-		}
-		 
-        .ban-chay
-        {
-        	top:502px;
-        	padding: 5px 10px;
-        }   
-        .ten-san-pham
-        {
-        	font-size: 14px;
-        	margin:14px 2px;
-        }
-	    .the-p
-	    {
-	    	margin:30px 3px;
-	    }
-	  .img1
-	  {
-	  	width: 218px;
-	  }
-	  .cung-loai
-	  {
-	  	width: 208px;
-	  	font-weight: 400;
-	  }
-	  .ban-chay-nhat
-	  {
-	  	width: 441px;
-	  }
-	  .sanpham
-	  {
-	  	width: 438px;
-	  	
-	  }
-	  .thong-tin
-	  {
-	  	width: 438px;
-	  }
-	  .nam-san-pham-cung-loai
-	  {
-	  	width: 456px;
-	  }
-	  .footer
-	  {
-	  	width: 440px;
-	  }
-}
+ 
+ 
 .tien
 {
 	margin:2px 2px;
@@ -1846,3 +1611,331 @@ font-size: 12px;
 {
 	min-height:300px;
 }
+.cung-loai-new
+{
+	width: 280px;
+	height: 28px;
+	background-color:#a6ff4d;
+	color: black;
+	border-radius:3px;
+	text-align:center;
+	line-height: 28px;
+	border-radius: 10px;
+	margin-bottom: 24px;
+	margin-top: 140px;
+}
+
+@media only screen and (max-width: 840px) {
+
+
+}
+@media only screen and (max-width: 992px) { /* laptop desctop */
+	 .container
+	 {
+	 	width: 746px;
+	 }
+	 .con
+	 {
+	 	width: 240px;
+	 	margin-bottom: 10px;
+	 }
+	  .logout
+	  {
+	  	left:204px;
+	  	top:32px;
+	  }
+	 .most
+	 {
+	 	width: 31%;
+	 }
+	 .img1
+	 {
+	 	width: 230px;
+	 	height: 254px;
+	 }
+	 .most1
+	 {
+	 	padding-left: 15px;
+	 	height: 371.5px;
+	 }
+		.navi
+		{
+			font-size: 17px;
+		}
+	 .xe-may
+	 {
+	 	padding: 0px 256px;
+	 }
+	 .most-popular
+	 {
+	 	min-height:2115px;
+	 }
+	 .ban-chay
+	 {
+	 	top: 740px;
+	 }
+	 .form_i
+	 {
+	 	margin: 160px auto;
+	 }
+	 .box
+	 {
+	 	margin: 138px auto;
+	 }
+	  .img-right
+	  {
+	  	width: 265px;
+	  	height: 400px;
+	  }
+	  .thong-tin
+	  {
+	  	width: 481px;
+	  	height: 400px;
+	  }
+	  .img-sanpham
+	  {
+	  	width: 262px;
+	  	height: 278px;
+	  }
+	  input[type="search"]
+	  {
+	  	top: 5px;
+	  	right: 84px;
+	  	padding: 5px;
+	  }
+		.button_1
+		{
+			right: 3px;
+			top: 6px;
+			height: 28px;
+		}
+	}
+
+@media only screen and (max-width: 768px) {  /* landscape tablets */
+	.container
+	{
+		width: 527px;
+	}
+	.img1
+	 {
+	 	width: 245px;
+	 	height: 254px;
+	 }
+	.button_1
+	{
+		height: 27px;
+		right: 18px;
+		top: 37px;
+		padding-left: 8px;
+	}
+	.giohang
+	{
+		width: 37px;
+		height: 26px;
+	}
+	input[type="search"]
+	{
+		padding: 4px;
+		top: 37px;
+		right: 90px;
+	}
+	.navi
+	{
+		margin-right: 6px;
+		font-size: 15px;
+	}
+	.div-menu-bu
+	{
+		margin-top: 45px;
+	}
+	.span-soluong
+	{
+		top:-50px;
+	}
+	.con
+	{
+		width: 255px;
+	}
+	.most
+	{
+		width: 48%;
+	}
+	.xe-may
+	{
+		padding: 0px 137px;
+	}
+	.most1
+	{
+		padding-left: 8px;
+	}
+	.most-popular
+	{
+		min-height: 2616px;
+	}
+	.ban-chay
+	{
+		top: 835px;
+	}
+	.box
+	 {
+	 	margin: 190px auto;
+	 }
+	 .form_i
+	 {
+	 	margin: 190px auto;
+	 }
+	 .thong-tin
+	 {
+	 	margin-bottom:10px;
+	 }
+	 .sanpham
+	  {
+	  	min-height:629px;
+	  }
+	  .img-right
+	  {
+	  	width: 260px;
+	  	height: 513px;
+	  }
+	  .img-sanpham
+	  {
+	  	width: 255px;
+	  	height: 279px;
+	  }
+	  .thong-tin
+	  {
+	  	width: 266px;
+	  	height: 513px;
+	  }
+		.nut-nhan
+		{
+			margin: 18px -88px;
+			padding: 9px;
+		}
+		.nut-nhan1
+		{
+			margin: 18px 22px;
+			padding: 9px;
+		}
+
+}	
+
+@media only screen and (max-width: 600px) {
+		.container
+		{
+			width: 355px;
+		}
+		input[type="search"]
+		{
+			 width: 132px;
+			top: 34px;
+			right: 68px;
+		}
+		.button_1
+		{
+			height: 27px;
+			right: 0px;
+			top: 34px;
+			 
+		}
+		.navi
+		{
+			font-size: 13px;
+			margin-right: -1px;
+		}
+		.logo
+		{
+			width: 108px;
+			height: 59px;
+		}
+		.con
+		{
+			width: 169px;
+			margin-top: 15px;
+			margin-bottom: 10px;
+		}
+		.most
+		{
+			width: 69%;
+		}
+		.xe-may
+		{
+			padding: 0px 55px;
+		}
+		.most1
+		{
+			padding: 0 54px;
+		}
+		.ban-chay
+		{
+			top: 838px;
+		}
+		.most-popular
+			{
+				min-height: 4667px;
+			}
+			.logout
+			{
+				left:149px;
+				top:5px;	
+			}
+			input[type="search"]
+			{
+				top: 64px;
+				right: 221px;
+			}
+
+			.button_1
+			{
+				right: 151px;
+				top: 64px;
+			}
+			.main-wrapper
+			{
+				margin-left: 20px;
+				width: 149px;
+				height: 20px;
+				font-size:15px
+			}
+			.kiem-tra-don-hang
+			{
+				right: 8px;
+				top: 73px;
+				font-size:13px;
+			}
+			.img-sanpham
+			{
+				width: 354px;
+				height: 338px;
+			}
+			.img-right
+			{
+				width: 354px;
+				height: 341px;
+			}
+			.thong-tin
+			{
+				width: 354px;
+				
+			}
+			.nut-nhan
+			{
+				margin: 18px 1px;
+			}
+			.nut-nhan1
+			{
+				margin: 18px 10px;
+			}
+			.sanpham
+			{
+				min-height:929px;
+			}
+	   
+	}
+
+	progress
+	{
+		width: 228px;
+	}
+
+	 

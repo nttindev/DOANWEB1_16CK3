@@ -5,7 +5,7 @@
 				 
 				 
 			<div class="most-popular" id="cha-di-chuyen">
-						
+				<div class="bao-loai-sanpham">
 					<?php
 					//layLoaiSanPham();
 				    $loaiSanPhamBUS = new LoaiSanPhamBUS();
@@ -22,6 +22,8 @@
 		   </div>';
 				     }
 					?>
+				</div>	
+					
 					
 				 
 				  

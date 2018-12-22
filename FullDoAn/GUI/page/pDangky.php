@@ -147,7 +147,7 @@
              
        
        	 <span class="spmatkhau">Mật Khẩu</span><input type="password" name="password" class="mat-khau" id="password"><br>
-            <progress max="100" value="0" id="strength" style="width: 228px;" class="do-manh"></progress>
+            <progress max="100" value="0" id="strength"   class="do-manh"></progress>
        	<span class="spxacnhan">Xác Nhận Mật Khẩu</span><input type="password" name="xacnhan_password" class="lai-mat-khau">
 
        
