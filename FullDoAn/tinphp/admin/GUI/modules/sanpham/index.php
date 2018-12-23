@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="sanpham";
 require_once __DIR__."/../../layout/header.php";
 
@@ -14,7 +14,7 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm
@@ -23,13 +23,17 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                         </div>
                     </div>
                     <!-- /.row -->
-<div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
+                    <div class="row">
+    <div class="col-lg-12">
+    <div class="form-group">
+                        <form action="seach.php" method="POST">
+                                <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
                         </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-lg-12">
 
         <div class="table-responsive">
@@ -58,7 +62,7 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                 <tr>
                     <td><?php echo $item->MaSanPham  ?></td>
                     <td><?php echo $item->TenSanPham ?></td>
-                    <td><img src="images/<?php echo $item->AnhURL ?>" alt="" width="50" height="75"></td>
+                    <td><img src="../../../../../GUI/images/<?php echo $item->AnhURL ?>" alt="" width="50" height="75"></td>
                     <td><?php echo $item->GiaSanPham ?></td>
                     <td><?php echo $item->NgayNhap ?></td>
                     <td><?php echo $item->SoLuongTon ?></td>

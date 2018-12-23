@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     $open="sanpham";
     require_once __DIR__."/../../layout/header.php";
     $sanphambus=new SanPhamBus();
@@ -9,6 +9,7 @@
         $anhURL=$sanphambus->postInput('anhurl');
         $giaSanPham= $sanphambus->postInput('giasanpham');
         $ngayNhap= $sanphambus->postInput('ngaynhap');
+        $slt= $sanphambus->postInput('ton');
         $moTa = $sanphambus->postInput('mota');
         $xuatXu= $sanphambus->postInput('xuatxu');
         $maLoaiSanPham= $sanphambus->postInput('maloai');
@@ -17,7 +18,7 @@
         $error=[];
         if($sanphambus->postInput('tensanpham')=='' or $sanphambus->postInput('anhurl')==''or $sanphambus->postInput('giasanpham')==''
         or $sanphambus->postInput('ngaynhap')==''or $sanphambus->postInput('mota')==''or $sanphambus->postInput('xuatxu')=='' 
-        or $sanphambus->postInput('maloai')==''or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('bixoa')=='')
+        or $sanphambus->postInput('maloai')==''or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('bixoa')=='' or $slt=='')
         {
             $error['tensanpham']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
@@ -31,7 +32,7 @@
         }
         if(empty($error))
         {
-                $sanphambus->Update_With_SanPham( $tenSanPham,$anhURL,$giaSanPham,$moTa,$ngayNhap,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
+                $sanphambus->Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
                
                 ?><script>window.location = "index.php";</script> <?php
         }
@@ -44,10 +45,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa sản phẩm
@@ -89,6 +90,13 @@
                             <?php endif ?>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlInput1">Số lượng tồn</label>
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="ton" value="<?php echo $editsanpham->SoLuongTon ?>">
+                            <?php if(isset($error['ton'])): ?>        
+                            <p class="text-danger"><?php echo $error['ton']?></p>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota" ><?php echo $editsanpham->MoTa?></textarea>
                             <?php if(isset($error['mota'])): ?>        
@@ -120,12 +128,11 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã hãng sản xuất</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="mahang">
-                            <option>1</option>
-                            <option>2</option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
                             <option>6</option>
+                            <option>7</option>
                             </select>
                             <?php if(isset($error['mahang'])): ?>        
                             <p class="text-danger"><?php echo $error['mahang']?></p>

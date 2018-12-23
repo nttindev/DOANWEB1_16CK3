@@ -17,10 +17,10 @@
 			  	 return $this->donDatHangDAO->fetchAll1($ma);
 
 			  }
-		  public function fetchID($id )
+		  public function fetchID($id)
 		  {
 			  
-			return $this->donDatHangDAO->fetchID();
+			return $this->donDatHangDAO->fetchID($id);
 		  }
 		  public function postInput($string)
 		  {
@@ -31,10 +31,6 @@
 		  public function  getInput($string)
 		  {
 			  return $this->donDatHangDAO->getInput($string);
-		  }
-		  public function insert(array $data)
-		  {
-			return $this->donDatHangDAO->insert($data);
 		  }
 		  public function delete($MaDonDatHang)
 		  {
@@ -52,6 +48,39 @@
 			public function thongkedoanhthu()
 		  {
 			  return $this->donDatHangDAO->thongkedoanhthu();
-		  }
+			}
+			public function insert($dondathang)
+        {
+					return $this->donDatHangDAO->insert($dondathang);
+		}
+		public function Insert_With_SanPham($a,$b,$c,$d,$e,$f)
+		{
+			$loaisanpham = new DonDatHang();
+			$loaisanpham->MaDonDatHang = $a;
+			$loaisanpham->MaNguoiDung = $b;
+			$loaisanpham->NgayLap=$c;
+			$loaisanpham->TongThanhTien=$d;
+			$loaisanpham->TinhTrang=$e;
+			$loaisanpham->BiXoa=$f;
+			$this->donDatHangDAO->Insert($loaisanpham);
+		}
+		public function update($dondathang)
+		  {
+				return $this->donDatHangDAO->update($dondathang);
+			 
+			}
+			public function Update_With_SanPham($a,$b,$c,$d,$e,$f)
+		{
+			$loaisanpham = new DonDatHang();
+			$loaisanpham->MaDonDatHang = $a;
+			$loaisanpham->MaNguoiDung = $b;
+			$loaisanpham->NgayLap=$c;
+			$loaisanpham->TongThanhTien=$d;
+			$loaisanpham->TinhTrang=$e;
+			$loaisanpham->BiXoa=$f;
+			$this->donDatHangDAO->update($loaisanpham);
+		}
+
+
 	 }
  ?>

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="nguoidung";
 require_once __DIR__."/../../layout/header.php";
 
@@ -13,7 +13,7 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Tài khoản
@@ -34,14 +34,18 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
 <div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
+    <div class="col-lg-12">
+    <div class="form-group">
+                        <form action="seach.php" method="POST">
+                                <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
                         </div>
-    <div class="col-lg-12">
+    </div>
+</div>
+<div class="row">
 
+    <div class="col-lg-12">
         <div class="table-responsive">
             
         <table class="table table-bordered table-hover">

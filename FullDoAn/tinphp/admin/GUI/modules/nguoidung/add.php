@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="nguoidung";
 require_once __DIR__."/../../layout/header.php";
 
@@ -34,10 +34,10 @@ $loaisanphambus=new TaiKhoanBUS();
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/loaisanpham/index.php">Tài khoản</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/index.php">Tài khoản</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm tài khoản

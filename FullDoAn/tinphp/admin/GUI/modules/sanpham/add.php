@@ -1,36 +1,42 @@
-<?php
+﻿<?php
     $open="sanpham";
     require_once __DIR__."/../../layout/header.php";
     $sanphambus=new SanPhamBus();
     if($_SERVER["REQUEST_METHOD"]=='POST')
     {
+        
         $tenSanPham=$sanphambus->postInput('tensanpham');
         $anhURL=$sanphambus->postInput('anhurl');
         $giaSanPham= $sanphambus->postInput('giasanpham');
         $ngayNhap= $sanphambus->postInput('ngaynhap');
+        $slt= $sanphambus->postInput('ton');
         $moTa = $sanphambus->postInput('mota');
         $xuatXu= $sanphambus->postInput('xuatxu');
         $maLoaiSanPham= $sanphambus->postInput('maloai');
         $maHangSanXuat= $sanphambus->postInput('mahang');
         $biXoa= $sanphambus->postInput('bixoa');
         $error=[];
-        if($tenSanPham=='' or $anhURL==''or $giaSanPham==''
+        if($tenSanPham=='' or $giaSanPham=='' or $anhURL==''
         or $ngayNhap==''or $moTa==''or $xuatXu=='' 
-        or $maLoaiSanPham==''or $maHangSanXuat==''or $biXoa=='')
+        or $maLoaiSanPham==''or $maHangSanXuat==''or $biXoa=='' or $slt=='')
         {
             $error['tensanpham']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
             $error['maloai']="mời bạn nhập vào mã loại sản phẩm";
+            $error['anhurl']="mời bạn nhập vào ảnh url sản phẩm";
             $error['giasanpham']="mời bạn nhập vào giá sản phẩm";
             $error['mota']="mời bạn nhập vào mô tả sản phẩm";
-            $error['anhurl']="mời bạn chọn ảnhurl sản phẩm";
             $error['xuatxu']="mời bạn nhập vào xuất xứ sản phẩm";
             $error['ngaynhap']="mời bạn nhập vào ngày nhập sản phẩm";
             $error['bixoa']="mời bạn nhập vào tt sản phẩm";
+            $error['ton']="mời bạn nhập vào số lượng tồn sản phẩm";
         }
         if(empty($error))
         {
-                $sanphambus->Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa); ?>
+                    $name = $sanphambus->fileInput('anhurl');
+                    $tmp_name = $sanphambus->tfileInput('anhurl');
+                    move_uploaded_file($tmp_name, $name);
+                    $sanphambus->Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa); ?>
                     <script> window.location = "index.php"; </script><?php
         }
     }
@@ -42,10 +48,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm sản phẩm
@@ -87,6 +93,13 @@
                             <?php endif ?>
                         </div>
                         <div class="form-group">
+                            <label for="exampleFormControlInput1">Số lượng tồn</label>
+                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="ton">
+                            <?php if(isset($error['ton'])): ?>        
+                            <p class="text-danger"><?php echo $error['ton']?></p>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota"></textarea>
                             <?php if(isset($error['mota'])): ?>        
@@ -118,12 +131,11 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã hãng sản xuất</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="mahang">
-                            <option>1</option>
-                            <option>2</option>
                             <option>3</option>
                             <option>4</option>
                             <option>5</option>
                             <option>6</option>
+                            <option>7</option>
                             </select>
                             <?php if(isset($error['mahang'])): ?>        
                             <p class="text-danger"><?php echo $error['mahang']?></p>

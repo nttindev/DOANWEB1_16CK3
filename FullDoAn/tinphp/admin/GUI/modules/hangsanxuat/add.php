@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="hangsanxuat";
 require_once __DIR__."/../../layout/header.php";
 
@@ -19,6 +19,9 @@ $loaisanphambus=new HangSanXuatBUS();
         }
         if(empty($error))
         {
+                    $tmp_name = $_FILES["logo"]["tmp_name"];
+                    $name = $_FILES["logo"]["name"];
+                    move_uploaded_file($tmp_name, "../../../../../GUI/images/$name");
                 $id_insert =$loaisanphambus->Insert_With_SanPham($tenloaisanpham,$loGo,$bixoa); ?>
                     <script> window.location = "index.php"; </script><?php
         }
@@ -31,10 +34,10 @@ $loaisanphambus=new HangSanXuatBUS();
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm mã loại sản phẩm
@@ -63,7 +66,7 @@ $loaisanphambus=new HangSanXuatBUS();
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Bị xóa</label>
-                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="3" name="bixoa">
+                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="0" name="bixoa">
                             <?php if(isset($error['bixoa'])): ?>        
                             <p class="text-danger"><?php echo $error['bixoa']?></p>
                             <?php endif ?>

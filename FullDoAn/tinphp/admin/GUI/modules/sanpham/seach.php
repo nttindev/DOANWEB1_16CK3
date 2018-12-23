@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="sanpham";
 require_once __DIR__."/../../layout/header.php";
 
@@ -12,7 +12,7 @@ $sanphambus=$sanphambus->TimKiem($masp); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm

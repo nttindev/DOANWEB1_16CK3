@@ -39,10 +39,25 @@ class DonDatHangDAO extends DB
 	  	 return $lstDonDatHang;
 
 	  }
-	  public function fetchID($id )
-		  {
-			  
-		  }
+	  public function fetchID($MaDatHang)
+	  {
+		$sql = "SELECT MaDonDatHang,MaNguoiDung, NgayLap,TongThanhTien,TinhTrang,BiXoa from DonDatHang where MaDonDatHang='$MaDatHang'";
+		$rs=$this->ExecuteQuery($sql);
+		if($rs==null)
+			return null;
+
+			$row = mysqli_fetch_array($rs);
+			@extract($row);
+			$donDatHang = new DonDatHang();
+			$donDatHang->MaDatHang = $MaDatHang;
+	  	 	$donDatHang->MaNguoiDung = $MaNguoiDung;
+	  	 	$donDatHang->NgayLap = $NgayLap;
+			$donDatHang->TongThanhTien =$TongThanhTien;
+			$donDatHang->TinhTrang =$TinhTrang;
+			$donDatHang->BiXoa =$BiXoa;
+	  	 	$lstDonDatHang[] = $donDatHang;
+		  return $donDatHang;
+	  }
 		  public function postInput($string)
 		  {
 			  $xxx = $string.'';
@@ -88,6 +103,18 @@ class DonDatHangDAO extends DB
 	  	 return $lstDonDatHang;
 
 	  }
+	  public function insert($dondathang)
+        {
+			$sql = "INSERT INTO dondathang(MaDonDatHang, MaNguoiDung, NgayLap, TongThanhTien, TinhTrang, BiXoa)
+			VALUES ('$dondathang->MaDonDatHang','$dondathang->MaNguoiDung','$dondathang->NgayLap','$dondathang->TongThanhTien','$dondathang->TinhTrang','$dondathang->BiXoa')";
+			$result = $this->ExecuteQuery($sql);
+		}
+		public function update($dondathang)
+		  {
+			
+			 $sql="UPDATE dondathang SET MaNguoiDung=$dondathang->MaNguoiDung,NgayLap='$dondathang->NgayLap',$dondathang->TongThanhTien,TinhTrang=$dondathang->TinhTrang,BiXoa=$dondathang->BiXoa WHERE MaDonDatHang='$dondathang->MaDatHang'";
+			 $this->ExecuteQuery($sql);
+		  }
 }
 
  ?>

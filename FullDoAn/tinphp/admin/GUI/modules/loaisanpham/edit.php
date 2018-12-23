@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 $open="loaisanpham";
 require_once __DIR__."/../../layout/header.php";
@@ -8,15 +8,16 @@ $editsanpham=$loaisanphambus->fetchID($masp);
 if($_SERVER["REQUEST_METHOD"]=='POST'){
     $tenSanPham=$loaisanphambus->postInput('tenloai');
     $biXoa= $loaisanphambus->postInput('bixoa');
+    $logo= $loaisanphambus->postInput('logo');
     $error=[];
-    if($loaisanphambus->postInput('bixoa')=='' or $loaisanphambus->postInput('tenloai')=='')
+    if($loaisanphambus->postInput('bixoa')=='' or $loaisanphambus->postInput('tenloai')=='' or $logo=='')
     {
         $error['bixoa']="mời bạn nhập vào mã loại sản phẩm";
         $error['tenloai']="mời bạn nhập vào tên loại";
     }
     if(empty($error))
     {
-        $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$biXoa,$masp);?>
+        $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$logo,$biXoa,$masp);?>
         <script> window.location = "index.php"; </script><?php
     }
                 
@@ -28,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa loại sản phẩm
@@ -51,8 +52,15 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             <?php endif ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlSelect1">Bi Xoa</label>
-                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="3" name="bixoa" value="<?php echo $editsanpham->BiXoa;?>">
+                            <label for="exampleFormControlFile1">Ảnh URl</label>
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="logo">
+                            <?php if(isset($error['logo'])): ?>        
+                            <p class="text-danger"><?php echo $error['logo']?></p>
+                            <?php endif ?>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Bi Xóa</label>
+                            <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="0" name="bixoa" value="<?php echo $editsanpham->BiXoa;?>">
                             <?php if(isset($error['bixoa'])): ?>        
                             <p class="text-danger"><?php echo $error['bixoa']?></p>
                             <?php endif ?>

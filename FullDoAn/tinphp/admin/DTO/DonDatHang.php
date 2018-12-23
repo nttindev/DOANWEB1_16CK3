@@ -8,18 +8,13 @@ class DonDatHang
 	  var $TongThanhTien;
 	  var $TinhTrang;
 	  var $BiXoa;
-	  var $MaChiTietDonDatHang;
-	  var $MaSanPham;
-	  var $SoLuong;
-	  var $GiaBan;
-	  var $MaDonDatHang;
 	  public function __construct()
 	  {
-	  	$this->MaDatHang = 0;
+	  	$this->MaDatHang = '';
 	  	$this->MaNguoiDung =0;
 	  	$this->NgayLap = "2017-02-19";
 		  $this->TongThanhTien = 0;
-		  $this->TinhTrang='';
+		  $this->TinhTrang=0;
 		  $this->BiXoa=0;
 	  }
 

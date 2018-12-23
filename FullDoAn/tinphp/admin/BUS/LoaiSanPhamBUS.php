@@ -31,10 +31,11 @@
 						$this->loaiSanPhamDAO->insert($loaisanpham);
 		}
 		
-		  public function Insert_With_SanPham($tenLoaiSanPham,$biXoa)
+		  public function Insert_With_SanPham($tenLoaiSanPham,$logo,$biXoa)
 			{
 				$loaisanpham = new LoaiSanPham();
 				$loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
+				$loaisanpham->logo=$logo;
 				$loaisanpham->BiXoa = $biXoa;
 				$this->loaiSanPhamDAO->Insert($loaisanpham);
 			}			
@@ -46,10 +47,11 @@
 		  {
 			  return $this->loaiSanPhamDAO->update($loaisanpham);
 			}
-			public function Update_With_LoaiSanPham($tenLoaiSanPham,$biXoa,$id)
+			public function Update_With_LoaiSanPham($tenLoaiSanPham,$hinhURL,$biXoa,$id)
 			{
 				$loaisanpham = new LoaiSanPham();
 				$loaisanpham->TenLoaiSanPham = $tenLoaiSanPham;
+				$loaisanpham->logo = $hinhURL;
 				$loaisanpham->BiXoa = $biXoa;
 				$loaisanpham->MaLoaiSanPham=$id;
 				$this->loaiSanPhamDAO->update($loaisanpham);

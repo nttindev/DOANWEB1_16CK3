@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="loaisanpham";
 require_once __DIR__."/../../layout/header.php";
 
@@ -13,7 +13,7 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Loại sản phẩm
@@ -33,15 +33,19 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                         </div>
                     </div>
                     <!-- /.row -->
-<div class="row">
-<div class="form-group">
-<form action="seach.php" method="POST">
-                                <input class="pull-right" type="text" name="name11">
+                    <div class="row">
+    <div class="col-lg-12">
+    <div class="form-group">
+                        <form action="seach.php" method="POST">
+                                <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
                         </div>
-    <div class="col-lg-12">
+    </div>
+</div>
+<div class="row">
 
+    <div class="col-lg-12">
         <div class="table-responsive">
             
         <table class="table table-bordered table-hover">
@@ -49,6 +53,7 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                 <tr>
                     <th>Mã loại sản phẩm</th>
                     <th>Tên loại sản phẩm</th>
+                    <th>Hình URL</th>
                     <th>Bị xóa</th>
                     <th>Thêm Xóa</th>
                 </tr>
@@ -58,6 +63,7 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                 <tr>
                     <td><?php echo $item->MaLoaiSanPham ?></td>
                     <td><?php echo $item->TenLoaiSanPham ?></td>
+                    <td><img src="../../../../../GUI/images/<?php echo $item->logo ?>" alt="" width="50" height="35"></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Sửa</a>

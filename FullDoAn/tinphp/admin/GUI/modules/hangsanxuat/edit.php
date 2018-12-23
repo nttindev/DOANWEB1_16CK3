@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 $open="hangsanxuat";
 require_once __DIR__."/../../layout/header.php";
 $loaisanphambus=new HangSanXuatBUS();
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm mã loại sản phẩm

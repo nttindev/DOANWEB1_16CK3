@@ -16,6 +16,14 @@
 			  
 			return $this->sanPhamDAO->fetchID($MaSanPham);
 			}
+			public function fileInput($string)
+		  {
+			  return $this->sanPhamDAO->fileInput($string);
+			}
+			public function tfileInput($string)
+		  {
+			  return $this->sanPhamDAO->tfileInput($string);
+		  }
 		  public function postInput($string)
 		  {
 			  
@@ -31,7 +39,7 @@
 						$this->sanPhamDAO->insert($sanpham);
 		}
 		
-		  public function Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$id)
+		  public function Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa)
 			{
 				$sanpham = new SanPham();
 				$sanpham->TenSanPham = $tenSanPham;
@@ -39,11 +47,11 @@
 				$sanpham->GiaSanPham = $giaSanPham;
 				$sanpham->MoTa = $moTa;
 				$sanpham->NgayNhap = $ngayNhap;
+				$sanpham->SoLuongTon = $slt;
 				$sanpham->XuatXu = $xuatXu;
 				$sanpham->MaLoaiSanPham = $maLoaiSanPham;
 				$sanpham->MaHangSanXuat = $maHangSanXuat;
 				$sanpham->BiXoa = $biXoa;
-				$sanpham->MaSanPham=$id;
 				$this->sanPhamDAO->Insert($sanpham);
 			}			
 		  public function delete ($sanpham )
@@ -54,7 +62,7 @@
 		  {
 			 return $this->sanPhamDAO->update($sanpham);
 		  }
-			public function Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$moTa,$ngayNhap,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp)
+			public function Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp)
 			{
 				$sanpham = new SanPham();
 				$sanpham->TenSanPham = $tenSanPham;
@@ -62,6 +70,7 @@
 				$sanpham->GiaSanPham = $giaSanPham;
 				$sanpham->MoTa = $moTa;
 				$sanpham->NgayNhap = $ngayNhap;
+				$sanpham->SoLuongTon = $slt;
 				$sanpham->XuatXu = $xuatXu;
 				$sanpham->MaLoaiSanPham = $maLoaiSanPham;
 				$sanpham->MaHangSanXuat = $maHangSanXuat;

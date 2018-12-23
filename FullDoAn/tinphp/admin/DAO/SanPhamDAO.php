@@ -37,7 +37,7 @@ require_once "db.php";
 
 		  public function fetchID($MaSanPham)
 		  {
-			  $sql = "SELECT  MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,MoTa,XuatXu,MaLoaiSanPham,MaHangSanXuat,BiXoa FROM sanpham WHERE MaSanPham = $MaSanPham ";
+			  $sql = "SELECT  MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,SoLuongTon,MoTa,XuatXu,MaLoaiSanPham,MaHangSanXuat,BiXoa FROM sanpham WHERE MaSanPham = $MaSanPham ";
 			  $rs=$this->ExecuteQuery($sql);
 			  if($rs==null)
 				  return null;
@@ -50,6 +50,7 @@ require_once "db.php";
 				$sanPham->AnhURL=$AnhURL;
 				$sanPham->TenSanPham= $TenSanPham;
 				$sanPham->NgayNhap= $NgayNhap;
+				$sanPham->SoLuongTon= $SoLuongTon;
 				$sanPham->GiaSanPham= $GiaSanPham;
 				$sanPham->XuatXu= $XuatXu;
 				$sanPham->BiXoa= $BiXoa;
@@ -62,15 +63,22 @@ require_once "db.php";
 		  {
 			  return isset($_POST[$string]) ? $_POST[$string] : '';
 		  }
-	   
+		  public function fileInput($string)
+		  {
+			  return isset($_FILES[$string]['name']) ? $_FILES[$string]['name'] : '';
+		  }
+		  public function tfileInput($string)
+		  {
+			  return isset($_FILES[$string]['tmp_name']) ? $_FILES[$string]['tmp_name'] : '';
+		  }
 		  public function  getInput($string)
 		  {
 			  return isset($_GET[$string]) ? $_GET[$string] : '';
 		  }
 		  public function insert($sanpham)
         {
-			$sql = "INSERT INTO sanpham(TenSanPham,AnhURL,GiaSanPham,NgayNhap,MoTa,XuatXu,MaLoaiSanPham,MaHangSanXuat)
-			values('$sanpham->TenSanPham','$sanpham->AnhURL','$sanpham->GiaSanPham','$sanpham->NgayNhap','$sanpham->MoTa','$sanpham->XuatXu','$sanpham->MaLoaiSanPham','$sanpham->MaHangSanXuat')";
+			$sql = "INSERT INTO sanpham(TenSanPham,AnhURL,GiaSanPham,NgayNhap,SoLuongTon,MoTa,XuatXu,MaLoaiSanPham,MaHangSanXuat,BiXoa)
+			values('$sanpham->TenSanPham','$sanpham->AnhURL','$sanpham->GiaSanPham','$sanpham->NgayNhap','$sanpham->SoLuongTon','$sanpham->MoTa','$sanpham->XuatXu','$sanpham->MaLoaiSanPham','$sanpham->MaHangSanXuat','$sanpham->BiXoa')";
 			$result = $this->ExecuteQuery($sql);
 		}
 		  public function delete ($MaSanPham )
@@ -81,7 +89,7 @@ require_once "db.php";
 		  }
 		  public function update($sanpham)
 		  {
-			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham=$sanpham->GiaSanPham,NgayNhap='$sanpham->NgayNhap',MoTa='$sanpham->MoTa',XuatXu='$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham";
+			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham='$sanpham->GiaSanPham',NgayNhap='$sanpham->NgayNhap',SoLuongTon=$sanpham->SoLuongTon,MoTa='$sanpham->MoTa','$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham,";
 			 $this->ExecuteQuery($sql);
 		  }
 		  public function TimKiem($Search)

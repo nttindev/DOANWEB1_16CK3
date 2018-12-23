@@ -12,8 +12,6 @@
         <link href="/fulldoan/tinphp/admin/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
         <link href="/fulldoan/tinphp/admin/gui/public/admin/css/style.css" rel="stylesheet">
-        <!-- Custom Fonts -->
-        <link href="/fulldoan/admin/gui/public/admin/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <?php
@@ -65,19 +63,19 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
-                            <a href="/fulldoan/tinphp/admin/gui/modules/sanpham/"><i class="fa fa-list"></i>Danh sách sản phẩm</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/sanpham/"><i class="fa fa-list"></i>Quản lý sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
-                            <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Danh sách loại sản phẩm</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Quản lý loại sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'hangsanxuat' ? 'active' : '' ?>">
-                            <a href="/fulldoan/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Danh sách nhà sản xuất</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Quản lý nhà sản xuất</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
-                            <a href="/fulldoan/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Danh sách tài khoản người dùng</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/nguoidung/"><i class="fa fa-list"></i>Quản lý người dùng</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'dondathang' ? 'active' : '' ?>">
-                            <a href="/fulldoan/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Danh sách đơn đặt hàng</a>
+                            <a href="/fulldoan/tinphp/admin/gui/modules/dondathang/"><i class="fa fa-list"></i>Quản lý đơn đặt hàng</a>
                         </li>
                     </ul>
                 </div>
