@@ -89,7 +89,7 @@
 									 $_SESSION['id_nguoidung']= $taiKhoanBUS->MaNguoiDung;
 									 
 									echo "<script>alert('Đăng Nhập admin Thành Công')</script>";
-									echo "<script>window.open('tinphp/admin/GUI/index.php','_self')</script>";
+									echo "<script>window.open('GUI/index.php','_self')</script>";
 								 
 									 
 								}
