@@ -146,9 +146,9 @@
              <!-- <button type="submit" name="submit" value="xác nhận" class="xac-nhan" id="kiemtra" >kiểm tra</button> --><br>
              
        
-       	 <span class="spmatkhau">Password</span><input type="password" name="password" class="mat-khau" id="password"><br>
+       	 <span class="spmatkhau">Mật Khẩu</span><input type="password" name="password" class="mat-khau" id="password"><br>
             <progress max="100" value="0" id="strength"   class="do-manh"></progress>
-       	<span class="spxacnhan">Repassword</span><input type="password" name="xacnhan_password" class="lai-mat-khau">
+       	<span class="spxacnhan">Xác Nhận Mật Khẩu</span><input type="password" name="xacnhan_password" class="lai-mat-khau">
 
        
        <button type="submit" name="dangky" class="dangky">Đăng ký</button>

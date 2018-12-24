@@ -1,13 +1,8 @@
 <?php
-require_once "db.php";
+ 
   class SanPhamDAO extends DB
 	  {
-		public $link;
-		public function __construct()
-        {
-            $this->link = mysqli_connect("localhost","root","","mobi_shop") or die ();
-            mysqli_set_charset($this->link,"utf8");
-        }
+		 
 	  	public function fetchAll()
 	  	{
 	  		$sql = "SELECT MaSanPham,TenSanPham,AnhURL,GiaSanPham,NgayNhap,SoLuongTon,SoLuongBan,SoLuotXem,MoTa,XuatXu,BiXoa,MaLoaiSanPham,MaHangSanXuat from SanPham";

@@ -2,7 +2,7 @@
 				 
 				 
 			<div class="most-popular-new" id="cha-di-chuyen">
-					<div class="bao-loai-sanpham">	
+						
 					<?php
 					  $loaiSanPhamBUS = new LoaiSanPhamBUS();
 				     $lstSanPham = $loaiSanPhamBUS->GetAllAvailable();
@@ -19,7 +19,7 @@
 				     }
 					?>
 					
-				 </div>
+				 
 
 
 

@@ -77,7 +77,7 @@ margin:auto;
 
 float:left;
 
-margin-right: -1px;
+margin-right: 7px;
 
 font-family: arial;
 
@@ -127,7 +127,7 @@ background-size:cover;
 .maithi
 {
 	width: 100%;
-	height: 176px;
+	height: 148px;
 	/* transition:1s; */
 	tranform: translate(-50%,-50%);
 	position: absolute;
@@ -154,7 +154,7 @@ ul
 }
 .cha
 {
-	min-height: 114px;
+	min-height: 120px;
 	/*  background-color:#66775552; */
 	margin:auto;
 	/*  position:relative; */
@@ -166,7 +166,7 @@ ul
 	height: 57px;
 	margin-left: 7px;
 	margin-top: 3px;
-	margin-bottom: 0px;
+	margin-bottom: 3px;
 	float:left;
 	border-radius: 12px;
 	text-align:center;
@@ -197,7 +197,7 @@ ul
   .content
   {
   	 
-margin: 12px auto;
+margin: 6px auto;
   	 
 min-height: 284px;
   }
@@ -242,7 +242,7 @@ min-height: 284px;
 .most-popular
 {
 	width:100%;
-	min-height: 1285px;
+	min-height: 1288px;
 	/* background-color: #3ab7877a; */
 }
 
@@ -451,7 +451,7 @@ min-height: 284px;
      text-align:center;
      line-height:60px;
      font-size: 27px;
-     margin-bottom: 63px;
+     margin-bottom: 5px;
      margin-top: 0px;
 }
 
@@ -654,12 +654,13 @@ margin-top: 46px;
 }
 .ban-chay
 {
-	position:absolute;
-	top: 490px;
 	background-color:#a6ff4d;
 	color: currentColor;
-	padding: 3px 6px;
+	padding: 3px 19px;
 	border-radius: 10px;
+	width: 270px;
+	margin-bottom: 9px;
+	y: inline-table;
 }
 
 .box
@@ -668,7 +669,7 @@ margin-top: 46px;
 	padding: 9px;
 	background:#191919;
 	text-align:center;
-	margin: 1px auto;
+	margin: 0px auto 78px auto;
 }
 
 .box h1
@@ -749,7 +750,7 @@ h2
 	box-sizing:border-box;
 	padding: 12px 5px;
 	background:rgba(0,0,0,0.10);
-	outline:none;/* khung bao quanh */
+	outline:none;/* khung bao quanhÂ */
 	border:none;
 	border-bottom:1px dotted #fff;
 	color:#fff;
@@ -942,7 +943,7 @@ border-radius: 6px;
 	width: 324px;
 	padding: 4px;
 	border-radius:5px;
-	margin-left: 21px;
+	margin-left: 98px;
 	margin-top: 7px;
 }
 .sphoten
@@ -971,7 +972,7 @@ border-radius: 6px;
 .spxacnhan
 {
 	margin-top:5px;
-	margin-left: -35px;
+	margin-left: -28px;
 }
 .dangky
 {
@@ -992,14 +993,14 @@ border-radius: 6px;
 {
 	height: 103%;
 	border: 1px solid #aaff33;
-	margin: 46px auto;
+	margin: 0px auto 81px auto;
 }
 .do-manh
 {
-	width:228px;
+	width: 221px;
 	float:right;
 	position:absolute;
-	transform: translate(227%,-126%);
+	transform: translate(238%,-130%);
 }
 
 
@@ -1024,7 +1025,6 @@ border-radius: 6px;
  }
  .boc-sp
  {
- 	width: 960px;
  	height: 125px;
  	margin:5px auto;
  	background-color:#33ee25;
@@ -1082,9 +1082,8 @@ border-radius: 6px;
 
 .bao-tieude
 {
-	width:960px;
-	height: 195px;
-	margin: 29px auto;
+	height: 16px;
+	margin: 33px auto;
 }
  span
  {
@@ -1103,10 +1102,9 @@ border-radius: 6px;
  }
  .boc-sp
  {
- 	width: 960px;
- 	height: 107px;
- 	margin: 37px auto;
- 	background-color:#f4f4f4;
+ 	height: 126px;
+ 	margin: 31px auto;
+ 	background-color: #fff;
  }
  .i
  {
@@ -1236,6 +1234,14 @@ margin: -7px -46px;
 	margin-top: 29px;
 }
 
+.bao-loai-sanpham
+	{
+		min-height: 213px;
+	}
+	.bao-loai-sanpham-new
+	{
+		min-height: 74px;
+	}
  @media only screen and (max-width: 1076px) {
      
 }
@@ -1295,10 +1301,9 @@ margin: -7px -46px;
 
 
 
-/* thanh toan */
+/* thanh toanÂ */
 .boc-ngoai
 {
-	width: 960px;
 	min-height: 400px;
 	margin: auto;
 	font-family: arial;
@@ -1306,7 +1311,6 @@ margin: -7px -46px;
 }
 .trai
 {
-     width: 601px;
      min-height: 264px;
      float:left;
 }
@@ -1495,7 +1499,7 @@ font-size: 12px;
 	top: 41px;
 }
 
-/* kiểm tra đơn hàng */
+/* kiá»ƒm tra Ä‘Æ¡n hÃ ngÂ */
 .boc-ben-ngoai
 {
 	min-height: 458px;
@@ -1629,7 +1633,7 @@ font-size: 12px;
 
 
 }
-@media only screen and (max-width: 992px) { /* laptop desctop */
+@media only screen and (max-width: 992px) { /* laptop desctopÂ */
 	 .container
 	 {
 	 	width: 746px;
@@ -1668,11 +1672,12 @@ font-size: 12px;
 	 }
 	 .most-popular
 	 {
-	 	min-height:2115px;
+	 	min-height: 1887px;
 	 }
 	 .ban-chay
 	 {
 	 	top: 740px;
+	 	display: flex;
 	 }
 	 .form_i
 	 {
@@ -1709,9 +1714,26 @@ font-size: 12px;
 			top: 6px;
 			height: 28px;
 		}
+		.bao-loai-sanpham-new
+		{
+			min-height:215px;
+		}
+		.giasp
+		{
+			width: 94px;
+		}
+		.do-manh
+		{
+			width: 109px;
+			transform: translate(485%,-119%);
+		}
+		.lai-mat-khau
+		{
+			margin-left: 96px;
+		}
 	}
 
-@media only screen and (max-width: 768px) {  /* landscape tablets */
+@media only screen and (max-width: 768px) {  /* landscape tabletsÂ */
 	.container
 	{
 		width: 527px;
@@ -1731,7 +1753,7 @@ font-size: 12px;
 	.giohang
 	{
 		width: 37px;
-		height: 26px;
+		height: 27px;
 	}
 	input[type="search"]
 	{
@@ -1746,7 +1768,7 @@ font-size: 12px;
 	}
 	.div-menu-bu
 	{
-		margin-top: 45px;
+		margin-top: 64px;
 	}
 	.span-soluong
 	{
@@ -1770,11 +1792,12 @@ font-size: 12px;
 	}
 	.most-popular
 	{
-		min-height: 2616px;
+		min-height: 2398px;
 	}
 	.ban-chay
 	{
-		top: 835px;
+		display:inline-block;
+		margin-top: 70px;
 	}
 	.box
 	 {
@@ -1800,7 +1823,7 @@ font-size: 12px;
 	  .img-sanpham
 	  {
 	  	width: 255px;
-	  	height: 279px;
+	  	height: 357px;
 	  }
 	  .thong-tin
 	  {
@@ -1817,6 +1840,116 @@ font-size: 12px;
 			margin: 18px 22px;
 			padding: 9px;
 		}
+		.hoten
+		{
+			width: 214px;
+		}
+		.sdt
+		{
+			width: 214px;
+		}
+		.ngaysinh
+		{
+			width: 62px;
+			margin-left: 9px;
+		}
+	.ten-dang-nhap
+	{
+		width: 247px;
+	}
+	.mat-khau
+	{
+		width: 182px;
+	}
+	.lai-mat-khau
+	{
+		width: 186px;
+		margin-left: 95px;
+	}
+    .do-manh
+    {
+    	width: 66px;
+    	transform: translate(590%,-119%);
+    }
+    .noisinh
+    {
+    	width: 145px;
+    }
+    .dangky
+    {
+    	width: 97px;
+    }
+    .bao-loai-sanpham-new
+    {
+    	min-height:278px;
+    }
+    .i
+    {
+    	margin: 37px 7px;
+    }
+    .giasp
+    {
+    	width: 0px;
+    	font-size: 18px;
+    	margin-left:-3px;
+    }
+    
+    .tensp
+    {
+    	font-size: 15px;
+    }
+    .anh-them
+    {
+    	width: 20px;
+    	height: 20px;
+    }
+    .sl
+    {
+    	margin: 27px -114px;
+    }
+    .sl-sp
+    {
+    	width: 12px;
+    	margin-left:57px;
+    	
+    }
+    .tieude-soluong
+    {
+    	margin: -6px 64px;
+    }
+    .tieude-tongtien
+    {
+    	margin: -5px -64px;
+    }
+    .bam
+    {
+    	width: 	86px;
+    }
+   .ten-sp
+   {
+   	width: 	219px;
+   }
+   .so-luong-sp
+   {
+   	width: 	127px;
+   }
+   .gia-sp
+   {
+   	 margin-left: 	-80px;
+   }
+   .p-so-luong
+   {
+   	 margin: 59px 67px;
+   }
+   .p-gia
+   {
+   	  margin: 	57px 24px;
+   	  font-size: 17px;
+   }
+   .gia-spham
+   {
+   	margin-left: 26px;
+   }
 
 }	
 
@@ -1868,7 +2001,7 @@ font-size: 12px;
 		}
 		.ban-chay
 		{
-			top: 838px;
+			display:inline-block;
 		}
 		.most-popular
 			{
@@ -1930,12 +2063,130 @@ font-size: 12px;
 			{
 				min-height:929px;
 			}
-	   
-	}
 
-	progress
+			.hoten
+		{
+			width: 160px;
+			margin-left: -6px;
+		}
+		.sdt
+		{
+			width: 165px;
+			margin-left:11px;
+		}
+		.ngaysinh
+		{
+			width: 106px;
+			margin-left: 36px;
+		}
+	.ten-dang-nhap
 	{
-		width: 228px;
+		width: 169px;
+		margin-left: 0px;
+	}
+	.mat-khau
+	{
+		width: 145px;
+		margin-left: 9px;
+	}
+	.spmatkhau
+	{
+		margin-left: 15px;
+	}
+	.lai-mat-khau
+	{
+		width: 140px;
+		margin-left: 27px;
+	}
+    .do-manh
+    {
+    	width: 109px;
+    	transform: translate(118%,248%);
+    }
+    .noisinh
+    {
+    	width: 132px;
+    }
+    .dangky
+    {
+    	width: 74px;
+    	margin:28px 21px;
+    }
+	 .h2
+	 {
+	 	margin-left: -134px;
+	 }
+     .span-soluong
+     {
+     	right: 5px;
+     	top:-53px;
+     }
+     .giohang
+     {
+     	width: 	30px;
+     }
+     .bao-loai-sanpham-new
+     {
+     	min-height: 339px;
+     }
+     .boc-sp
+     {
+     	height: 305px;
+     }
+     .i
+     {
+     	margin: 31px 16px;
+     }
+     .sl-sp
+     {
+     	margin-left: 188px;
+     }
+     .giasp
+     {
+     	font-size: 23px;
+     	margin-left:11px;
+     }
+     .tien
+     {
+     	font-size: 17px;
+     }
+     .bam
+     {
+     	margin-right: 1px;
+     	transform:translate(24%,50%);
+     }
+     .xac-nhan-hang
+     {
+     	margin: 49px 1px;
+     }
+     .ten-sp
+     {
+     	width: 140px;
+     }
+     .gia-spham
+     {
+     	width: 56px;
+     }
+     span
+     {
+     	font-size: 16px;
+     }
+     .p-gia
+     {
+     	width: 112px;
+     	margin: -45px 203px;
+     	font-size: 19px;
+     }
+     .p-so-luong
+     {
+     	margin: -44px 203px;
+     }
+     .p-ten
+     {
+     	margin: 11px 5px;
+     }
 	}
 
 	 
+
+	

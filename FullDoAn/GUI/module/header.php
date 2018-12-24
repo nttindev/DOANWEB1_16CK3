@@ -19,7 +19,7 @@
                }
 
                 echo ' 
-                <div class="navi"><a class="a" href="index.php">Hi '.$_SESSION['ten_nguoidung'].' !</a></div>
+                <div class="navi"><a class="a" href="index.php">Hi '.@$_SESSION['ten_nguoidung'].' !</a></div>
                 <div class="navi"><a class="a" href="?a=7" name="giohang"><img class="giohang" src="GUI/images/giohang.png" alt=""></a>
                 <a href="?a=7"><span class="span-soluong">'.$tong.'</span></a>
                 </div>

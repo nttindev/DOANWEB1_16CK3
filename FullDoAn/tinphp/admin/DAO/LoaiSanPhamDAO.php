@@ -1,5 +1,5 @@
 <?php
-require_once "db.php";
+ 
 	 class LoaiSanPhamDAO extends DB
 	 {
 	 	public function fetchAll()

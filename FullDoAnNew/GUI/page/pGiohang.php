@@ -1,5 +1,3 @@
-<div class="bao-loai-sanpham-new">
-
 <?php
 					 $loaiSanPhamBUS = new LoaiSanPhamBUS();
 				     $lstSanPham = $loaiSanPhamBUS->GetAllAvailable();
@@ -15,14 +13,33 @@
 		   </div>';
 				     }
 					?>
-				</div>	
+					
 				 
 				  
 				  
          <div class="boc">
 	   	     <form action="?a=13" enctype="multipart/form-data" method="POST" class="form-cart">
                      
-                      
+                     <div class="bao-tieude">
+                     	<!-- <div class="tieude">
+                     	 	<span class="xoa">Cập Nhật</span>
+                     	 	 
+                     	 </div> -->
+                     	 <div class="tieude">
+                     	 	 
+                     	 	<span class="xoa">Xóa</span>
+                     	 </div>
+                     	 <div class="tieude-sanpham">
+                     	 	<span class="sanpham">Sản Phẩm</span>
+                     	 </div>
+                     	 <div class="tieude-soluong">
+                     	 	 <span class="soluong">Số Lượng</span>
+                     	 </div>
+                     	<div class="tieude-tongtien">
+                     		 <span class="gia">Giá</span>
+                 	     </div>
+                     	 
+                     </div>
 
 
   
