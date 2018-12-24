@@ -6,7 +6,7 @@
       //      include_once ('DAO/db.php');
     		// DB::ChangeURL('index.php');
     		
-    	 echo "<script>window.open('../../fulldoan/index.php','_self')</script>"; //nhảy ra index của người dùng
+    	 echo "<script>window.open('../../index.php','_self')</script>"; //nhảy ra index của người dùng
     		exit();
 
               

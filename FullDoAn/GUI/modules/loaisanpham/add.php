@@ -1,6 +1,6 @@
 ﻿<?php
 $open="loaisanpham";
-require_once __DIR__."/../../layout/header.php";
+
 
 $loaisanphambus=new LoaiSanPhamBus();
 
@@ -20,7 +20,7 @@ $loaisanphambus=new LoaiSanPhamBus();
         if(empty($error))
         {
                 $id_insert =$loaisanphambus->Insert_With_SanPham($tenloaisanpham,$logo,$bixoa); ?>
-                    <script> window.location = "index.php"; </script><?php
+                    <script> window.location = "?a=19"; </script><?php
         }
     }
 ?>
@@ -31,10 +31,10 @@ $loaisanphambus=new LoaiSanPhamBus();
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="?a=19">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm mã loại sản phẩm
@@ -74,4 +74,4 @@ $loaisanphambus=new LoaiSanPhamBus();
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

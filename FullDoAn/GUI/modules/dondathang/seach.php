@@ -1,6 +1,6 @@
 ﻿<?php
 $open="dondathang";
-require_once __DIR__."/../../layout/header.php";
+ 
 
 $dondathang=new DonDatHangBus();
 
@@ -13,7 +13,7 @@ $dondathang=$dondathang->TimKiem($masp); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Đơn đặt hàng
@@ -60,13 +60,13 @@ $dondathang=$dondathang->TimKiem($masp); ?>
                     <td><?php echo $item->TinhTrang ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
-                        <a class="btn btn-xs btn-info" href="ct.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
+                        <a class="btn btn-xs btn-info" href="?a=6&MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
+                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=3&MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+  

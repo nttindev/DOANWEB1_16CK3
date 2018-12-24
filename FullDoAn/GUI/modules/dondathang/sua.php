@@ -1,6 +1,6 @@
 <?php
 $open="dondathang";
-require_once __DIR__."/../../layout/header.php";
+ 
 
 $dondathang=new DonDatHangBus();
 
@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
     if(empty($error))
     {
             $id_insert =$dondathang->Update_With_SanPham($masp,$b,$c,$d,$e,$f); ?>
-                <script> window.location = "index.php"; </script><?php
+                <script> window.location = "?a=7"; </script><?php
     }
                 
         } ?>
@@ -39,10 +39,10 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/dondathang/index.php">Đơn đặt hàng</a>
+                                    <i></i>  <a href="?a=7">Đơn đặt hàng</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa đơn đặt hàng
@@ -103,4 +103,4 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                         </div>
                     </div>
 
-<?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

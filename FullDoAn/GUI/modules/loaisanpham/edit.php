@@ -1,7 +1,7 @@
 ﻿<?php
 
 $open="loaisanpham";
-require_once __DIR__."/../../layout/header.php";
+
 $loaisanphambus=new LoaiSanPhamBUS();
 $masp= $_GET['MaLoaiSanPham'];
 $editsanpham=$loaisanphambus->fetchID($masp);
@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
     if(empty($error))
     {
         $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$logo,$biXoa,$masp);?>
-        <script> window.location = "index.php"; </script><?php
+        <script> window.location = "?a=19"; </script><?php
     }
                 
         } ?>
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="?a=19">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa loại sản phẩm
@@ -71,4 +71,4 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

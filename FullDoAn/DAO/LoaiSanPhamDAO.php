@@ -1,5 +1,5 @@
 <?php 
-require_once "db.php";
+
 	 class LoaiSanPhamDAO extends DB
 	 {
 	 	public function GetAllAvailable()
@@ -83,7 +83,7 @@ require_once "db.php";
 		  }
 		  public function timkiem($seach)
 	 	{
-	 		$sql = "SELECT MaLoaiSanPham, TenLoaiSanPham,HinhURl,BiXoa from LoaiSanPham where TenLoaiSanPham like '%$seach%'";
+	 		$sql = "SELECT MaLoaiSanPham, TenLoaiSanPham,HinhURL,BiXoa from LoaiSanPham where TenLoaiSanPham like '%$seach%'";
 	 		$result = $this->ExecuteQuery($sql);
 	 		 $lstLoaiSanPham = array();
 	 		 while($row = mysqli_fetch_array($result))

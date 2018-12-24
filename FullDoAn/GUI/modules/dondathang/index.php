@@ -1,6 +1,6 @@
 ﻿<?php
 $open="dondathang";
-require_once __DIR__."/../../layout/header.php";
+// require_once __DIR__."/../../layout/header.php";
 
 $dondathang=new DonDatHangBus();
 
@@ -9,7 +9,7 @@ $dondathang=$dondathang->fetchAll(); ?>
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách đơn đặt hàng
-                                <a href="add.php" class="btn btn-success">Thêm đơn đặt hàng</a>
+                                <a href="?a=2" class="btn btn-success">Thêm đơn đặt hàng</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
@@ -25,7 +25,7 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <div class="row">
     <div class="col-lg-12">
     <div class="form-group">
-                        <form action="seach.php" method="POST">
+                        <form action="?a=9" method="POST">
                                 <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
@@ -60,15 +60,15 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <td><?php echo $item->TinhTrang ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
-                        <a class="btn btn-xs btn-info" href="ct.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
-                        <a class="btn btn-xs btn-success" href="sua.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete1.php?MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa NC</a>
+                        <a class="btn btn-xs btn-info" href="?a=6&MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
+                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=3&MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
+                        <a class="btn btn-xs btn-success" href="?a=10&MaDonDatHang=<?php echo $item->MaDatHang?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=5&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa NC</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+  

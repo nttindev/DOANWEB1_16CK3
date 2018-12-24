@@ -1,6 +1,6 @@
 ﻿<?php
 $open="hangsanxuat";
-require_once __DIR__."/../../layout/header.php";
+// require_once __DIR__."/../../layout/header.php";
 
 $loaisanphambus=new HangSanXuatBUS();
 
@@ -23,24 +23,24 @@ $loaisanphambus=new HangSanXuatBUS();
                     $name = $_FILES["logo"]["name"];
                     move_uploaded_file($tmp_name, "../../../../../GUI/images/$name");
                 $id_insert =$loaisanphambus->Insert_With_SanPham($tenloaisanpham,$loGo,$bixoa); ?>
-                    <script> window.location = "index.php"; </script><?php
+                    <script> window.location = "?a=14"; </script><?php
         }
     }
 ?>
                     <div class="row">
                         <div class="col-lg-12">
                             <h1 class="page-header">
-                                Thêm mới loại sản phẩm
+                                Thêm mới hãng sản xuất
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="?a=14">Hãng sản xuất</a>
                                 </li>
                                 <li class="active">
-                                    <i class="fa fa-file"></i> Thêm mã loại sản phẩm
+                                    <i class="fa fa-file"></i> Thêm hãng sản xuất
                                 </li>
                             </ol>
                         </div>
@@ -77,4 +77,4 @@ $loaisanphambus=new HangSanXuatBUS();
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+  

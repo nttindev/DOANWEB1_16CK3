@@ -1,6 +1,6 @@
 ﻿<?php
 $open="hangsanxuat";
-require_once __DIR__."/../../layout/header.php";
+// require_once __DIR__."/../../layout/header.php";
 $loaisanphambus=new HangSanXuatBUS();
 $masp= $_GET['MaHangSanXuat'];
 $editsanpham=$loaisanphambus->fetchID($masp);
@@ -18,7 +18,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
     if(empty($error))
     {
         $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$loGo,$biXoa,$masp);?>
-        <script> window.location = "index.php"; </script><?php
+        <script> window.location = "?a=14"; </script><?php
     }
                 
         } ?>
@@ -29,10 +29,10 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Loại sản phẩm</a>
+                                    <i></i>  <a href="?a=14">Loại sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm mã loại sản phẩm
@@ -72,4 +72,4 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+  

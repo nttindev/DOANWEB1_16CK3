@@ -1,6 +1,6 @@
 ﻿<?php
 $open="nguoidung";
-require_once __DIR__."/../../layout/header.php";
+
 
 $loaisanphambus=new TaiKhoanBUS();
 
@@ -22,8 +22,8 @@ $loaisanphambus=new TaiKhoanBUS();
         }
         if(empty($error))
         {
-                $loaisanphambus->Insert_With_SanPham($a,$b,$c,$d,$e,$f); ?>
-                    <script> window.location = "index.php"; </script><?php
+                $loaisanphambus->Insert_With_TaiKhoan($a,$b,$c,$d,$e,$f); ?>
+                    <script> window.location = "?a=24"; </script><?php
         }
     }
 ?>
@@ -34,10 +34,10 @@ $loaisanphambus=new TaiKhoanBUS();
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Tài khoản</a>
+                                    <i></i>  <a href="?a=24">Tài khoản</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Thêm tài khoản
@@ -99,4 +99,4 @@ $loaisanphambus=new TaiKhoanBUS();
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

@@ -1,6 +1,6 @@
 ﻿<?php
 $open="nguoidung";
-require_once __DIR__."/../../layout/header.php";
+
 
 $taikhoan=new TaiKhoanBUS();
 
@@ -9,11 +9,11 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách tài khoản
-                                <a href="add.php" class="btn btn-success">Thêm tài khoản</a>
+                                <a href="?a=21" class="btn btn-success">Thêm tài khoản</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Tài khoản
@@ -36,7 +36,7 @@ $taikhoan=$taikhoan->fetchAll(); ?>
 <div class="row">
     <div class="col-lg-12">
     <div class="form-group">
-                        <form action="seach.php" method="POST">
+                        <form action="?a=25" method="POST">
                                 <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
@@ -74,12 +74,11 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     <td><?php echo $item->SDT ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=23&MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=22&MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>  
 
-<?php require_once __DIR__."/../../layout/footer.php" ?>

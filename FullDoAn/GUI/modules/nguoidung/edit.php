@@ -1,6 +1,6 @@
 ﻿<?php
 $open="nguoidung";
-require_once __DIR__."/../../layout/header.php";
+
 $loaisanphambus=new TaiKhoanBUS();
 $masp= $loaisanphambus->getInput('MaNguoidung');
 $editsanpham=$loaisanphambus->fetchID($masp);
@@ -20,7 +20,7 @@ $editsanpham=$loaisanphambus->fetchID($masp);
         if(empty($error))
         {
                 $loaisanphambus->Update_With_LoaiSanPham($a,$b,$c,$d,$f,$masp); ?>
-                    <script> window.location = "index.php"; </script><?php
+                    <script> window.location = "?a=24"; </script><?php
         }
     }
 ?>
@@ -31,10 +31,10 @@ $editsanpham=$loaisanphambus->fetchID($masp);
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/loaisanpham/index.php">Tài khoản</a>
+                                    <i></i>  <a href="?a=24">Tài khoản</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa tài khoản
@@ -89,4 +89,4 @@ $editsanpham=$loaisanphambus->fetchID($masp);
                         </form>
                         </div>
                     </div>
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

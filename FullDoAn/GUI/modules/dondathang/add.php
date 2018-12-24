@@ -1,6 +1,6 @@
 <?php
 $open="dondathang";
-require_once __DIR__."/../../layout/header.php";
+// require_once __DIR__."/../../layout/header.php";
 
 $dondathang=new DonDatHangBus();
 if($_SERVER["REQUEST_METHOD"]=='POST'){
@@ -25,7 +25,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
             if(empty($error))
             {
                     $id_insert =$dondathang->Insert_With_SanPham($a,$b,$c,$d,$e,$f); ?>
-                        <script> window.location = "index.php"; </script><?php
+                        <script> window.location = "?a=7"; </script><?php
             }
 }?>
                     <div class="row">
@@ -110,4 +110,4 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
 
         
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+  

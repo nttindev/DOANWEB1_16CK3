@@ -1,6 +1,6 @@
 ﻿<?php
 $open="sanpham";
-require_once __DIR__."/../../layout/header.php";
+
 
 $sanphambus=new SanPhamBus();
 
@@ -9,12 +9,12 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách sản phẩm
-                                <a href="add.php" class="btn btn-success">Thêm sản phẩm</a>
+                                <a href="?a=26" class="btn btn-success">Thêm sản phẩm</a>
                                 
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=29">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm
@@ -26,7 +26,7 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                     <div class="row">
     <div class="col-lg-12">
     <div class="form-group">
-                        <form action="seach.php" method="POST">
+                        <form action="?a=30" method="POST">
                                 <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
@@ -74,12 +74,11 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                     <td><?php echo $item->MaHangSanXuat ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=28&MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=27&MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>

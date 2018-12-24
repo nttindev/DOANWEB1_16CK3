@@ -1,6 +1,6 @@
 ﻿<?php
 $open="nguoidung";
-require_once __DIR__."/../../layout/header.php";
+
 
 $taikhoan=new TaiKhoanBUS();
 
@@ -13,7 +13,7 @@ $taikhoan=$taikhoan->TimKiem($masp); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Tài khoản
@@ -64,12 +64,11 @@ $taikhoan=$taikhoan->TimKiem($masp); ?>
                     <td><?php echo $item->SDT ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=23&MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=22&MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>  
 
-<?php require_once __DIR__."/../../layout/footer.php" ?>

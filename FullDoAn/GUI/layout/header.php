@@ -50,10 +50,10 @@
                            <?php 
                                  if(isset($_SESSION['id_nguoidung']))
                                  {
-                                    echo '<a href="/exDangxuat.php" >Logout</a>';
+                                    echo '<a href="../gui/modules/mLogin/exDangxuatAD.php" >Logout</a>';
                                  }
                                 else{
-                                         echo "<script>window.open('../../../index.php','_self')</script>";
+                                         echo "<script>window.open('../index.php','_self')</script>";
                                 }
 
                           ?>
@@ -63,19 +63,19 @@
                 <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
                         <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
-                            <a href="/fulldoan/gui/modules/sanpham/"><i class="fa fa-list"></i>Quản lý sản phẩm</a>
+                            <a href="/fulldoan/gui/?a=29"><i class="fa fa-list"></i>Quản lý sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
-                            <a href="/fulldoan/gui/modules/loaisanpham/"><i class="fa fa-list"></i>Quản lý loại sản phẩm</a>
+                            <a href="/fulldoan/gui/?a=19"><i class="fa fa-list"></i>Quản lý loại sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'hangsanxuat' ? 'active' : '' ?>">
-                            <a href="/fulldoan/gui/modules/hangsanxuat/"><i class="fa fa-list"></i>Quản lý nhà sản xuất</a>
+                            <a href="/fulldoan/gui/?a=14"><i class="fa fa-list"></i>Quản lý nhà sản xuất</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'nguoidung' ? 'active' : '' ?>">
-                            <a href="/fulldoan/gui/modules/nguoidung/"><i class="fa fa-list"></i>Quản lý người dùng</a>
+                            <a href="/fulldoan/gui/?a=24"><i class="fa fa-list"></i>Quản lý người dùng</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'dondathang' ? 'active' : '' ?>">
-                            <a href="/fulldoan/gui/modules/dondathang/"><i class="fa fa-list"></i>Quản lý đơn đặt hàng</a>
+                            <a href="/fulldoan/gui/?a=7"><i class="fa fa-list"></i>Quản lý đơn đặt hàng</a>
                         </li>
                     </ul>
                 </div>

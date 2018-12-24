@@ -1,5 +1,5 @@
 <?php 
-require_once "db.php";
+
 class ChiTietDonDatHangDAO extends DB{
 	
 		public function GetAllAvailable()

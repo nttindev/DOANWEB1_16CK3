@@ -1,6 +1,6 @@
 ﻿<?php
 $open="loaisanpham";
-require_once __DIR__."/../../layout/header.php";
+
 
 $loaisanphambus=new LoaiSanPhamBus();
 
@@ -9,11 +9,11 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                         <div class="col-lg-12">
                             <h1 class="page-header">
                                 Danh sách loại sản phẩm
-                                <a href="add.php" class="btn btn-success">Thêm loại sản phẩm</a>
+                                <a href="?a=16" class="btn btn-success">Thêm loại sản phẩm</a>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Loại sản phẩm
@@ -36,7 +36,7 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     <div class="row">
     <div class="col-lg-12">
     <div class="form-group">
-                        <form action="seach.php" method="POST">
+                        <form action="?a=20" method="POST">
                                 <input class="pull-right" type="text" name="name11"><br><br>
                                 <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
                                 </form>
@@ -66,12 +66,12 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     <td><img src="/fulldoan/gui/images/<?php echo $item->logo ?>" alt="" width="50" height="35"></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=18&MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=17&MaLoaiSanPham=<?php echo $item->MaLoaiSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

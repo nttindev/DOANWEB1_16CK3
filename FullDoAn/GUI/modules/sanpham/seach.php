@@ -1,6 +1,6 @@
 ﻿<?php
 $open="sanpham";
-require_once __DIR__."/../../layout/header.php";
+ 
 
 $sanphambus=new SanPhamBus();
 $masp=$sanphambus->postInput('name11');
@@ -12,7 +12,7 @@ $sanphambus=$sanphambus->TimKiem1($masp); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sản phẩm
@@ -63,12 +63,12 @@ $sanphambus=$sanphambus->TimKiem1($masp); ?>
                     <td><?php echo $item->MaHangSanXuat ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="edit.php?MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="delete.php?MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=28&MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=27&MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>
             </tbody>
 </table>            
 
- <?php require_once __DIR__."/../../layout/footer.php" ?>
+ 

@@ -8,6 +8,6 @@
     $masp= $sanphambus->getInput('MaSanPham');
     $editsanpham=$sanphambus->fetchID($masp);
     $num=$sanphambus->delete($masp); ?>
-        <script> window.location = "index.php"; </script><?php
+        <script> window.location = "?a=29"; </script><?php
   
 ?>

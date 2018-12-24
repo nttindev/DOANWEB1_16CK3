@@ -1,6 +1,6 @@
 ﻿<?php
     $open="sanpham";
-    require_once __DIR__."/../../layout/header.php";
+    
     $sanphambus=new SanPhamBus();
     $masp= $_GET['MaSanPham'];
     $editsanpham=$sanphambus->fetchID($masp);
@@ -34,7 +34,7 @@
         {
                 $sanphambus->Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
                
-                ?><script>window.location = "index.php";</script> <?php
+                ?><script>window.location = "?a=29";</script> <?php
         }
     }
 ?>
@@ -45,10 +45,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="/fulldoan/gui/modules/sanpham/index.php">Sản phẩm</a>
+                                    <i></i>  <a href="?a=29">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa sản phẩm
@@ -153,4 +153,4 @@
                     </div>
  <?php
  
- require_once __DIR__."/../../layout/footer.php" ?>
+ 

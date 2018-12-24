@@ -39,9 +39,9 @@
 		   	  	          	require_once "BUS/GioHangBUS.php";
 		   	  	          	require_once "BUS/DonDatHangBUS.php";
 		   	  	          	require_once "BUS/ChiTietDonDatHangBUS.php";
-			   	   include_once ("GUI/module/header_chung.php");
+			   	   include_once ("GUI/modules/mheader_chung.php");
 			   	    ?>
-			   	     <?php include_once ("GUI/module/cha.php"); ?>
+			   	     <?php include_once ("GUI/modules/mcha.php"); ?>
 			   <div class="content">
 			   	  	  <?php 
 			   	  	       
@@ -97,19 +97,19 @@
 			   	  	  	   	    include "GUI/page/pXacnhanthongtindathang.php";
 			   	  	  	   	    break;
 	   	  	  	   	     	case 12:
-			   	  	  	   	    include "GUI/module/mDangky/exDangKy.php";
+			   	  	  	   	    include "GUI/modules/mDangky/exDangKy.php";
 			   	  	  	   	    break;
    	  	  	   	    		case 13:
-			   	  	  	   	    include "GUI/module/mGiohang/exGioHang.php";
+			   	  	  	   	    include "GUI/modules/mGiohang/exGioHang.php";
 			   	  	  	   	    break;
 	   	  	  	   	   		case 14:
-			   	  	  	   	    include "GUI/module/mLogin/exDangNhap.php";
+			   	  	  	   	    include "GUI/modules/mLogin/exDangNhap.php";
 			   	  	  	   	    break;
 	   	  	  	   	    	case 15:
-			   	  	  	   	    include "GUI/module/mLogin/exDangxuat.php";
+			   	  	  	   	    include "GUI/modules/mLogin/exDangxuat.php";
 			   	  	  	   	    break;
 		   	  	  	   	    case 16:
-			   	  	  	   	    include "GUI/module/mXuLy/exHuy.php";
+			   	  	  	   	    include "GUI/modules/mXuLy/exHuy.php";
 			   	  	  	   	    break;
 			   	  	  	   	 default: 
 			   	  	  	   	   include "GUI/page/404.php";
@@ -125,7 +125,7 @@
 	 			
 			   	 
 			   	  	
-			   	  <?php include ("GUI/module/footer.php") ?>
+			   	  <?php include ("GUI/modules/mfooter.php") ?>
 	   </div>
 	     
 </body>
