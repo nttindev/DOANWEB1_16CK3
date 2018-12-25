@@ -67,7 +67,7 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="?a=13&MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="?a=12&MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Xóa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=12&MaHangSanXuat=<?php echo $item->MaHangSanXuat?>" onclick="return confirm('Bạn có chắc chắn muốn xóa hãng sản xuất này!!');">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

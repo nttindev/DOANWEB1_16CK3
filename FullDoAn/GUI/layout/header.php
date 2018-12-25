@@ -15,6 +15,9 @@
     </head>
     <body>
         <?php
+
+            require_once __DIR__."/../../DTO/ChiTietDonDatHang.php";
+
             require_once __DIR__."/../../DAO/db.php";
             require_once __DIR__."/../../DTO/DonDatHang.php";
             require_once __DIR__."/../../BUS/DonDatHangBUS.php";    

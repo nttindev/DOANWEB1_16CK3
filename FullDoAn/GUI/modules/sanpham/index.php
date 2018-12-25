@@ -75,7 +75,7 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="?a=28&MaSanPham=<?php echo $item->MaSanPham?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="?a=27&MaSanPham=<?php echo $item->MaSanPham?>">Xóa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=27&MaSanPham=<?php echo $item->MaSanPham?>" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này!!!');">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

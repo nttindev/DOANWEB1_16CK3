@@ -13,7 +13,7 @@ $dondathang=$dondathang->fetchAll(); ?>
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Đơn đặt hàng
@@ -61,7 +61,7 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="?a=6&MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
-                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDatHang?>" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn đặt hàng');">Xóa</a>
                         <a class="btn btn-xs btn-info" href="?a=3&MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
                         <a class="btn btn-xs btn-success" href="?a=10&MaDonDatHang=<?php echo $item->MaDatHang?>">Sửa</a>
                         <a class="btn btn-xs btn-danger" href="?a=5&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa NC</a>

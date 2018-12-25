@@ -149,17 +149,20 @@
   											 	$maDonDatHang = $donDatHangBUSS->MaDonDatHang;
   											 }
 
-  											  $maDonDatHang = substr($maDonDatHang,6,3);
-  											  $maDonDatHang +=1;
-  											 $maDonDatHang = $ngayy.str_repeat('0',3-strlen($maDonDatHang)).$maDonDatHang;
-  											 $donDatHangBUS->Insert_With_donDatHang($maDonDatHang,$maNguoiDung,$ngayLap,$tongThanhTien);
-  											 
-  											 //Insert Chi Tiet Don Dat Hang
-  											if(isset($_GET['addOrder']))
+  											  
+  											  $maDonDatHang_new = substr($maDonDatHang,0,6);//cắt chuỗi lấy 6 ký tự từ vị trí 0
+  											  if($maDonDatHang_new!=$ngayy) //Nếu khác ngày thì reset cho số thứ tự về 1
+  											  {
+  											  	$stt = 1;
+  											  	$maDonDatHang = $ngayy.str_repeat('0',3-strlen($stt)).$stt;
+  											  	$donDatHangBUS->Insert_With_donDatHang($maDonDatHang,$maNguoiDung,$ngayLap,$tongThanhTien);
+
+  											  	//chitiet
+  											  	if(isset($_GET['addOrder']))
   												{
-  												  $maNguoiDung = $_GET['addOrder'];
-	  											 	$gioHangBUS = new GioHangBUS();
-	  												$lst = $gioHangBUS->GetByID($maNguoiDung);
+  													$maNguoiDung = $_GET['addOrder'];
+  													$gioHangBUS = new GioHangBUS();
+  													$lst = $gioHangBUS->GetByID($maNguoiDung);
 		  											foreach($lst as $gioHangBUS)
 		  											{
 		  												$maSanPham = $gioHangBUS->MaSanPham;
@@ -171,6 +174,12 @@
 
 		  												$chiTietDonDatHangBUS  = new ChiTietDonDatHangBUS();
 		  												$chiTietDonDatHangBUS->Insert_With_DonDatHang($maSanPham,$soLuong,$giaBan,$maDonDatHang);
+
+		  													//Cập nhật giỏ hàng số lượng đã bán
+		  											// 		tăng số lượng bán lên 1 ứng với mã sản phẩm
+									   	  // giảm số lượng tồn
+											   	    
+											   	   
 		  											}
 
 		  											$chiTietDonDatHangBUS = new ChiTietDonDatHangBUS();
@@ -194,13 +203,85 @@
 											   	    	$sanPhamBUSS->Update_SoLuongBan($soLuongBan,$maSanPham);
 
 									   	  			  }
-		  											//Xóa giỏ hàng
+		  											//Cập nhật giỏ hàng số lượng đã bán
 		  											 
+
+
+		  											//Xóa giỏ hàng
+		  											
 		  											$gioHangBUSS = new GioHangBUS();
 		  											$gioHangBUSS->Delete_gioHang($maNguoiDung);
-	  											  // echo "<script>alert('Bạn đã đặt thành Công')</script>";
+		  											 // echo "<script>alert('Bạn đã đặt thành Công')</script>";
 	  											 echo "<script>window.open('index.php','_self')</script>";
-  											}
+  												}
+  											  }
+  											  else //ngược lại nếu cùng ngày thì 001 tăng lên 002 
+  											  {
+  											  	$maDonDatHang = substr($maDonDatHang,6,3);
+  											  	$maDonDatHang +=1;
+  											 	$maDonDatHang = $ngayy.str_repeat('0',3-strlen($maDonDatHang)).$maDonDatHang;
+  											 	$donDatHangBUS->Insert_With_donDatHang($maDonDatHang,$maNguoiDung,$ngayLap,$tongThanhTien);
+
+  											 	//chi tiet
+  											 	if(isset($_GET['addOrder']))
+  												{
+  													$maNguoiDung = $_GET['addOrder'];
+  													$gioHangBUS = new GioHangBUS();
+  													$lst = $gioHangBUS->GetByID($maNguoiDung);
+		  											foreach($lst as $gioHangBUS)
+		  											{
+		  												$maSanPham = $gioHangBUS->MaSanPham;
+		  												$soLuong = $gioHangBUS->SoLuong;
+		  												$sanPhamBUS = new SanPhamBUS();
+		  												$sanPhamBUS = $sanPhamBUS->GetByID_ChiTiet($maSanPham);
+		  												$gia = $sanPhamBUS->GiaSanPham;
+		  												$giaBan = $soLuong*$gia;
+
+		  												$chiTietDonDatHangBUS  = new ChiTietDonDatHangBUS();
+		  												$chiTietDonDatHangBUS->Insert_With_DonDatHang($maSanPham,$soLuong,$giaBan,$maDonDatHang);
+
+		  													//Cập nhật giỏ hàng số lượng đã bán
+		  											// 		tăng số lượng bán lên 1 ứng với mã sản phẩm
+									   	  // giảm số lượng tồn
+											   	    
+											   	   
+		  											}
+
+		  											$chiTietDonDatHangBUS = new ChiTietDonDatHangBUS();
+											   	    $lst = $chiTietDonDatHangBUS->GetByID($maDonDatHang);
+											   	    foreach($lst as $chiTietDonDatHang)
+											   	    {
+											   	    	$maSanPham = $chiTietDonDatHang->MaSanPham;
+											   	    	$soLuong = $chiTietDonDatHang->SoLuong;
+											   	    	$sanPhamBUS = new SanPhamBUS();
+											   	    	$sanPhamBUS = $sanPhamBUS->GetByID_ChiTiet($maSanPham);
+
+											   	    	$soLuongTon = $sanPhamBUS->SoLuongTon;
+											   	    	$soLuongTon = $soLuongTon - $soLuong;
+
+											   	    	$soLuongBan = $sanPhamBUS->SoLuongBan;
+											   	    	$soLuongBan = $soLuongBan + $soLuong;
+
+											   	    	$sanPhamBUSS = new SanPhamBUS();
+											   	    	$sanPhamBUSS->Update_SoLuongTon($soLuongTon,$maSanPham);
+
+											   	    	$sanPhamBUSS->Update_SoLuongBan($soLuongBan,$maSanPham);
+
+									   	  			  }
+		  											//Cập nhật giỏ hàng số lượng đã bán
+		  											 
+
+
+		  											//Xóa giỏ hàng
+		  											
+		  											$gioHangBUSS = new GioHangBUS();
+		  											$gioHangBUSS->Delete_gioHang($maNguoiDung);
+		  											 // echo "<script>alert('Bạn đã đặt thành Công')</script>";
+	  											 echo "<script>window.open('index.php','_self')</script>";
+  												}
+  											  }
+  											  
+  											
   										}
 
   										 

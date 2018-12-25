@@ -750,7 +750,7 @@ h2
 	box-sizing:border-box;
 	padding: 12px 5px;
 	background:rgba(0,0,0,0.10);
-	outline:none;/* khung bao quanhÂ */
+	outline:none;/* khung bao quanhÃ‚Â */
 	border:none;
 	border-bottom:1px dotted #fff;
 	color:#fff;
@@ -1301,7 +1301,7 @@ margin: -7px -46px;
 
 
 
-/* thanh toanÂ */
+/* thanh toanÃ‚Â */
 .boc-ngoai
 {
 	min-height: 400px;
@@ -1499,7 +1499,7 @@ font-size: 12px;
 	top: 41px;
 }
 
-/* kiá»ƒm tra Ä‘Æ¡n hÃ ngÂ */
+/* kiÃ¡Â»Æ’m tra Ã„â€˜Ã†Â¡n hÃƒÂ ngÃ‚Â */
 .boc-ben-ngoai
 {
 	min-height: 458px;
@@ -1509,7 +1509,7 @@ font-size: 12px;
 }
 .trai-khac
 {
-     width: 961px;
+     
      min-height: 264px;
      float:left;
 }
@@ -1633,7 +1633,7 @@ font-size: 12px;
 
 
 }
-@media only screen and (max-width: 992px) { /* laptop desctopÂ */
+@media only screen and (max-width: 992px) { /* laptop desctopÃ‚Â */
 	 .container
 	 {
 	 	width: 746px;
@@ -1731,9 +1731,31 @@ font-size: 12px;
 		{
 			margin-left: 96px;
 		}
+		.ma-don
+		{
+			width: 184px;
+		}
+		.san-pham-thanh-toan-roi
+		{
+			width: 218px;
+		}
+		.tinh-trang-xu-ly
+		{
+			width: 151px;
+			margin-left: -27px;
+		}
+		.tinh-trang
+		{
+			width: 169px;
+		}
+		.xac-nhan
+		{
+			width: 230px;
+		}
+
 	}
 
-@media only screen and (max-width: 768px) {  /* landscape tabletsÂ */
+@media only screen and (max-width: 768px) {  /* landscape tabletsÃ‚Â */
 	.container
 	{
 		width: 527px;
@@ -1950,6 +1972,36 @@ font-size: 12px;
    {
    	margin-left: 26px;
    }
+   span
+   {
+   	  font-size: 15px;
+   }
+   .ma-don
+   {
+   	width: 135px;
+   }
+   .tinh-trang
+   {
+   	width: 125px;
+   }
+   .huy
+   {
+   	width: 88px;
+   	margin-left: 0px;
+   }
+   .xac-nhan
+   {
+   	width: 173px;
+   	margin-left: 0px;
+   }
+  .san-pham-thanh-toan-roi
+  {
+  	width: 145px;
+  }
+	.huy-don
+	{
+		padding: 12px 6px;
+	}  
 
 }	
 
@@ -2153,7 +2205,7 @@ font-size: 12px;
      .bam
      {
      	margin-right: 1px;
-     	transform:translate(24%,50%);
+     	transform: translate(-1%,50%);
      }
      .xac-nhan-hang
      {
@@ -2184,6 +2236,22 @@ font-size: 12px;
      .p-ten
      {
      	margin: 11px 5px;
+     }
+     .xac-nhan
+     {
+     	width: 182px;
+     }
+     .tinh-trang-xu-ly
+     {
+     	width: 110px;
+     }
+     .cot-tieu-de-ngoai
+     {
+     	height: 75px;
+     }
+     .mat-hang-thong-tin
+     {
+     	height: 192px;
      }
 	}
 

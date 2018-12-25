@@ -75,7 +75,7 @@ $taikhoan=$taikhoan->fetchAll(); ?>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="?a=23&MaNguoidung=<?php echo $item->MaNguoiDung?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="?a=22&MaNguoidung=<?php echo $item->MaNguoiDung?>">Xóa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=22&MaNguoidung=<?php echo $item->MaNguoiDung?>" onclick="return confirm('Bạn có chắc chắn muốn xóa tài khoản này!!!');">Xóa</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

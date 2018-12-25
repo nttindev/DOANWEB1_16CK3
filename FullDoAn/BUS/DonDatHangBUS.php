@@ -41,6 +41,13 @@
     			$donDatHang->MaDonDatHang = $maDonDatHang;
     			 $this->donDatHangDAO->Update($donDatHang);
 			}
+			 public function Update_DonDatHang($maDonDatHang)
+			 {
+			 	$donDatHang = new DonDatHang();
+         
+    			$donDatHang->MaDonDatHang = $maDonDatHang;
+    			 $this->donDatHangDAO->Update_ma($donDatHang);
+			 }
 			///admin
 			public function fetchAll()
    	   {

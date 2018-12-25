@@ -73,6 +73,14 @@ class DonDatHangDAO extends DB
 				$sql ="UPDATE DonDatHang set BiXoa = 1 where  MaDonDatHang = $donDatHang->MaDonDatHang";
 				$this->ExecuteQuery($sql);
 			}
+public function Update_ma($donDatHang)
+			{
+
+				$sql ="UPDATE DonDatHang set MaDonDatHang = $donDatHang->MaDonDatHang where  MaDonDatHang = $donDatHang->MaDonDatHang";
+				$this->ExecuteQuery($sql);
+			}
+
+
 			/////admin
 			public function fetchAll()
 	  {

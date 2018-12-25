@@ -124,7 +124,7 @@ require_once __DIR__."/layout/header.php";
                                 break;
                                 
                              default: 
-                               include "GUI/page/404.php";
+                               include "page/404.php";
                                break;
 
                            }
