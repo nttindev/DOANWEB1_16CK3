@@ -48,7 +48,7 @@ $loaisanphambus=new LoaiSanPhamBus();
                         <form action="" method="POST">
                         
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Tên loại sản xuất</label>
+                            <label for="exampleFormControlSelect2">Tên loại sản phẩm</label>
                             <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="SMART PHONE" name="tenloai">
                             <?php if(isset($error['tenloai'])): ?>        
                             <p class="text-danger"><?php echo $error['tenloai']?></p>

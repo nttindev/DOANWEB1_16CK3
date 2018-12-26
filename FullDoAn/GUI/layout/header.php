@@ -53,7 +53,7 @@
                            <?php 
                                  if(isset($_SESSION['id_nguoidung']))
                                  {
-                                    echo '<a href="../gui/modules/mLogin/exDangxuatAD.php" >Logout</a>';
+                                    echo '<p style="color:#fff; margin-top:20px;">Hi Admin</p><a href="../gui/modules/mLogin/exDangxuatAD.php" >Logout</a>';
                                  }
                                 else{
                                          echo "<script>window.open('../index.php','_self')</script>";

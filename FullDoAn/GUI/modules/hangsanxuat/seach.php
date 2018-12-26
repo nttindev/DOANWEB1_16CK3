@@ -54,7 +54,7 @@ $loaisanphambus=$loaisanphambus->TimKiem($masp); ?>
                 <tr>
                     <td><?php echo $item->MaHangSanXuat ?></td>
                     <td><?php echo $item->TenHangSanXuat ?></td>
-                    <td><img src="/fulldoan/gui/images/<?php echo $item->LogoURL ?>" alt="" width="50" height="75"></td>
+                    <td><img src="/fulldoan/gui/images/<?php echo $item->LogoURL ?>" alt="" width="150" height="35"></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
                         <a class="btn btn-xs btn-info" href="?a=13&MaHangSanXuat=<?php echo $item->MaHangSanXuat?>">Sửa</a>

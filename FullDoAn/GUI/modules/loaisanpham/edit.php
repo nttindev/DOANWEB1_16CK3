@@ -45,7 +45,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
                         <div class="col-md-12">
                         <form action="" method="POST">
                         <div class="form-group">
-                            <label for="exampleFormControlSelect2">Tên loại sản xuất</label>
+                            <label for="exampleFormControlSelect2">Tên loại sản phẩm</label>
                             <input type="text" class="form-control"  id="exampleFormControlInput1" placeholder="SMART PHONE" name="tenloai" value="<?php echo $editsanpham->TenLoaiSanPham;?>">
                             <?php if(isset($error['tenloai'])): ?>        
                             <p class="text-danger"><?php echo $error['tenloai']?></p>

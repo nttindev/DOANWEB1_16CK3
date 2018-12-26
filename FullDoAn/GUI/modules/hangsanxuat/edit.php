@@ -17,6 +17,7 @@ if($_SERVER["REQUEST_METHOD"]=='POST'){
     }
     if(empty($error))
     {
+         
         $loaisanphambus->Update_With_LoaiSanPham($tenSanPham,$loGo,$biXoa,$masp);?>
         <script> window.location = "?a=14"; </script><?php
     }
