@@ -313,7 +313,7 @@
 		  }
 		  public function update1($sanpham)
 		  {
-			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham=$sanpham->GiaSanPham,NgayNhap='$sanpham->NgayNhap',SoLuongTon=$sanpham->SoLuongTon,MoTa='$sanpham->MoTa','$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham,";
+			$sql="UPDATE sanpham SET TenSanPham='$sanpham->TenSanPham',AnhURL='$sanpham->AnhURL',GiaSanPham=$sanpham->GiaSanPham,NgayNhap='$sanpham->NgayNhap',MoTa='$sanpham->MoTa',XuatXu='$sanpham->XuatXu',MaLoaiSanPham=$sanpham->MaLoaiSanPham,MaHangSanXuat=$sanpham->MaHangSanXuat,BiXoa=$sanpham->BiXoa WHERE MaSanPham=$sanpham->MaSanPham";
 			 $this->ExecuteQuery($sql);
 		  }
 		  public function TimKiem1($Search)

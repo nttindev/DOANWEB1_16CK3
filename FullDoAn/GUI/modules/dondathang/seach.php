@@ -53,7 +53,7 @@ $dondathang=$dondathang->TimKiem($masp); ?>
             <tbody>
                 <?php foreach($dondathang as $item):?>
                 <tr>
-                    <td><?php echo $item->MaDatHang ?></td>
+                    <td><?php echo $item->MaDonDatHang ?></td>
                     <td><?php echo $item->MaNguoiDung ?></td>
                     <td><?php echo $item->NgayLap ?></td>
                     <td><?php echo $item->TongThanhTien ?></td>

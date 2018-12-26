@@ -1,7 +1,10 @@
 ﻿<?php
     $open="sanpham";
-    
     $sanphambus=new SanPhamBus();
+    $a = new HangSanXuatBUS();
+    $b= new LoaiSanPhamBUS();
+    $x= $a->fetchAll();
+    $y= $b->fetchAll();
     $masp= $_GET['MaSanPham'];
     $editsanpham=$sanphambus->fetchID($masp);
     if($_SERVER["REQUEST_METHOD"]=='POST'){
@@ -9,7 +12,6 @@
         $anhURL=$sanphambus->postInput('anhurl');
         $giaSanPham= $sanphambus->postInput('giasanpham');
         $ngayNhap= $sanphambus->postInput('ngaynhap');
-        $slt= $sanphambus->postInput('ton');
         $moTa = $sanphambus->postInput('mota');
         $xuatXu= $sanphambus->postInput('xuatxu');
         $maLoaiSanPham= $sanphambus->postInput('maloai');
@@ -18,7 +20,7 @@
         $error=[];
         if($sanphambus->postInput('tensanpham')=='' or $sanphambus->postInput('anhurl')==''or $sanphambus->postInput('giasanpham')==''
         or $sanphambus->postInput('ngaynhap')==''or $sanphambus->postInput('mota')==''or $sanphambus->postInput('xuatxu')=='' 
-        or $sanphambus->postInput('maloai')==''or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('bixoa')=='' or $slt=='')
+        or $sanphambus->postInput('maloai')==''or $sanphambus->postInput('mahang')==''or $sanphambus->postInput('bixoa')=='')
         {
             $error['tensanpham']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
@@ -32,7 +34,7 @@
         }
         if(empty($error))
         {
-                $sanphambus->Update_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
+                $sanphambus->Update_With_SanPham( $tenSanPham,$anhURL,$giaSanPham,$moTa,$ngayNhap,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa,$masp);
                
                 ?><script>window.location = "?a=29";</script> <?php
         }
@@ -45,10 +47,10 @@
                             </h1>
                             <ol class="breadcrumb">
                                 <li>
-                                    <i class="fa fa-dashboard"></i>  <a href="?a=1">Dashboard</a>
+                                    <i class="fa fa-dashboard"></i>  <a href="/tinphp/admin/gui/index.php">Dashboard</a>
                                 </li>
                                 <li>
-                                    <i></i>  <a href="?a=29">Sản phẩm</a>
+                                    <i></i>  <a href="/tinphp/admin/gui/modules/sanpham/index.php">Sản phẩm</a>
                                 </li>
                                 <li class="active">
                                     <i class="fa fa-file"></i> Sửa sản phẩm
@@ -90,13 +92,6 @@
                             <?php endif ?>
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlInput1">Số lượng tồn</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="ton" value="<?php echo $editsanpham->SoLuongTon ?>">
-                            <?php if(isset($error['ton'])): ?>        
-                            <p class="text-danger"><?php echo $error['ton']?></p>
-                            <?php endif ?>
-                        </div>
-                        <div class="form-group">
                             <label for="exampleFormControlTextarea1">Mô tả</label>
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mota" ><?php echo $editsanpham->MoTa?></textarea>
                             <?php if(isset($error['mota'])): ?>        
@@ -114,12 +109,9 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã loại sản phẩm</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="maloai">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
+                            <?php foreach($y as $item2):?>
+                            <option><?php echo $item2->MaLoaiSanPham ?></option>
+                            <?php endforeach ?>
                             </select>
                             <?php if(isset($error['maloai'])): ?>        
                             <p class="text-danger"><?php echo $error['maloai']?></p>
@@ -128,11 +120,9 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã hãng sản xuất</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="mahang">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
+                            <?php foreach($x as $item1):?>
+                            <option><?php echo $item1->MaHangSanXuat ?></option>
+                            <?php endforeach ?>
                             </select>
                             <?php if(isset($error['mahang'])): ?>        
                             <p class="text-danger"><?php echo $error['mahang']?></p>
@@ -151,6 +141,3 @@
                         </form>
                         </div>
                     </div>
- <?php
- 
- 

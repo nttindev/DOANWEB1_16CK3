@@ -42,30 +42,43 @@
         <div id="wrapper">
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header" >
-                    <a class="navbar-brand" href="/fulldoan/gui/">HOME</a>
-                </div>
-                <!-- Top Menu Items -->
-                <ul class="nav navbar-right top-nav">
-                    <li>
-                         
-                           <?php 
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="?a=1">ADMIN</a>
+            </div>
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-right top-nav">
+            <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>
+                    <?php 
                                  if(isset($_SESSION['id_nguoidung']))
                                  {
-                                    echo '<p style="color:#fff; margin-top:20px;">Hi Admin</p><a href="../gui/modules/mLogin/exDangxuatAD.php" >Logout</a>';
+                                    echo '<p style="color:#fff; margin-top:20px;">Admin</p>';
                                  }
                                 else{
                                          echo "<script>window.open('../index.php','_self')</script>";
                                 }
 
                           ?>
-                    </li>
+                     <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="divider"></li>
+                        <li>
+                        <a href="../gui/modules/mLogin/exDangxuatAD.php" >Log out</a>
+                        </li>
+                    </ul>
+                </li>
                 </ul>
                 <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-                <div class="collapse navbar-collapse navbar-ex1-collapse">
                     <ul class="nav navbar-nav side-nav">
-                        <li class="<?php echo isset($open) && $open == 'sanpham' ? 'active' : '' ?>">
+                        <li >
                             <a href="/fulldoan/gui/?a=29"><i class="fa fa-list"></i>Quản lý sản phẩm</a>
                         </li>
                         <li class="<?php echo isset($open) && $open == 'loaisanpham' ? 'active' : '' ?>">
@@ -81,9 +94,11 @@
                             <a href="/fulldoan/gui/?a=7"><i class="fa fa-list"></i>Quản lý đơn đặt hàng</a>
                         </li>
                     </ul>
+
                 </div>
-                <!-- /.navbar-collapse -->
-            </nav>
+            <!-- /.navbar-collapse -->
+        </nav>
+
             <div id="page-wrapper">
                 <div class="container-fluid">
                     <!-- Page Heading -->

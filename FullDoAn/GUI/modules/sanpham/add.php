@@ -1,6 +1,10 @@
 ﻿<?php
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
     $open="sanpham";
-    
+    $a = new HangSanXuatBUS();
+    $b= new LoaiSanPhamBUS();
+    $x= $a->fetchAll();
+    $y= $b->fetchAll();
     $sanphambus=new SanPhamBus();
     if($_SERVER["REQUEST_METHOD"]=='POST')
     {
@@ -14,11 +18,10 @@
         $xuatXu= $sanphambus->postInput('xuatxu');
         $maLoaiSanPham= $sanphambus->postInput('maloai');
         $maHangSanXuat= $sanphambus->postInput('mahang');
-        $biXoa= $sanphambus->postInput('bixoa');
         $error=[];
         if($tenSanPham=='' or $giaSanPham=='' or $anhURL==''
         or $ngayNhap==''or $moTa==''or $xuatXu=='' 
-        or $maLoaiSanPham==''or $maHangSanXuat==''or $biXoa=='' or $slt=='')
+        or $maLoaiSanPham==''or $maHangSanXuat=='' or $slt=='')
         {
             $error['tensanpham']="mời bạn nhập vào tên sản phẩm";
             $error['mahang']="mời bạn nhập vào mã hãng";
@@ -28,14 +31,13 @@
             $error['mota']="mời bạn nhập vào mô tả sản phẩm";
             $error['xuatxu']="mời bạn nhập vào xuất xứ sản phẩm";
             $error['ngaynhap']="mời bạn nhập vào ngày nhập sản phẩm";
-            $error['bixoa']="mời bạn nhập vào tt sản phẩm";
             $error['ton']="mời bạn nhập vào số lượng tồn sản phẩm";
         }
         if(empty($error))
         {
                     
                      
-                    $sanphambus->Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,$biXoa); ?>
+                    $sanphambus->Insert_With_SanPham($tenSanPham,$anhURL,$giaSanPham,$ngayNhap,$slt,$moTa,$xuatXu,$maLoaiSanPham,$maHangSanXuat,0); ?>
                     <script> window.location = "?a=29"; </script><?php
         }
     }
@@ -86,7 +88,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlInput1">Ngày nhập</label>
-                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2018-11-29" name="ngaynhap">
+                            <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="2018-11-29" name="ngaynhap" value="<?php echo $ngayLap =  date('Y-m-d'); ?>">
                             <?php if(isset($error['ngaynhap'])): ?>        
                             <p class="text-danger"><?php echo $error['ngaynhap']?></p>
                             <?php endif ?>
@@ -116,12 +118,9 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã loại sản phẩm</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="maloai">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
+                            <?php foreach($y as $item2):?>
+                            <option><?php echo $item2->MaLoaiSanPham ?></option>
+                            <?php endforeach ?>
                             </select>
                             <?php if(isset($error['maloai'])): ?>        
                             <p class="text-danger"><?php echo $error['maloai']?></p>
@@ -130,21 +129,12 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">Mã hãng sản xuất</label>
                             <select class="form-control" id="exampleFormControlSelect1" name="mahang">
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
+                            <?php foreach($x as $item2):?>
+                            <option><?php echo $item2->MaHangSanXuat ?></option>
+                            <?php endforeach ?>
                             </select>
                             <?php if(isset($error['mahang'])): ?>        
                             <p class="text-danger"><?php echo $error['mahang']?></p>
-                            <?php endif ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlInput1">Bị xóa</label>
-                            <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="0" name="bixoa">
-                            <?php if(isset($error['bixoa'])): ?>        
-                            <p class="text-danger"><?php echo $error['bixoa']?></p>
                             <?php endif ?>
                         </div>
                         <div class="form-group">

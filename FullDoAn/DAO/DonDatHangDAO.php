@@ -90,7 +90,7 @@ public function Update_ma($donDatHang)
 	  	 while($row = mysqli_fetch_array($result))
 	  	 {
 	  	 	$donDatHang = new DonDatHang();
-	  	 	$donDatHang->MaDatHang = $row['MaDonDatHang'];
+	  	 	$donDatHang->MaDonDatHang = $row['MaDonDatHang'];
 	  	 	$donDatHang->MaNguoiDung = $row['MaNguoiDung'];
 	  	 	$donDatHang->NgayLap = $row['NgayLap'];
 			$donDatHang->TongThanhTien =$row['TongThanhTien'];
@@ -177,7 +177,7 @@ public function Update_ma($donDatHang)
 	  	 while($row = mysqli_fetch_array($result))
 	  	 {
 	  	 	$donDatHang = new DonDatHang();
-	  	 	$donDatHang->MaDatHang = $row['MaDonDatHang'];
+	  	 	$donDatHang->MaDonDatHang = $row['MaDonDatHang'];
 	  	 	$donDatHang->MaNguoiDung = $row['MaNguoiDung'];
 	  	 	$donDatHang->NgayLap = $row['NgayLap'];
 			$donDatHang->TongThanhTien =$row['TongThanhTien'];
@@ -191,7 +191,7 @@ public function Update_ma($donDatHang)
 		public function update1($dondathang)
 		  {
 			
-			 $sql="UPDATE dondathang SET MaNguoiDung=$dondathang->MaNguoiDung,NgayLap='$dondathang->NgayLap',$dondathang->TongThanhTien,TinhTrang=$dondathang->TinhTrang,BiXoa=$dondathang->BiXoa WHERE MaDonDatHang='$dondathang->MaDatHang'";
+			 $sql="UPDATE dondathang SET MaNguoiDung=$dondathang->MaNguoiDung,NgayLap='$dondathang->NgayLap',TongThanhTien=$dondathang->TongThanhTien,TinhTrang=$dondathang->TinhTrang,BiXoa=$dondathang->BiXoa WHERE MaDonDatHang='$dondathang->MaDonDatHang'";
 			 $this->ExecuteQuery($sql);
 		  }
 		  public function insert1($dondathang)

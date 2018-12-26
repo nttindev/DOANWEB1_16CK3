@@ -34,15 +34,15 @@ $loaisanphambus=$loaisanphambus->fetchAll(); ?>
                     </div>
                     <!-- /.row -->
                     <div class="row">
-    <div class="col-lg-12">
-    <div class="form-group">
-                        <form action="?a=15" method="POST">
-                                <input class="pull-right" type="text" name="name11"><br><br>
-                                <button type="submit" class="btn btn-primary pull-right">Tìm kiếm</button>
-                                </form>
-                        </div>
-    </div>
-</div>
+                    <div class="col-lg-12">
+                    <nav class="navbar navbar-light bg-light pull-right">
+                        <form class="form-inline" action="?a=15" method="POST">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="name11">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                        </form>
+                    </nav>
+                    </div>
+                    </div>
 <div class="row">
 
     <div class="col-lg-12">
