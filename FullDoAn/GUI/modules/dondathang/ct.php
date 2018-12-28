@@ -19,7 +19,7 @@ $open="dondathang";
                 <i class="fa fa-dashboard"></i>  <a href="/fulldoan/gui/index.php">Dashboard</a>
             </li>
             <li class="active">
-                <i class="fa fa-file"></i> Chi Đơn đặt hàng
+                <i class="fa fa-file"></i> Chi tiết đơn đặt hàng
             </li>
         </ol>
         <div class="clearfix"></div>
@@ -40,12 +40,13 @@ $open="dondathang";
 <div class="col-lg-12">
 
 <div class="table-responsive">
-
+<form>
 <table class="table table-bordered table-hover">
 <thead>
 <tr>
 <th>Mã chi tiết đơn đặt hàng</th>
 <th>Mã sản phẩm</th>
+<th>Tên sản phẩm</th>
 <th>Số lượng</th>
 <th>Giá bán</th>
 <th>Mã đơn đặt hàng</th>
@@ -56,12 +57,20 @@ $open="dondathang";
 <tr>
 <td><?php echo $item->MaChiTietDonDatHang ?></td>
 <td><?php echo $item->MaSanPham ?></td>
+<td><?php 
+$sanphambus=new SanPhamBus();
+$masp= $item->MaSanPham ;
+$editsanpham=$sanphambus->fetchID($masp);
+echo $editsanpham->TenSanPham;
+?></td>
 <td><?php echo $item->SoLuong ?></td>
 <td><?php echo number_format($item->GiaBan) ?></td>
 <td><?php echo $item->MaDonDatHang ?></td>
 </tr>
 <?php endforeach ?>
 </tbody>
-</table>            
+</table>
+<input type="button" value="Print" onclick="window.print()" />
+</form>       
 
  

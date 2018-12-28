@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>QUẢN TRỊ ADMIN</title>
+        <title>ADMIN</title>
         <!-- Bootstrap Core CSS -->
         <link href="/fulldoan/gui/public/admin/css/bootstrap.min.css" rel="stylesheet">
         <!-- Custom CSS -->
@@ -60,7 +60,7 @@
                     <?php 
                                  if(isset($_SESSION['id_nguoidung']))
                                  {
-                                    echo '<p style="color:#fff; margin-top:20px;">Admin</p>';
+                                    echo '<p style="color:#fff; margin-top:0px;">Admin</p>';
                                  }
                                 else{
                                          echo "<script>window.open('../index.php','_self')</script>";
@@ -69,9 +69,8 @@
                           ?>
                      <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li class="divider"></li>
                         <li>
-                        <a href="../gui/modules/mLogin/exDangxuatAD.php" >Log out</a>
+                            <a href="../gui/modules/mLogin/exDangxuatAD.php" >Log out</a>
                         </li>
                     </ul>
                 </li>

@@ -10,14 +10,15 @@
 		      {
 
 
-		      	$maSanPham = $_GET['pro_id'];
+				  $maSanPham = $_GET['pro_id'];
+				  $sanPhamBUSS = new SanPhamBUS();
+				  $sanPhamBUSS->Update($maSanPham);
 		      	   $sanPhamBUS = new SanPhamBUS();
 
-		      $sanPhamBUS = $sanPhamBUS->GetByID_ChiTiet($maSanPham);
+		     	 $sanPhamBUS = $sanPhamBUS->GetByID_ChiTiet($maSanPham);
 		       
 		      
-		        $sanPhamBUSS = new SanPhamBUS();
-		      $sanPhamBUSS->Update($maSanPham);
+		       
 		      	//    $sanPhamBUS->Update($soLuotXem,$maSanPham);
 		      	    @$maHangSanXuat = $sanPhamBUS->MaHangSanXuat;
 		      	     	 // $soLuotXem = $sanPhamBUSS->SoLuotXem;

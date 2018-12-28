@@ -60,11 +60,11 @@ $dondathang=$dondathang->fetchAll(); ?>
                     <td><?php echo $item->TinhTrang ?></td>
                     <td><?php echo $item->BiXoa ?></td>
                     <td>
-                        <a class="btn btn-xs btn-info" href="?a=6&MaDonDatHang=<?php echo $item->MaDatHang?>">Duyệt</a>
-                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDatHang?>" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn đặt hàng');">Xóa</a>
-                        <a class="btn btn-xs btn-info" href="?a=3&MaDonDatHang=<?php echo $item->MaDatHang?>">Xem</a>
-                        <a class="btn btn-xs btn-success" href="?a=10&MaDonDatHang=<?php echo $item->MaDatHang?>">Sửa</a>
-                        <a class="btn btn-xs btn-danger" href="?a=5&MaDonDatHang=<?php echo $item->MaDatHang?>">Xóa NC</a>
+                        <a class="btn btn-xs btn-info" href="?a=6&MaDonDatHang=<?php echo $item->MaDonDatHang?>">Duyệt</a>
+                        <a class="btn btn-xs btn-danger" href="?a=4&MaDonDatHang=<?php echo $item->MaDonDatHang?>" onclick="return confirm('Bạn có chắc chắn muốn xóa đơn đặt hàng');">Xóa</a>
+                        <a class="btn btn-xs btn-info" href="?a=3&MaDonDatHang=<?php echo $item->MaDonDatHang?>">Xem</a>
+                        <a class="btn btn-xs btn-success" href="?a=10&MaDonDatHang=<?php echo $item->MaDonDatHang?>">Sửa</a>
+                        <a class="btn btn-xs btn-danger" href="?a=5&MaDonDatHang=<?php echo $item->MaDonDatHang?>">Xóa NC</a>
                     </td>
                 </tr>
                 <?php endforeach ?>

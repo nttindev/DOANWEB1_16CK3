@@ -4,8 +4,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>TATAVA</title>
 	<link rel="stylesheet" type="text/css" href="./GUI/css/style.css">
+	<link rel="shortcut icon" type="image/png" href="./GUI/images/logoweb.png"/>
 </head>
 <body>
 	 

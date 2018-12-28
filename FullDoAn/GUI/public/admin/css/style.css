@@ -114,6 +114,14 @@ body {
     margin: 40px 0 20px;
     border-bottom: 1px solid #eee;
   }
+  .footer
+{
+  background-color: #222;
+  text-align:center;
+  line-height:70px;
+  font-size: 16px;
+  color: #ffffff;
+}
  /* @media (min-width: 768px){
   #wrapper {padding-right: 225px; padding-left: 0;}
   .side-nav{right: 0;left: auto;}

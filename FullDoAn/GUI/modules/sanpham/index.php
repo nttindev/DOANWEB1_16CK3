@@ -28,7 +28,7 @@ $sanphambus=$sanphambus->fetchAll(); ?>
                     <nav class="navbar navbar-light bg-light pull-right">
                         <form class="form-inline" action="?a=30" method="POST">
                             <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm" aria-label="Search" name="name11">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                            <button class="btn btn-outline-success my-2 my-sm-0 btn-color" type="submit">Tìm kiếm</button>
                         </form>
                     </nav>
                     </div>
